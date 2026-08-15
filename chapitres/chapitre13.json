@@ -1,0 +1,1288 @@
+{
+    "titre": "Chapitre 13 - La vérité commence",
+    "musique": "chapitre13",
+    "fond": "chambre_joueur_nuit",
+    "debut": "reveil",
+
+    "scenes": {
+
+        "reveil": {
+            "fond": "chambre_joueur",
+            "ambiance": "chambre_joueur",
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Le lendemain..."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Tu ouvres lentement les yeux. La nuit a été courte et ton sommeil agité."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "La disparition d'Eva continue de hanter chacune de tes pensées."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "En attrapant ton téléphone, tu remarques immédiatement l'heure."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "13 h 00."
+                },
+                {
+                    "personnage": "joueur",
+                    "texte": "Le rendez-vous..."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Hier soir, Christophe t'a appelé."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Il avait insisté pour réunir Bryan, Zoé, Émelyne et toi aujourd'hui."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Il disait avoir quelque chose d'important à vous annoncer."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Prendre ton téléphone",
+                    "next": "conversationGroupe"
+                }
+            ]
+        },
+
+        "conversationGroupe": {
+            "fond": "chambre_joueur",
+            "ambiance": "chambre_joueur",
+            "dialogues": [
+                {
+                    "personnage": "joueur",
+                    "texte": "Salut tout le monde. On se retrouve directement chez Eva ou on se rejoint avant ?"
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "Comme vous voulez.",
+                    "son":"zoe"
+                },
+                {
+                    "personnage": "bryan",
+                    "texte": "Ça m'est égal.",
+                    "son":"bryan"
+                },
+                {
+                    "personnage": "emelyne",
+                    "texte": "Autant décider rapidement.",
+                    "son":"emelyne"
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Proposer de se retrouver directement chez Eva",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "On gagne du temps si on va directement chez Eva."
+                    },
+                    "next": "validationMaison"
+                },
+                {
+                    "texte": "Proposer de se retrouver dans un café avant",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "On pourrait se retrouver dans un café avant d'y aller ensemble."
+                    },
+                    "next": "validationCafe"
+                }
+            ]
+        },
+
+        "validationMaison": {
+            "dialogues": [
+                {
+                    "personnage": "zoe",
+                    "texte": "Ça me va.",
+                    "son":"zoe"
+                },
+                {
+                    "personnage": "bryan",
+                    "texte": "Très bien. À tout de suite.",
+                    "son":"bryan"
+                },
+                {
+                    "personnage": "emelyne",
+                    "texte": "À dans une trentaine de minutes.",
+                    "son":"emelyne"
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Tu ranges ton téléphone avant de quitter ton appartement."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Partir",
+                    "next": "arriveeMaison"
+                }
+            ]
+        },
+
+        "validationCafe": {
+            "fond": "cafe_exterieur",
+            "ambiance": "rue parisienne",
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Une vingtaine de minutes plus tard..."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Vous êtes tous réunis devant le petit café où vous avez vos habitudes."
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "Je crois que personne n'avait vraiment envie de venir aujourd'hui...",
+                    "son":"zoe"
+                },
+                {
+                    "personnage": "bryan",
+                    "texte": "Christophe ne nous aurait pas demandé de venir sans raison.",
+                    "son":"bryan"
+                },
+                {
+                    "personnage": "emelyne",
+                    "texte": "J'espère juste qu'il ne s'agit pas d'une mauvaise nouvelle...",
+                    "son":"emelyne"
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Après quelques minutes, vous prenez tous la direction de la maison d'Eva."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Continuer",
+                    "next": "arriveeMaison"
+                }
+            ]
+        },
+
+        "arriveeMaison": {
+            "fond": "maison_eva_exterieur",
+            "ambiance": "quartier_calme",
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "13 h 30."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Vous arrivez devant la maison d'Eva."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Le quartier paraît anormalement silencieux."
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "...",
+                    "son":"zoe"
+                },
+                {
+                    "personnage": "emelyne",
+                    "texte": "Ça fait bizarre de revenir ici...",
+                    "son":"emelyne"
+                },
+                {
+                    "personnage": "bryan",
+                    "texte": "Oui...",
+                    "son":"bryan"
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Zoé s'avance lentement vers la porte d'entrée."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Elle appuie sur la sonnette."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Attendre",
+                    "message":{
+                        "personnage":"narrateur",
+                        "texte":"vous attendez que chrisphe vous ouvres."
+                    },
+                    "next": "christopheOuvre"
+                }
+            ]
+        },
+
+        "christopheOuvre": {
+            "fond": "entree_maison_eva",
+            "ambiance": "maison_calme",
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Quelques secondes passent."
+                },
+                {
+                    "personnage": "christophe",
+                    "texte": "Bonjour...",
+                    "son":"christophe"
+                },
+                {
+                    "personnage": "christophe",
+                    "texte": "Merci d'être venus."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Son visage est marqué par la fatigue."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Tu as l'impression qu'il n'a presque pas dormi depuis plusieurs jours."
+                },
+                {
+                    "personnage": "christophe",
+                    "texte": "Entrez... je vous en prie."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Vous pénétrez tous dans la maison dans un silence pesant."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Entrer dans le salon",
+                    "next": "debutReunion"
+                }
+            ]
+        },
+
+        "debutReunion": {
+        "fond": "salon_eva",
+        "ambiance": "maison_calme",
+        "dialogues": [
+        {
+            "personnage": "narrateur",
+            "texte": "Christophe vous conduit jusqu'au salon."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Une grande table a été préparée."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Deux personnes sont déjà assises."
+        },
+        {
+            "personnage": "christophe",
+            "texte": "Je vous présente Claire, ma femme.",
+            "son":"christophe"
+        },
+        {
+            "personnage": "claire",
+            "texte": "Bonjour...",
+            "son":"claire"
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Son regard est fatigué et ses yeux sont rougis par les larmes."
+        },
+        {
+            "personnage": "christophe",
+            "texte": "Et voici Léna...",
+            "son":"christophe"
+        },
+        {
+            "personnage": "christophe",
+            "texte": "La petite sœur adoptive d'Eva."
+        },
+        {
+            "personnage": "lena",
+            "texte": "Bonjour...",
+            "son":"lena"
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "La jeune fille baisse immédiatement les yeux."
+        },
+        {
+            "personnage": "christophe",
+            "texte": "Installez-vous."
+        }
+    ],
+    "choix": [
+        {
+            "texte": "S'asseoir",
+            "message":{
+                "personnage":"narrateur",
+                "texte":"vous vous assayez tous autour de la table l'ambiance est pesante."
+            },
+            "next": "discussion"
+        }
+    ]
+},
+
+"discussion": {
+    "fond": "salon_eva",
+    "ambiance": "silence",
+    "dialogues": [
+        {
+            "personnage": "narrateur",
+            "texte": "Personne n'ose prendre la parole."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Le silence semble durer une éternité."
+        },
+        {
+            "personnage": "christophe",
+            "texte": "Merci d'être venus.",
+            "son":"christophe"
+        },
+        {
+            "personnage": "christophe",
+            "texte": "Je sais que cette situation est difficile pour chacun d'entre vous."
+        },
+        {
+            "personnage": "christophe",
+            "texte": "Mais si je vous ai demandé de venir aujourd'hui..."
+        },
+        {
+            "personnage": "christophe",
+            "texte": "...c'est parce que l'enquête a avancé."
+        }
+    ],
+    "choix": [
+        {
+            "texte": "L'écouter",
+            "message":{
+                "personnage":"narrateur",
+                "texte":"tu te tourne vers zoe puis bryan et enfin emelyne tous sont bouche baie."
+            },
+            "next": "annonceEnquete"
+        }
+    ]
+},
+
+"annonceEnquete": {
+    "dialogues": [
+        {
+            "personnage": "zoe",
+            "texte": "Ils ont retrouvé Eva ?",
+            "son":"zoe"
+        },
+        {
+            "personnage": "christophe",
+            "texte": "...",
+            "son":"christophe"
+        },
+        {
+            "personnage": "christophe",
+            "texte": "Non."
+        },
+        {
+            "personnage": "christophe",
+            "texte": "Mais les enquêteurs ont découvert de nouveaux éléments."
+        },
+        {
+            "personnage": "emelyne",
+            "texte": "Quels éléments ?",
+            "son":"emelyne"
+        },
+        {
+            "personnage": "christophe",
+            "texte": "Ils ont récupéré plusieurs images provenant de caméras de vidéosurveillance."
+        },
+        {
+            "personnage": "bryan",
+            "texte": "Des caméras...",
+            "son":"bryan"
+        },
+        {
+            "personnage": "christophe",
+            "texte": "Oui."
+        },
+        {
+            "personnage": "christophe",
+            "texte": "Je ne peux pas encore vous montrer ces images."
+        },
+        {
+            "personnage": "christophe",
+            "texte": "La police poursuit toujours son enquête."
+        },
+        {
+            "personnage": "joueur",
+            "texte": "Alors pourquoi nous avoir réunis ?"
+        },
+        {
+            "personnage": "christophe",
+            "texte": "Parce que je pense que vous avez le droit de savoir que l'enquête avance."
+        },
+        {
+            "personnage": "christophe",
+            "texte": "Et parce que certaines réponses arriveront bientôt."
+        }
+    ],
+    "choix": [
+        {
+            "texte": "Continuer",
+            "message":{
+                "personnage":"narrateur",
+                "texte":"alors que christophe finis sa phrase tu remarque lena qui ne dit rien elle baisse juste la tête."
+            },
+            "next": "reactionLena"
+        }
+    ]
+},
+
+"reactionLena": {
+    "dialogues": [
+        {
+            "personnage": "narrateur",
+            "texte": "À ces mots, Léna baisse encore davantage la tête.",
+            "son":"lena"
+        },
+        {
+            "personnage": "claire",
+            "texte": "Léna...",
+            "son":"claire"
+        },
+        {
+            "personnage": "lena",
+            "texte": "Je..."
+        },
+        {
+            "personnage": "lena",
+            "texte": "Je peux pas..."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Sa voix se brise."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Les larmes commencent à couler sur son visage."
+        },
+        {
+            "personnage": "lena",
+            "texte": "Pardon..."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Elle se lève précipitamment et quitte la pièce en courant."
+        },
+        {
+            "personnage": "claire",
+            "texte": "Léna !"
+        },
+        {
+            "personnage": "christophe",
+            "texte": "Laisse-la...",
+            "son":"christophe"
+        },
+        {
+            "personnage": "christophe",
+            "texte": "Elle a beaucoup de mal depuis la disparition d'Eva."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Un lourd silence retombe dans le salon."
+        }
+    ],
+    "choix": [
+        {
+            "texte": "Suivre Léna",
+            "effet": {
+                "empathie": 2
+            },
+            "message":{
+                "personnage":"narrateur",
+                "texte":"tu décides de suivre lena."
+            },
+            "next": "suivreLena"
+        },
+        {
+            "texte": "Rester avec le groupe",
+            "message":{
+                "personnage":"narrateur",
+                "texte":"tu préfère rester dans le salon avec tout le monde."
+            },
+            "next": "resterSalon"
+        }
+    ]
+},
+ "resterSalon": {
+    "fond": "salon_eva",
+    "ambiance": "maison_calme",
+    "dialogues": [
+        {
+            "personnage": "narrateur",
+            "texte": "Le silence qui suit le départ de Léna est pesant."
+        },
+        {
+            "personnage": "zoe",
+            "texte": "Je ne l'avais jamais vue comme ça...",
+            "son":"zoe"
+        },
+        {
+            "personnage": "christophe",
+            "texte": "Depuis la disparition d'Eva, elle dort très peu.",
+            "son":"christophe"
+        },
+        {
+            "personnage": "christophe",
+            "texte": "Elle espère chaque matin que sa sœur rentrera à la maison."
+        }
+    ],
+    "choix": [
+        {
+            "texte": "Écouter Christophe",
+            "message":{
+                "personnage":"narrateur",
+                "texte":"vous décider de continuer a écouter christophe"
+            },
+            "next": "questionsEnquete"
+        }
+    ]
+},
+
+"questionsEnquete": {
+    "dialogues": [
+        {
+            "personnage": "bryan",
+            "texte": "Est-ce que la police a une piste sérieuse ?",
+            "son":"bryan"
+        },
+        {
+            "personnage": "christophe",
+            "texte": "Ils en ont plusieurs...",
+            "son":"christophe"
+        },
+        {
+            "personnage": "christophe",
+            "texte": "Mais ils refusent de nous communiquer le moindre détail."
+        },
+        {
+            "personnage": "emelyne",
+            "texte": "Les images retrouvées montrent quoi exactement ?",
+            "son":"emelyne"
+        },
+        {
+            "personnage": "christophe",
+            "texte": "Je ne peux pas répondre à cette question."
+        },
+        {
+            "personnage": "zoe",
+            "texte": "Pourquoi ?",
+            "son":"zoe"
+        },
+        {
+            "personnage": "christophe",
+            "texte": "Parce que je ne veux pas influencer vos souvenirs."
+        },
+        {
+            "personnage": "christophe",
+            "texte": "Les enquêteurs nous l'ont demandé."
+        },
+        {
+            "personnage": "joueur",
+            "texte": "Ils pensent qu'on pourrait reconnaître quelque chose ?"
+        },
+        {
+            "personnage": "christophe",
+            "texte": "Peut-être."
+        }
+    ],
+    "choix": [
+        {
+            "texte": "Continuer",
+            "message":{
+                "personnage":"narrateur",
+                "texte":"la discusion continue."
+            },
+            "next": "discussionSouvenirs"
+        }
+    ]
+},
+
+"discussionSouvenirs": {
+    "dialogues": [
+        {
+            "personnage": "christophe",
+            "texte": "Je voulais aussi vous remercier.",
+            "son":"christophe"
+        },
+        {
+            "personnage": "zoe",
+            "texte": "Nous remercier ?",
+            "son":"zoe"
+        },
+        {
+            "personnage": "christophe",
+            "texte": "Vous avez été présents pour Eva."
+        },
+        {
+            "personnage": "christophe",
+            "texte": "Elle parlait souvent de chacun d'entre vous."
+        },
+        {
+            "personnage": "bryan",
+            "texte": "Elle nous manque...",
+            "son":"bryan"
+        },
+        {
+            "personnage": "emelyne",
+            "texte": "À tous.",
+            "son":"emelyne"
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Christophe baisse les yeux quelques instants."
+        },
+        {
+            "personnage": "christophe",
+            "texte": "Je donnerais tout pour pouvoir lui parler encore une seule fois..."
+        }
+    ],
+    "choix": [
+        {
+            "texte": "Rester silencieux",
+            "message":{
+                "personnage":"narrateur",
+                "texte":"suite a cette phrase le silence devient pesant l'ambiance est encore plus lourde."
+            },
+            "next": "retourLena"
+        }
+    ]
+},
+
+"retourLena": {
+    "dialogues": [
+        {
+            "personnage": "narrateur",
+            "texte": "Quelques minutes plus tard..."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Des pas résonnent dans le couloir."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Léna revient lentement dans le salon."
+        },
+        {
+            "personnage": "claire",
+            "texte": "Ça va mieux ?",
+            "son":"claire"
+        },
+        {
+            "personnage": "lena",
+            "texte": "Oui...",
+            "son":"lena"
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Elle évite le regard de tout le monde et reprend sa place."
+        },
+        {
+            "personnage": "christophe",
+            "texte": "Je crois qu'il est temps de vous montrer quelque chose.",
+            "son":"christophe"
+        }
+    ],
+    "choix": [
+        {
+            "texte": "Regarder l'écran",
+            "message":{
+                "personnage":"narrateur",
+                "texte":"christophe ce l'ève sort le vidéo projecteur."
+            },
+            "next": "preparationVideo"
+        }
+    ]
+},
+"suivreLena": {
+    "fond": "couloir_maison_eva",
+    "ambiance": "maison_calme",
+    "dialogues": [
+        {
+            "personnage": "narrateur",
+            "texte": "Tu te lèves discrètement et quittes le salon."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Les sanglots de Léna résonnent dans le couloir."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Tu avances jusqu'à une porte entrouverte."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Léna est assise sur son lit, le visage caché dans ses mains."
+        }
+    ],
+    "choix": [
+        {
+            "texte": "Entrer doucement",
+            "message":{
+                "personnage":"joueur",
+                "texte":"tu reste devant la porte da la chambre."
+            },
+            "next": "discussionLena"
+        }
+    ]
+},
+
+"discussionLena": {
+    "fond": "chambre_lena",
+    "ambiance": "silence",
+    "dialogues": [
+        {
+            "personnage": "joueur",
+            "texte": "Je peux entrer ?"
+        },
+        {
+            "personnage": "lena",
+            "texte": "...Oui.",
+            "son":"lena"
+        },
+        {
+            "personnage": "joueur",
+            "texte": "Ça va ?"
+        },
+        {
+            "personnage": "lena",
+            "texte": "Non..."
+        },
+        {
+            "personnage": "lena",
+            "texte": "Rien ne va depuis qu'Eva a disparu."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Tu t'assois près d'elle sans dire un mot."
+        }
+    ],
+    "choix": [
+        {
+            "texte": "L'écouter",
+            "message":{
+                "personnage":"narrateur",
+                "texte":"tu reste assis a coter de lena sens un mots."
+            },
+            "next": "confidenceLena"
+        }
+    ]
+},
+
+"confidenceLena": {
+    "dialogues": [
+        {
+            "personnage": "lena",
+            "texte": "Eva me racontait presque tout...",
+            "son":"lena"
+        },
+        {
+            "personnage": "lena",
+            "texte": "Elle parlait souvent de Bryan, de Zoé, d'Émelyne..."
+        },
+        {
+            "personnage": "lena",
+            "texte": "Mais surtout de toi."
+        },
+        {
+            "personnage": "joueur",
+            "texte": "De moi ?"
+        },
+        {
+            "personnage": "lena",
+            "texte": "Oui."
+        },
+        {
+            "personnage": "lena",
+            "texte": "Elle disait que tu étais différent."
+        },
+        {
+            "personnage": "lena",
+            "texte": "Que tu étais toujours là quand elle en avait besoin."
+        },
+        {
+            "personnage": "lena",
+            "texte": "Elle adorait passer du temps avec toi."
+        }
+    ],
+    "choix": [
+        {
+            "texte": "Continuer",
+            "message":{
+                "personnage":"narrateur",
+                "texte":"se que lena te revel te touche plus que tu veux le luit montrer."
+            },
+            "next": "revelationSentiments"
+        }
+    ]
+},
+
+"revelationSentiments": {
+    "dialogues": [
+        {
+            "personnage": "lena",
+            "texte": "Je crois qu'elle était amoureuse de toi.",
+            "son":"lena"
+        },
+        {
+            "personnage": "joueur",
+            "texte": "..."
+        },
+        {
+            "personnage": "lena",
+            "texte": "Elle ne me l'a jamais dit directement."
+        },
+        {
+            "personnage": "lena",
+            "texte": "Mais je la connais."
+        },
+        {
+            "personnage": "lena",
+            "texte": "Chaque fois que ton prénom apparaissait sur son téléphone..."
+        },
+        {
+            "personnage": "lena",
+            "texte": "...elle souriait."
+        },
+        {
+            "personnage": "lena",
+            "texte": "Elle passait parfois des heures à réfléchir avant de t'envoyer un simple message."
+        },
+        {
+            "personnage": "lena",
+            "texte": "Elle avait peur de dire quelque chose de travers."
+        },
+        {
+            "personnage": "lena",
+            "texte": "Elle avait surtout peur que tu ne ressentes pas la même chose."
+        }
+    ],
+    "choix": [
+        {
+            "texte": "Rester silencieux",
+            "message":{
+                "personnage":"narrateur",
+                "texte":"tu ne dit rien tu reste simplement la a assis avec lena"
+            },
+            "next": "lettreEva"
+        }
+    ]
+},
+
+"lettreEva": {
+    "dialogues": [
+        {
+            "personnage": "narrateur",
+            "texte": "Léna ouvre le tiroir de sa table de nuit."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Elle en sort un petit carnet bleu."
+        },
+        {
+            "personnage": "lena",
+            "texte": "Ce n'est pas son journal...",
+            "son":"lena"
+        },
+        {
+            "personnage": "lena",
+            "texte": "C'était juste un carnet où elle écrivait parfois ce qu'elle ressentait."
+        },
+        {
+            "personnage": "lena",
+            "texte": "Je ne peux pas te le donner."
+        },
+        {
+            "personnage": "lena",
+            "texte": "Mais il y a une phrase que je n'oublierai jamais..."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Léna prend une profonde inspiration."
+        },
+        {
+            "personnage": "lena",
+            "texte": "« J'aimerais avoir le courage de lui dire ce que je ressens... même si ça doit tout changer. »"
+        },
+        {
+            "personnage": "joueur",
+            "texte": "..."
+        },
+        {
+            "personnage": "lena",
+            "texte": "Je pense qu'elle parlait de toi."
+        }
+    ],
+    "choix": [
+        {
+            "texte": "Retourner au salon",
+            "message":{
+                "personnage":"narrateur",
+                "texte":"tu prend la mains de lena et vous retourner ensemble dans  le salon."
+            },
+            "effet": {
+                "relationEva": 5,
+                "confianceEva": 3
+            },
+            "next": "retourSalonFinal"
+        }
+    ]
+},
+
+"retourSalonFinal": {
+    "fond": "salon_eva",
+    "ambiance": "maison_calme",
+    "dialogues": [
+        {
+            "personnage": "narrateur",
+            "texte": "Quelques minutes plus tard, vous retournez ensemble dans le salon."
+        },
+        {
+            "personnage": "christophe",
+            "texte": "Merci...",
+            "son":"christophe"
+        },
+        {
+            "personnage": "christophe",
+            "texte": "Je crois qu'il est temps de vous montrer quelque chose."
+        }
+    ],
+    "choix": [
+        {
+            "texte": "Regarder l'écran",
+            "next": "preparationVideo"
+        }
+    ]
+},
+"preparationVideo": {
+    "fond": "salon_eva",
+    "ambiance": "silence",
+    "dialogues": [
+        {
+            "personnage": "narrateur",
+            "texte": "Christophe se lève lentement."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Il prend une clé USB posée sur le buffet et la branche sur l'ordinateur portable devant lui."
+        },
+        {
+            "personnage": "zoe",
+            "texte": "Qu'est-ce qu'on va voir ?",
+            "son":"zoe"
+        },
+        {
+            "personnage": "christophe",
+            "texte": "Les policiers m'ont autorisé à vous montrer uniquement cette séquence.",
+            "son":"christophe"
+        },
+        {
+            "personnage": "christophe",
+            "texte": "Ils pensent qu'elle pourra peut-être vous aider à comprendre certains événements."
+        },
+        {
+            "personnage": "emelyne",
+            "texte": "...",
+            "son":"emelyne"
+        },
+        {
+            "personnage": "bryan",
+            "texte": "On est prêts.",
+            "son":"bryan"
+        },
+        {
+            "personnage": "christophe",
+            "texte": "Regardez attentivement."
+        }
+    ],
+    "choix": [
+        {
+            "texte": "Lancer la vidéo",
+            "next": "videoSurveillance"
+        }
+    ]
+},
+
+"videoSurveillance": {
+    "fond": "video_surveillance",
+    "ambiance": "video",
+    "dialogues": [
+        {
+            "personnage": "narrateur",
+            "texte": "Écran noir..."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Quelques secondes passent."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Une image apparaît."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "CAMÉRA 07 - Rue des Érables"
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "22 h 47"
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "L'image est légèrement pixelisée."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "On distingue Zoé devant chez elle."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Toi et Eva êtes encore en train de discuter."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Quelques instants plus tard, Zoé rentre chez elle."
+        },
+        {
+            "personnage": "joueur",
+            "texte": "Envoie-moi un message quand tu seras rentrée."
+        },
+        {
+            "personnage": "eva",
+            "texte": "Promis."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Tu repars dans la direction opposée."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Eva reste immobile quelques secondes."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Puis elle commence à marcher seule vers chez elle."
+        }
+    ],
+    "choix": [
+        {
+            "texte": "Continuer",
+            "next": "silhouette"
+        }
+    ]
+},
+
+"silhouette": {
+    "fond": "video_surveillance",
+    "ambiance": "tension",
+    "dialogues": [
+        {
+            "personnage": "narrateur",
+            "texte": "La rue est presque déserte."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Pendant plusieurs secondes, rien ne se passe."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Puis..."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Au fond de l'image..."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Une silhouette apparaît."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Impossible de distinguer son visage."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Elle reste immobile quelques instants."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Puis commence à marcher."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Toujours à bonne distance derrière Eva."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Eva ne semble pas s'en apercevoir."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Elle tourne au coin de la rue."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "La silhouette continue."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Quelques secondes plus tard..."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Elle disparaît à son tour."
+        }
+    ],
+    "choix": [
+        {
+            "texte": "Regarder jusqu'à la fin",
+            "next": "finVideo"
+        }
+    ]
+},
+
+"finVideo": {
+    "fond": "ecran_noir",
+    "ambiance": "silence",
+    "dialogues": [
+        {
+            "personnage": "narrateur",
+            "texte": "La vidéo s'interrompt brutalement."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Le salon est plongé dans un silence absolu."
+        },
+        {
+            "personnage": "zoe",
+            "texte": "..."
+        },
+        {
+            "personnage": "emelyne",
+            "texte": "Ce n'est pas possible..."
+        },
+        {
+            "personnage": "bryan",
+            "texte": "Quelqu'un la suivait..."
+        },
+        {
+            "personnage": "christophe",
+            "texte": "C'est tout ce que les caméras ont enregistré."
+        }
+    ],
+    "choix": [
+        {
+            "texte": "Continuer",
+            "next": "finChapitre"
+        }
+    ]
+},
+
+"finChapitre": {
+    "fond": "ecran_noir",
+    "ambiance": "musique_fin",
+    "dialogues": [
+        {
+            "personnage": "narrateur",
+            "texte": "Cette nuit-là..."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Eva n'était pas seule."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Quelqu'un marchait derrière elle."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Mais son identité demeure inconnue..."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": ""
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "À suivre..."
+        }
+    ],
+    "choix": [
+        {
+            "texte": "Voir les crédits",
+            "next": "credits"
+        }
+    ]
+},
+
+"credits": {
+    "fond": "credits",
+    "ambiance": "theme_fin",
+    "dialogues": [
+        {
+            "personnage": "narrateur",
+            "texte": "FRIENDZONÉ REBORN"
+        },
+        {
+            "personnage": "narrateur",
+            "texte": ""
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Merci d'avoir joué."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": ""
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Scénario"
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "blockforge173"
+        },
+        {
+            "personnage": "narrateur",
+            "texte": ""
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Développement"
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "blockforge173"
+        },
+        {
+            "personnage": "narrateur",
+            "texte": ""
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "À bientôt pour la suite de l'histoire..."
+        }
+    ],
+    "choix": [
+        {
+            "texte": "Retour au menu principal",
+            "next": "menuPrincipal"
+        }
+    ]
+}
+}
+}

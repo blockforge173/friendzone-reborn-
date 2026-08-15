@@ -1,0 +1,1619 @@
+{
+    "titre": "Chapitre 4 - La conversation de 22 heures",
+    "musique": "repas_eva",
+    "debut": "attente22h",
+
+    "scenes": {
+
+        "attente22h": {
+            "fond":"chambre_joueur2",
+            "ambiance":"chambre_joueur",
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Il est exactement 22 h."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Tu regardes l'écran de ton téléphone."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Eva t'avait proposé de lui envoyer un message à son retour."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Après quelques secondes d'hésitation, tu ouvres votre conversation."
+                }
+            ],
+
+            "choix": [
+                {
+                    "texte": "Lui demander si elle est rentrée",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Tu es bien rentrée ?"
+                    },
+
+                    "effet": {
+                        "confianceEva": 1
+                    },
+
+                    "next": "evaRepondRetour"
+                },
+
+                {
+                    "texte": "Lui écrire simplement bonsoir",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Bonsoir :)"
+                    },
+
+                    "effet": {
+                        "relationEva": 1
+                    },
+
+                    "next": "evaRepondBonsoir"
+                },
+
+                {
+                    "texte": "Lui rappeler que tu attendais son retour",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Il est 22 h. Comme promis, je viens te parler."
+                    },
+
+                    "effet": {
+                        "relationEva": 2
+                    },
+
+                    "next": "evaRepondPonctualite"
+                }
+            ]
+        },
+
+        "evaRepondRetour": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "Oui, je viens juste de rentrer.",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Tu es ponctuel :)"
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "J'ai à peine eu le temps de poser mes affaires."
+                }
+            ],
+
+            "choix": [
+                {
+                    "texte": "Lui demander comment s'est passée sa soirée",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Alors, comment s'est passée ta soirée ?"
+                    },
+
+                    "next": "evaRaconteSoiree"
+                },
+
+                {
+                    "texte": "Lui dire que tu voulais vérifier qu'elle était rentrée",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je voulais surtout être sûr que tu étais bien rentrée."
+                    },
+
+                    "effet": {
+                        "confianceEva": 2,
+                        "relationEva": 1
+                    },
+
+                    "next": "evaToucheeAttention"
+                }
+            ]
+        },
+
+        "evaRepondBonsoir": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "Bonsoir :)",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Je viens de rentrer."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Je me demandais si tu allais vraiment m'écrire."
+                }
+            ],
+
+            "choix": [
+                {
+                    "texte": "Dire que tu n'avais pas oublié",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je n'avais pas oublié."
+                    },
+
+                    "effet": {
+                        "relationEva": 2
+                    },
+
+                    "next": "evaRaconteSoiree"
+                },
+
+                {
+                    "texte": "La taquiner",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Tu pensais vraiment que j'allais te faire attendre ?"
+                    },
+
+                    "effet": {
+                        "relationEva": 2,
+                        "humour": 1
+                    },
+
+                    "next": "evaReagitTaquinerie"
+                }
+            ]
+        },
+
+        "evaRepondPonctualite": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "Je vois que tu regardais l'heure.",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Je suis rentrée il y a seulement quelques minutes."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Mais je suis contente que tu m'aies écrit."
+                }
+            ],
+
+            "choix": [
+                {
+                    "texte": "Dire que tu attendais cette conversation",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "J'attendais un peu cette conversation, je l'avoue."
+                    },
+
+                    "effet": {
+                        "relationEva": 3,
+                        "confianceEva": 1
+                    },
+
+                    "next": "evaReagitAttente"
+                },
+
+                {
+                    "texte": "Rester détendu",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je venais simplement voir si tu étais disponible."
+                    },
+
+                    "effet": {
+                        "confianceEva": 2
+                    },
+
+                    "next": "evaRaconteSoiree"
+                }
+            ]
+        },
+
+        "evaToucheeAttention": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "C'est gentil de t'inquiéter.",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Tout s'est bien passé."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Bryan m'a raccompagnée jusqu'à une partie du chemin."
+                }
+            ],
+
+            "choix": [
+                {
+                    "texte": "Lui demander comment s'est passée la sortie",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Et votre sortie, ça s'est bien passé ?"
+                    },
+
+                    "next": "evaRaconteSoiree"
+                },
+
+                {
+                    "texte": "Faire une remarque sur Bryan",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Il a donc été plutôt attentionné avec toi."
+                    },
+
+                    "effet": {
+                        "confianceEva": 1
+                    },
+
+                    "next": "evaParleBryan"
+                }
+            ]
+        },
+
+        "evaReagitTaquinerie": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "Je ne sais pas encore à quoi m'attendre avec toi.",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Mais pour cette fois, tu es à l'heure."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Tu marques un point."
+                }
+            ],
+
+            "choix": [
+                {
+                    "texte": "Lui demander de raconter sa soirée",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Alors raconte-moi ta soirée."
+                    },
+
+                    "next": "evaRaconteSoiree"
+                }
+            ]
+        },
+
+        "evaReagitAttente": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "Vraiment ?",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "C'est plutôt mignon."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "J'espère que tu n'as pas passé toute ta soirée à regarder l'heure."
+                }
+            ],
+
+            "choix": [
+                {
+                    "texte": "Parler de ta promenade",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Non, je suis sorti marcher un moment. J'ai même croisé Émelyne."
+                    },
+
+                    "condition": {
+                        "variable": "rencontreEmelyne",
+                        "operateur": "===",
+                        "valeur": true
+                    },
+
+                    "effet": {
+                        "confianceEva": 1
+                    },
+
+                    "next": "evaReagitEmelyne"
+                },
+
+                {
+                    "texte": "Dire que tu as simplement continué ta soirée",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Non, j'ai continué ma soirée normalement."
+                    },
+
+                    "effet": {
+                        "confianceEva": 2
+                    },
+
+                    "next": "evaRaconteSoiree"
+                }
+            ]
+        },
+
+        "evaReagitEmelyne": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "Émelyne ?",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Vous vous connaissez déjà assez bien ?"
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Le message d'Eva arrive presque immédiatement."
+                }
+            ],
+
+            "choix": [
+                {
+                    "texte": "Dire que vous avez simplement discuté",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "On a simplement marché et discuté un peu."
+                    },
+
+                    "effet": {
+                        "confianceEva": 2
+                    },
+
+                    "next": "evaQuestionEmelyne"
+                },
+
+                {
+                    "texte": "Dire que tu as apprécié le moment",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Oui, j'ai appris à mieux la connaître. J'ai passé un bon moment."
+                    },
+
+                    "effet": {
+                        "relationEmelyne": 1,
+                        "jalousieEva": 1
+                    },
+
+                    "next": "evaQuestionEmelyne"
+                }
+            ]
+        },
+
+        "evaQuestionEmelyne": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "Je vois.",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Émelyne est assez discrète."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Elle ne parle pas facilement avec tout le monde."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Tu as peut-être réussi à gagner sa confiance."
+                }
+            ],
+
+            "choix": [
+                {
+                    "texte": "Dire que tu l'apprécies",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je l'apprécie. Elle est intéressante quand elle accepte de s'ouvrir."
+                    },
+
+                    "effet": {
+                        "relationEmelyne": 1,
+                        "confianceEva": 1
+                    },
+
+                    "next": "retourSujetBryan"
+                },
+
+                {
+                    "texte": "Revenir au rendez-vous d'Eva",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Mais assez parlé de ma soirée. Comment s'est passée la tienne avec Bryan ?"
+                    },
+
+                    "next": "evaRaconteSoiree"
+                }
+            ]
+        },
+
+        "retourSujetBryan": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "Tu sembles déjà bien l'apprécier.",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "De mon côté, la soirée avec Bryan était plutôt agréable."
+                }
+            ],
+
+            "choix": [
+                {
+                    "texte": "Lui demander d'en dire plus",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Qu'est-ce que vous avez fait ?"
+                    },
+
+                    "next": "evaRaconteSoiree"
+                }
+            ]
+        },
+
+        "evaRaconteSoiree": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "On est allés boire quelque chose.",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Puis on a marché un peu en ville."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Bryan était beaucoup plus timide que je ne l'imaginais."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Au début, il ne savait presque pas quoi dire."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Mais finalement, on a bien discuté."
+                }
+            ],
+
+            "choix": [
+                {
+                    "texte": "Lui demander si Bryan lui plaît",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Est-ce qu'il te plaît ?"
+                    },
+
+                    "effet": {
+                        "jalousieEva": 2,
+                        "audace": 1
+                    },
+
+                    "next": "evaRepondAttiranceBryan"
+                },
+
+                {
+                    "texte": "Dire que Bryan est parfois réservé",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Bryan peut être assez réservé au début."
+                    },
+
+                    "effet": {
+                        "confianceEva": 2,
+                        "relationBryan": 1
+                    },
+
+                    "next": "evaParleBryan"
+                },
+                {
+                    "texte": "Ne pas montrer de jalousie",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Tant mieux si vous avez passé une bonne soirée."
+                    },
+
+                    "effet": {
+                        "confianceEva": 3,
+                        "relationEva": 1
+                    },
+
+                    "next": "evaApprecieReaction"
+                }
+            ]
+        },
+
+        "evaParleBryan": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "Oui, c'est ce que j'ai remarqué.",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Il essaie de paraître sûr de lui devant les autres."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Mais lorsqu'on était seuls, il était complètement différent."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "C'était plutôt touchant."
+                }
+            ],
+
+            "choix": [
+                {
+                    "texte": "Dire que Bryan n'est pas toujours facile à comprendre",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Bryan n'est pas toujours facile à comprendre."
+                    },
+
+                    "effet": {
+                        "confianceEva": 1
+                    },
+
+                    "next": "evaDemandeAvisBryan"
+                },
+                {
+                    "texte": "Changer de sujet",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Et toi, tu es différente quand tu es seule avec quelqu'un ?"
+                    },
+
+                    "effet": {
+                        "relationEva": 3,
+                        "audace": 1
+                    },
+
+                    "next": "evaParleDelle"
+                }
+            ]
+        },
+
+        "evaParleDelle": {
+         "dialogues": [
+        {
+            "personnage": "eva",
+            "texte": "..."
+        },
+        {
+            "personnage": "narrateur",
+            "texte": "Eva met quelques secondes avant de répondre."
+        },
+        {
+            "personnage": "eva",
+            "texte": "Je crois que oui.",
+            "son": "eva"
+        },
+        {
+            "personnage": "eva",
+            "texte": "Les gens pensent souvent que je suis à l'aise avec tout le monde."
+        },
+        {
+            "personnage": "eva",
+            "texte": "En réalité... je suis plutôt réservée quand je rencontre quelqu'un."
+        },
+        {
+            "personnage": "eva",
+            "texte": "J'observe beaucoup avant d'accorder ma confiance."
+        },
+        {
+            "personnage": "eva",
+            "texte": "J'ai toujours peur de dire quelque chose de travers ou de décevoir les autres."
+        },
+        {
+            "personnage": "eva",
+            "texte": "Alors au début, je montre seulement une petite partie de moi."
+        },
+        {
+            "personnage": "eva",
+            "texte": "Quand je me sens vraiment en confiance..."
+        },
+        {
+            "personnage": "eva",
+            "texte": "Je parle beaucoup plus, je plaisante davantage et je me prends beaucoup moins la tête."
+        },
+        {
+            "personnage": "eva",
+            "texte": "Peu de personnes connaissent cette version de moi."
+        }
+    ],
+
+    "choix": [
+        {
+            "texte": "Dire que tu aimerais découvrir cette facette",
+
+            "message": {
+                "personnage": "joueur",
+                "texte": "J'aimerais apprendre à connaître cette Eva-là."
+            },
+
+            "effet": {
+                "relationEva": 4,
+                "confianceEva": 3
+            },
+
+            "next": "evaReagitConfession"
+        },
+        {
+            "texte": "Lui dire que c'est normal",
+
+            "message": {
+                "personnage": "joueur",
+                "texte": "Je pense qu'on est nombreux à être comme ça."
+            },
+
+            "effet": {
+                "confianceEva": 2
+            },
+
+            "next": "evaReagitConfession"
+        }
+    ]
+},
+
+    "evaReagitConfession": {
+    "dialogues": [
+        {
+            "personnage": "eva",
+            "texte": "Merci..."
+        },
+        {
+            "personnage": "eva",
+            "texte": "Je ne raconte pas ça à beaucoup de monde.",
+            "son": "eva"
+        },
+        {
+            "personnage": "eva",
+            "texte": "Je crois que cette conversation me fait plus de bien que je ne l'aurais imaginé."
+        },
+        {
+            "personnage": "eva",
+            "texte": "Et maintenant..."
+        },
+        {
+            "personnage": "eva",
+            "texte": "À mon tour de te poser une question."
+        }
+    ],
+
+    "choix": [
+        {
+            "texte": "L'écouter",
+
+            "message": {
+                "personnage": "joueur",
+                "texte": "Je t'écoute."
+            },
+
+            "next": "evaQuestionPersonnelle"
+        }
+    ]
+},
+
+        "evaRepondAttiranceBryan": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "Tu vas directement à l'essentiel.",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Je ne sais pas encore."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Je le trouve gentil et assez mignon quand il est timide."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Mais je viens seulement de le rencontrer."
+                }
+            ],
+
+            "choix": [
+                {
+                    "texte": "Dire que tu es un peu jaloux",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je vais être honnête : je crois que je suis un peu jaloux."
+                    },
+
+                    "effet": {
+                        "relationEva": 2,
+                        "confianceEva": 2,
+                        "jalousieEva": 2
+                    },
+
+                    "next": "evaReagitJalousie"
+                },
+                {
+                    "texte": "Prétendre que cela ne te dérange pas",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je demandais simplement par curiosité."
+                    },
+
+                    "effet": {
+                        "confianceEva": -1
+                    },
+
+                    "next": "evaDouteCuriosite"
+                },
+                {
+                    "texte": "Respecter sa réponse",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je comprends. C'est encore trop tôt pour savoir."
+                    },
+
+                    "effet": {
+                        "confianceEva": 3
+                    },
+
+                    "next": "evaApprecieReaction"
+                }
+            ]
+        },
+
+        "evaReagitJalousie": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "Déjà ?",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "On se connaît à peine."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Mais au moins, tu es honnête."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Je préfère ça à quelqu'un qui prétend que tout lui est égal."
+                }
+            ],
+
+            "choix": [
+                {
+                    "texte": "Dire que tu ne veux pas lui mettre de pression",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je ne veux pas te mettre de pression. Je voulais simplement être honnête."
+                    },
+
+                    "effet": {
+                        "confianceEva": 4,
+                        "relationEva": 2
+                    },
+
+                    "next": "evaRassuree"
+                },
+                {
+                    "texte": "Dire que Bryan ne te semble pas être un bon choix",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je pense quand même que Bryan n'est pas forcément un bon choix pour toi."
+                    },
+
+                    "effet": {
+                        "confianceEva": -3,
+                        "relationEva": -1,
+                        "relationBryan": -2
+                    },
+
+                    "next": "evaPoseLimiteBryan"
+                }
+            ]
+        },
+
+        "evaDouteCuriosite": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "Seulement par curiosité ?",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Je ne suis pas certaine de te croire."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Eva semble avoir remarqué ton malaise."
+                }
+            ],
+
+            "choix": [
+                {
+                    "texte": "Reconnaître que tu étais jaloux",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "D'accord. Peut-être que j'étais un peu jaloux."
+                    },
+
+                    "effet": {
+                        "confianceEva": 2,
+                        "relationEva": 1
+                    },
+
+                    "next": "evaReagitJalousie"
+                },
+                {
+                    "texte": "Changer définitivement de sujet",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "On peut parler d'autre chose."
+                    },
+
+                    "effet": {
+                        "confianceEva": -1
+                    },
+
+                    "next": "evaQuestionPersonnelle"
+                }
+            ]
+        },
+
+        "evaApprecieReaction": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "Merci.",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Je ne savais pas vraiment comment tu allais réagir."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "J'avais un peu peur que tu sois désagréable à propos de Bryan."
+                }
+            ],
+
+            "choix": [
+                {
+                    "texte": "Dire que tu respectes ses choix",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je peux avoir mon avis, mais ça reste ta vie et tes choix."
+                    },
+
+                    "effet": {
+                        "confianceEva": 5,
+                        "relationEva": 2
+                    },
+
+                    "next": "evaQuestionPersonnelle"
+                },
+                {
+                    "texte": "Dire que tu veux surtout apprendre à la connaître",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je veux surtout apprendre à te connaître sans te compliquer la vie."
+                    },
+
+                    "effet": {
+                        "relationEva": 4,
+                        "confianceEva": 3
+                    },
+
+                    "next": "evaQuestionPersonnelle"
+                }
+            ]
+        },
+
+        "evaRassuree": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "D'accord.",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Ça me rassure."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Tu peux être honnête avec moi, mais je veux pouvoir prendre mes propres décisions."
+                }
+            ],
+
+            "choix": [
+                {
+                    "texte": "Accepter",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "C'est normal. Je respecterai tes décisions."
+                    },
+
+                    "effet": {
+                        "confianceEva": 4
+                    },
+
+                    "next": "evaQuestionPersonnelle"
+                }
+            ]
+        },
+
+        "evaPoseLimiteBryan": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "Tu ne peux pas décider à ma place.",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Tu connais peut-être Bryan, mais moi aussi, j'ai le droit de me faire ma propre opinion."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Je préfère qu'on change de sujet."
+                }
+            ],
+
+            "choix": [
+                {
+                    "texte": "Présenter tes excuses",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Tu as raison. Désolé, je suis allé trop loin."
+                    },
+
+                    "effet": {
+                        "confianceEva": 2
+                    },
+
+                    "next": "evaAccepteExcuses"
+                },
+                {
+                    "texte": "Maintenir ton avis",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je maintiens quand même ce que je pense de lui."
+                    },
+
+                    "effet": {
+                        "relationEva": -3,
+                        "confianceEva": -4
+                    },
+
+                    "next": "evaMetFinConversation"
+                }
+            ]
+        },
+
+        "evaAccepteExcuses": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "D'accord.",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Merci de le reconnaître."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "On peut repartir sur autre chose."
+                }
+            ],
+
+            "choix": [
+                {
+                    "texte": "Lui poser une question personnelle",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Alors, parle-moi un peu plus de toi."
+                    },
+
+                    "next": "evaQuestionPersonnelle"
+                }
+            ]
+        },
+
+        "evaMetFinConversation": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "Je crois qu'on devrait arrêter de discuter pour ce soir.",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Bonne nuit."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Eva se déconnecte sans attendre ta réponse."
+                }
+            ],
+
+            "choix": [
+                {
+                    "texte": "Poser le téléphone",
+
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "Tu poses ton téléphone, conscient d'avoir peut-être été trop loin."
+                    },
+
+                    "next": "finChapitre4Froide"
+                }
+            ]
+        },
+
+        "evaDemandeAvisBryan": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "Tu sembles avoir un avis assez précis sur lui.",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Qu'est-ce que tu penses vraiment de Bryan ?"
+                }
+            ],
+
+            "choix": [
+                {
+                    "texte": "Dire qu'il est généralement correct",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Il est généralement correct. Il peut simplement être difficile à comprendre."
+                    },
+
+                    "effet": {
+                        "confianceEva": 3,
+                        "relationBryan": 1
+                    },
+
+                    "next": "evaQuestionPersonnelle"
+                },
+                {
+                    "texte": "Dire que tu ne lui fais pas confiance",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je ne lui fais pas totalement confiance."
+                    },
+
+                    "effet": {
+                        "confianceEva": -1,
+                        "relationBryan": -2
+                    },
+
+                    "next": "evaDemandeRaisonBryan"
+                }
+            ]
+        },
+
+        "evaDemandeRaisonBryan": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "Pourquoi ?",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Il a fait quelque chose de particulier ?"
+                }
+            ],
+
+            "choix": [
+                {
+                    "texte": "Reconnaître que tu n'as pas de preuve",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Non. C'est seulement une impression, donc je peux me tromper."
+                    },
+
+                    "effet": {
+                        "confianceEva": 2
+                    },
+
+                    "next": "evaQuestionPersonnelle"
+                },
+                {
+                    "texte": "Insister sans explication",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je le sens mal, c'est tout."
+                    },
+
+                    "effet": {
+                        "confianceEva": -2
+                    },
+
+                    "next": "evaPoseLimiteBryan"
+                }
+            ]
+        },
+
+        "evaQuestionPersonnelle": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "On a beaucoup parlé de Bryan et d'Émelyne.",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Mais toi, qu'est-ce que tu cherches exactement en venant me parler ?"
+                }
+            ],
+
+            "choix": [
+                {
+                    "texte": "Dire que tu veux devenir son ami",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "J'aimerais d'abord devenir ton ami et apprendre à te connaître."
+                    },
+
+                    "effet": {
+                        "confianceEva": 5,
+                        "relationEva": 2
+                    },
+
+                    "next": "evaApprecieHonnêteté"
+                },
+
+                {
+                    "texte": "Dire qu'elle te plaît réellement",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Tu me plais réellement. Mais je veux aussi aprendre le temps de te connaître."
+                    },
+
+                    "effet": {
+                        "relationEva": 5,
+                        "confianceEva": 2,
+                        "audace": 2
+                    },
+
+                    "next": "evaReagitSentiments"
+                },
+
+                {
+                    "texte": "Dire que tu ne sais pas encore",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je ne sais pas encore. J'aime simplement discuter avec toi."
+                    },
+
+                    "effet": {
+                        "confianceEva": 3,
+                        "relationEva": 1
+                    },
+
+                    "next": "evaApprecieHonnêteté"
+                }
+            ]
+        },
+
+        "evaApprecieHonnêteté": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "C'est une réponse honnête.",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Moi aussi, j'aime bien discuter avec toi."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Je pense qu'on peut apprendre à mieux se connaître."
+                }
+            ],
+
+            "choix": [
+                {
+                    "texte": "Lui proposer de reparler demain",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "On pourra continuer demain si tu veux."
+                    },
+
+                    "effet": {
+                        "relationEva": 2
+                    },
+
+                    "next": "finConversationCalme"
+                },
+                {
+                    "texte": "Continuer encore un peu",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Tu es déjà fatiguée ou on peut encore discuter un peu ?"
+                    },
+
+                    "effet": {
+                        "relationEva": 1
+                    },
+
+                    "next": "evaFatigue"
+                }
+            ]
+        },
+
+        "evaReagitSentiments": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "Je m'en doutais un peu.",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Tu n'es pas toujours très discret."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Je ne peux pas te promettre que je ressentirai la même chose."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Mais je veux bien apprendre à te connaître."
+                }
+            ],
+
+            "choix": [
+                {
+                    "texte": "Respecter son rythme",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Ça me va. Je ne veux rien précipiter."
+                    },
+
+                    "effet": {
+                        "confianceEva": 5,
+                        "relationEva": 3
+                    },
+
+                    "next": "finConversationCalme"
+                },
+
+                {
+                    "texte": "Demander si Bryan a plus de chances",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Et Bryan ? Tu penses qu'il a plus de chances que moi ?"
+                    },
+
+                    "effet": {
+                        "confianceEva": -2,
+                        "jalousieEva": 2
+                    },
+
+                    "next": "evaRefuseComparaison"
+                }
+            ]
+        },
+
+        "evaRefuseComparaison": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "Je ne veux pas vous comparer.",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Vous êtes deux personnes différentes."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Et je ne veux pas que chaque discussion tourne autour de Bryan."
+                }
+            ],
+
+            "choix": [
+                {
+                    "texte": "Présenter tes excuses",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Tu as raison. Désolé."
+                    },
+
+                    "effet": {
+                        "confianceEva": 2
+                    },
+
+                    "next": "finConversationCalme"
+                }
+            ]
+        },
+
+        "evaFatigue": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "Je commence à être un peu fatiguée.",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Mais je ne regrette pas d'avoir continué à discuter avec toi."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "On pourra reprendre demain."
+                }
+            ],
+
+            "choix": [
+                {
+                    "texte": "Lui souhaiter bonne nuit",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Alors repose-toi. Bonne nuit, Eva."
+                    },
+
+                    "effet": {
+                        "relationEva": 2,
+                        "confianceEva": 2
+                    },
+
+                    "next": "evaBonneNuit"
+                }
+            ]
+        },
+
+        "finConversationCalme": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "Oui, on continuera demain.",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Je vais aller dormir."
+                }
+            ],
+
+            "choix": [
+                {
+                    "texte": "Lui souhaiter bonne nuit simplement",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Bonne nuit, Eva."
+                    },
+
+                    "effet": {
+                        "confianceEva": 2
+                    },
+
+                    "next": "evaBonneNuit"
+                },
+                {
+                    "texte": "Lui souhaiter une bonne nuit affectueusement",
+
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Passe une belle nuit. J'ai vraiment apprécié notre conversation."
+                    },
+
+                    "effet": {
+                        "relationEva": 3
+                    },
+
+                    "next": "evaBonneNuitAffectueuse"
+                }
+            ]
+        },
+
+        "evaBonneNuit": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "Bonne nuit.",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "À demain :)"
+                }
+            ],
+
+            "choix": [
+                {
+                    "texte": "Terminer la conversation",
+
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "Eva se déconnecte quelques instants plus tard."
+                    },
+
+                    "next": "finChapitre4"
+                }
+            ]
+        },
+
+        "evaBonneNuitAffectueuse": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "Moi aussi, j'ai apprécié.",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Bonne nuit à toi :)"
+                }
+            ],
+
+            "choix": [
+                {
+                    "texte": "Terminer la conversation",
+
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "Tu poses ton téléphone après ce dernier message."
+                    },
+
+                    "next": "finChapitre4"
+                }
+            ]
+        },
+
+        "finChapitre4": {
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "La conversation de 22 h vient de se terminer."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Tu as appris à mieux connaître Eva, mais Bryan occupe désormais une place importante dans ses pensées."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Tes prochaines réactions pourraient modifier profondément votre relation."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Chapitre 4 terminé."
+                }
+            ],
+
+            "choix": [
+                {
+                    "texte": "Continuer",
+
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "Une nouvelle journée commence bientôt..."
+                    },
+
+                    "next": "chapitre5"
+                }
+            ]
+        },
+
+        "finChapitre4Froide": {
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "La conversation s'est terminée plus tôt que prévu."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Ton insistance à propos de Bryan a visiblement déplu à Eva."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Il faudra probablement regagner sa confiance."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Chapitre 4 terminé."
+                }
+            ],
+
+            "finChapitre4": {
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Chapitre 4 terminé."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Continuer vers le chapitre 5",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "La conversation reprendra à 22 h..."
+                    },
+                    "next": "chapitre4"
+                }
+            ]
+        }
+    }
+            
+}
+}

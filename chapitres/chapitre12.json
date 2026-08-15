@@ -1,0 +1,852 @@
+{
+    "titre": "Chapitre 12 - Les visages d'Eva",
+    "musique": "chapitre12",
+    "debut": "messageZoe",
+    "scenes": {
+        "messageZoe": {
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Le lendemain matin, {{nomJoueur}} repense encore au rêve et à son appel nocturne."
+                },
+                {
+                    "personnage": "systeme",
+                    "texte": "Nouveau message de Zoé.",
+                    "son":"systeme"
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "Ton appel de cette nuit m'inquiète.",
+                    "son":"zoe"
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "Je voudrais qu'on se voie aujourd'hui. Émelyne et Bryan seront là aussi."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Accepter",
+                    "effet": {
+                        "joueurAccepteReunion": true,
+                        "relationZoe": 1
+                    },
+                    "next": "rendezVous"
+                },
+                {
+                    "texte": "Demander pourquoi Bryan vient",
+                    "next": "pourquoiBryan"
+                },
+                {
+                    "texte": "Hésiter",
+                    "next": "zoeRassure"
+                }
+            ]
+        },
+        "pourquoiBryan": {
+            "dialogues": [
+                {
+                    "personnage": "zoe",
+                    "texte": "Parce qu'il connaissait Eva lui aussi.",
+                    "son":"zoe"
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "Je veux qu'on parle d'elle comme d'une personne, pas seulement comme d'une disparue."
+                },
+                {
+                    "personnage": "zoe",
+                    "condition": {
+                        "variable": "bryanSuspectAuxYeuxJoueur",
+                        "operateur": "===",
+                        "valeur": true
+                    },
+                    "texte": "Je sais que tu as des doutes sur lui. Aujourd'hui, je veux seulement qu'on reste ensemble."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Accepter de venir",
+                    "effet": {
+                        "joueurAccepteReunion": true
+                    },
+                    "next": "rendezVous"
+                }
+            ]
+        },
+        "zoeRassure": {
+            "dialogues": [
+                {
+                    "personnage": "zoe",
+                    "son":"zoe",
+                    "variantesConfiance": {
+                        "negative": "Tu fais comme tu veux.",
+                        "faible": "Tu n'auras pas besoin de raconter ton rêve.",
+                        "moyenne": "Tu pourras simplement écouter.",
+                        "haute": "Je veux surtout vérifier que tu ne restes pas seul avec tout ça."
+                    }
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "On se retrouve au parc, près de l'ancien kiosque."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Accepter",
+                    "effet": {
+                        "confianceZoe": 1,
+                        "joueurAccepteReunion": true
+                    },
+                    "next": "rendezVous"
+                }
+            ]
+        },
+        "rendezVous": {
+            "fond":"parc",
+            "ambiance":"parc",
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Une heure plus tard, {{nomJoueur}} arrive au parc."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Zoé est assise sur un banc. Émelyne tient un gobelet chaud. Bryan reste légèrement à l'écart."
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "Merci d'être venu.",
+                    "son":"zoe"
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "S'asseoir avec eux",
+                    "next": "debutReunion"
+                }
+            ]
+        },
+        "debutReunion": {
+            "dialogues": [
+                {
+                    "personnage": "zoe",
+                    "texte": "Depuis la disparition d'Eva, on ne fait que répondre à des questions ou attendre.",
+                    "son":"zoe"
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "Je voulais qu'on parle d'elle autrement."
+                },
+                {
+                    "personnage": "emelyne",
+                    "texte": "Pas seulement comme d'une disparue.",
+                    "son":"emelyne"
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Le groupe accepte de raconter l'Eva que chacun connaissait."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Parler avec Zoé",
+                    "effet": {
+                        "conversationZoeChapitre12": true
+                    },
+                    "next": "evaSelonZoe"
+                },
+                {
+                    "texte": "Parler avec Émelyne",
+                    "effet": {
+                        "conversationEmelyneChapitre12": true
+                    },
+                    "next": "evaSelonEmelyne"
+                },
+                {
+                    "texte": "Parler avec Bryan",
+                    "effet": {
+                        "conversationBryanChapitre12": true
+                    },
+                    "next": "evaSelonBryan"
+                }
+            ]
+        },
+        "evaSelonZoe": {
+            "dialogues": [
+                {
+                    "personnage": "joueur",
+                    "texte": "Comment était Eva quand vous étiez plus jeunes ?"
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "Beaucoup moins calme que vous l'imaginez.",
+                    "son":"zoe"
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "Elle avait souvent les idées les plus stupides, puis elle faisait semblant d'être la raisonnable du groupe."
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "Avec moi, elle riait fort, parlait trop vite et n'avait pas besoin de surveiller chaque mot."
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "Mais même avec moi, elle gardait ses peurs pour elle."
+                },
+                {
+                    "personnage":"systeme",
+                    "texte":"nouvelle information sur eva.",
+                    "son":"systeme"
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Demander quels étaient ses rêves",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Qu'el etait les rêve d'Eva ?"
+                    },
+                    "next": "revesEva"
+                },
+                {
+                    "texte": "Demander pourquoi elle cachait ses peurs",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Pourquoi elle cachait toujours c'est peur ?"
+                    },
+                    "next": "peursEvaZoe"
+                }
+            ]
+        },
+        "revesEva": {
+            "dialogues": [
+                {
+                    "personnage": "zoe",
+                    "texte": "Elle voulait voyager.",
+                    "son":"zoe"
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "Elle disait qu'elle voulait découvrir un endroit où personne ne connaissait son histoire."
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "Elle voulait choisir elle-même la première chose que les gens apprendraient sur elle."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Cette phrase rappelle à {{nomJoueur}} les paroles d'Eva dans son rêve."
+                },
+                {
+                    "personnage":"systeme",
+                    "texte":"nouvelle information sur eva.",
+                    "son":"systeme"
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Continuer les discussions",
+                    "next": "choixConversations"
+                }
+            ]
+        },
+        "peursEvaZoe": {
+            "dialogues": [
+                {
+                    "personnage": "zoe",
+                    "texte": "Elle détestait qu'on la plaigne.",
+                    "son":"zoe"
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "Elle pensait aussi que parler de ses problèmes pouvait les transmettre aux autres."
+                },
+                {
+                    "personnage": "joueur",
+                    "texte": "Elle croyait protéger les gens en gardant tout pour elle."
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "Exactement."
+                },
+                {
+                    "personnage":"systeme",
+                    "texte":"nouvelle information sur eva.",
+                    "son":"systeme"
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Continuer les discussions",
+                    "next": "choixConversations"
+                }
+            ]
+        },
+        "evaSelonEmelyne": {
+            "dialogues": [
+                {
+                    "personnage": "joueur",
+                    "texte": "Et toi, comment tu voyais Eva ?"
+                },
+                {
+                    "personnage": "emelyne",
+                    "texte": "Comme quelqu'un qui choisissait précisément ce qu'elle montrait.",
+                    "son":"emelyne"
+                },
+                {
+                    "personnage": "emelyne",
+                    "texte": "Elle posait beaucoup de questions aux autres pour éviter qu'on lui en pose."
+                },
+                {
+                    "personnage": "emelyne",
+                    "texte": "Elle pouvait sembler ouverte, puis se refermer dès qu'une discussion devenait trop personnelle."
+                },
+                {
+                    "personnage": "emelyne",
+                    "texte": "Mais lorsqu'elle décidait de protéger quelqu'un, toute sa prudence disparaissait."
+                },
+                {
+                    "personnage":"systeme",
+                    "texte":"nouvelle information sur eva.",
+                    "son":"systeme"
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Demander un exemple",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Tu as un exemple"
+                    },
+                    "next": "exempleEmelyne"
+                },
+                {
+                    "texte": "Continuer les discussions",
+                    "next": "choixConversations"
+                }
+            ]
+        },
+        "exempleEmelyne": {
+            "dialogues": [
+                {
+                    "personnage": "emelyne",
+                    "texte": "Une élève déjeunait toujours seule.",
+                    "son":"emelyne"
+                },
+                {
+                    "personnage": "emelyne",
+                    "texte": "Eva ne l'a pas interrogée devant tout le monde. Elle s'est simplement assise près d'elle pendant plusieurs jours."
+                },
+                {
+                    "personnage": "emelyne",
+                    "texte": "Puis elle a trouvé une excuse pour l'intégrer au groupe."
+                },
+                {
+                    "personnage": "emelyne",
+                    "texte": "Eva protégeait souvent les gens sans leur dire qu'elle les protégeait."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Continuer les discussions",
+                    "next": "choixConversations"
+                }
+            ]
+        },
+        "evaSelonBryan": {
+            "dialogues": [
+                {
+                    "personnage": "joueur",
+                    "texte": "Bryan, quelle Eva tu connaissais ?"
+                },
+                {
+                    "personnage": "bryan",
+                    "relationAvec": "bryan",
+                    "son":"bryan",
+                    "variantes": {
+                        "negative": "Une Eva qui ne me disait presque rien.",
+                        "neutre": "Une Eva plus dure qu'elle en avait l'air.",
+                        "amicale": "Une Eva très protectrice.",
+                        "proche": "Une Eva qui faisait semblant de n'avoir besoin de personne."
+                    }
+                },
+                {
+                    "personnage": "bryan",
+                    "texte": "Elle parlait rarement de son passé avec moi."
+                },
+                {
+                    "personnage": "bryan",
+                    "texte": "Mais elle savait toujours quand quelqu'un avait besoin d'aide."
+                },
+                {
+                    "personnage":"systeme",
+                    "texte":"nouvelle information sur eva.",
+                    "son":"systeme"
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Demander comment elle protégeait les autres",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Comment elle protégeait les autres ?"
+                    },
+                    "next": "bryanProtectrice"
+                },
+                {
+                    "texte": "Demander pourquoi elle restait réservée",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Pour toi pourquoi elle restait autant réservée ?"
+                    },
+                    "next": "bryanReservee"
+                }
+            ]
+        },
+        "bryanProtectrice": {
+            "dialogues": [
+                {
+                    "personnage": "bryan",
+                    "texte": "Elle intervenait avant qu'on lui demande.",
+                    "son":"bryan"
+                },
+                {
+                    "personnage": "bryan",
+                    "texte": "Elle détournait l'attention, prenait parfois la faute sur elle et ne racontait jamais ce qu'elle avait fait."
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "Elle ne m'avait jamais parlé de ça.",
+                    "son":"zoe"
+                },
+                {
+                    "personnage": "bryan",
+                    "texte": "Elle ne voulait pas qu'on la remercie."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Continuer les discussions",
+                    "next": "choixConversations"
+                }
+            ]
+        },
+        "bryanReservee": {
+            "dialogues": [
+                {
+                    "personnage": "bryan",
+                    "texte": "Elle savait que je pouvais être brutal dans ma façon de parler.",
+                    "son":"bryan"
+                },
+                {
+                    "personnage": "bryan",
+                    "texte": "Alors elle me disait seulement ce qu'elle voulait que je sache."
+                },
+                {
+                    "personnage": "bryan",
+                    "texte": "Mais quand elle me demandait de protéger quelqu'un, je savais que c'était sérieux."
+                },
+                {
+                    "personnage": "joueur",
+                    "texte": "Elle t'a déjà demandé de la protéger elle-même ?"
+                },
+                {
+                    "personnage": "bryan",
+                    "texte": "Jamais."
+                },
+                {
+                    "personnage":"bryan",
+                    "texte":"Mais elle m'a déjàs demandé de protéger quelqu'un d'important pour elle."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Continuer les discussions",
+                    "next": "choixConversations"
+                }
+            ]
+        },
+        "choixConversations": {
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Chaque récit révèle une facette différente d'Eva."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Parler avec Zoé",
+                    "condition": {
+                        "variable": "conversationZoeChapitre12",
+                        "operateur": "!==",
+                        "valeur": true
+                    },
+                    "effet": {
+                        "conversationZoeChapitre12": true
+                    },
+                    "next": "evaSelonZoe"
+                },
+                {
+                    "texte": "Parler avec Émelyne",
+                    "condition": {
+                        "variable": "conversationEmelyneChapitre12",
+                        "operateur": "!==",
+                        "valeur": true
+                    },
+                    "effet": {
+                        "conversationEmelyneChapitre12": true
+                    },
+                    "next": "evaSelonEmelyne"
+                },
+                {
+                    "texte": "Parler avec Bryan",
+                    "condition": {
+                        "variable": "conversationBryanChapitre12",
+                        "operateur": "!==",
+                        "valeur": true
+                    },
+                    "effet": {
+                        "conversationBryanChapitre12": true
+                    },
+                    "next": "evaSelonBryan"
+                },
+                {
+                    "texte": "Réunir les trois portraits",
+                    "conditionToutes": [
+                        {
+                            "variable": "conversationZoeChapitre12",
+                            "operateur": "===",
+                            "valeur": true
+                        },
+                        {
+                            "variable": "conversationEmelyneChapitre12",
+                            "operateur": "===",
+                            "valeur": true
+                        },
+                        {
+                            "variable": "conversationBryanChapitre12",
+                            "operateur": "===",
+                            "valeur": true
+                        }
+                    ],
+                    "next": "portraitEva"
+                }
+            ]
+        },
+        "portraitEva": {
+            "dialogues": [
+                {
+                    "personnage": "joueur",
+                    "texte": "J'ai l'impression qu'on parle tous d'une personne différente."
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "Parce qu'elle ne se comportait pas pareil avec tout le monde.",
+                    "son":"zoe"
+                },
+                {
+                    "personnage": "emelyne",
+                    "texte": "Ce n'était pas forcément un mensonge. Nous montrons tous des parties différentes de nous-mêmes.",
+                    "son":"emelyne"
+                },
+                {
+                    "personnage": "bryan",
+                    "texte": "Avec Zoé, elle pouvait être légère.",
+                    "son":"bryan"
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "Avec Bryan, elle était protectrice."
+                },
+                {
+                    "personnage": "emelyne",
+                    "texte": "Avec toi, elle cherchait peut-être encore jusqu'où elle pouvait se dévoiler."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "{{nomJoueur}} comprend que l'Eva du rêve était peut-être composée de toutes ces facettes."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Dire que tu aurais voulu mieux la connaître",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"J'aurait tellement voulu mieux la connaître."
+                    },
+                    "effet": {
+                        "culpabiliteChapitre12": 2
+                    },
+                    "next": "souvenirDrole"
+                },
+                {
+                    "texte": "Dire que tu la connaîtras quand elle reviendra",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Je la connaîtrai quand elle reviendra."
+                    },
+                    "effet": {
+                        "espoirRetourEva": 2
+                    },
+                    "next": "souvenirDrole"
+                }
+            ]
+        },
+        "souvenirDrole": {
+            "dialogues": [
+                {
+                    "personnage": "zoe",
+                    "texte": "Vous savez ce qu'elle aurait détesté ?",
+                    "son":"zoe"
+                },
+                {
+                    "personnage": "bryan",
+                    "texte": "Qu'on parle d'elle comme si elle était parfaite.",
+                    "son":"bryan"
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "Elle était terriblement mauvaise perdante."
+                },
+                {
+                    "personnage": "bryan",
+                    "texte": "Et elle trichait aux jeux de société."
+                },
+                {
+                    "personnage": "emelyne",
+                    "texte": "Eva trichait ?",
+                    "son":"emelyne"
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "Puis elle accusait les règles."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Pour la première fois depuis plusieurs jours, le groupe rit réellement."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Profiter de cet instant",
+                    "next": "appelChristophe"
+                }
+            ]
+        },
+        "appelChristophe": {
+            "musique": "chapitre12_tension",
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Le rire s'interrompt."
+                },
+                {
+                    "personnage": "systeme",
+                    "texte": "Le téléphone de {{nomJoueur}} sonne.",
+                    "son":"systeme"
+                },
+                {
+                    "personnage": "systeme",
+                    "texte": "Au même instant, celui de Zoé se met à vibrer."
+                },
+                {
+                    "personnage": "systeme",
+                    "texte": "Appel entrant : Christophe"
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "Il nous appelle en même temps..."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Décrocher et activer le haut-parleur",
+                    "next": "annonceChristophe"
+                }
+            ]
+        },
+        "annonceChristophe": {
+            "dialogues": [
+                {
+                    "personnage": "christophe",
+                    "texte": "Bonjour, {{nomJoueur}}. Zoé est avec toi ?",
+                    "son":"christophe"
+                },
+                {
+                    "personnage": "joueur",
+                    "texte": "Oui. Bryan et Émelyne sont là aussi."
+                },
+                {
+                    "personnage": "christophe",
+                    "texte": "Très bien."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Sa voix est calme. Trop calme."
+                },
+                {
+                    "personnage": "christophe",
+                    "texte": "J'aimerais que vous veniez tous à la maison demain."
+                },
+                {
+                    "personnage": "christophe",
+                    "texte": "J'ai quelque chose d'important à vous annoncer concernant Eva."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Demander si l'enquête a avancé",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"l'emquête a avancé ?"
+                    },
+                    "next": "reponseChristophe"
+                },
+                {
+                    "texte": "Demander si Eva a été retrouvée",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"ils ont retrouver eva"
+                    },
+                    "next": "reponseChristophe"
+                },
+                {
+                    "texte": "Accepter sans poser de question",
+                    "message":{
+                        "personnage":"narrateur",
+                        "texte":"{{nomJoueur}} accepte sens poser plus de question."
+                    },
+                    "next": "finAppel"
+                }
+            ]
+        },
+        "reponseChristophe": {
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Un long silence répond à la question."
+                },
+                {
+                    "personnage": "christophe",
+                    "texte": "Je préfère vous l'expliquer en personne.",
+                    "son":"christophe"
+                },
+                {
+                    "personnage": "christophe",
+                    "texte": "Demain, à quatorze heures. S'il vous plaît, soyez tous présents."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Accepter",
+                    "next": "finAppel"
+                }
+            ]
+        },
+        "finAppel": {
+            "dialogues": [
+                {
+                    "personnage": "christophe",
+                    "texte": "Merci.",
+                    "son":"christophe"
+                },
+                {
+                    "personnage": "systeme",
+                    "texte": "Appel terminé."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Personne ne parle pendant plusieurs secondes."
+                },
+                {
+                    "personnage": "bryan",
+                    "texte": "Ils l'ont retrouvée... pas vrai ?",
+                    "son":"bryan"
+                },
+                {
+                    "personnage": "emelyne",
+                    "texte": "Il n'a pas dit ça.",
+                    "son":"emelyne"
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "Mais il n'a pas dit le contraire non plus.",
+                    "son":"zoe"
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Dire que c'est forcément une avancée",
+                    "effet": {
+                        "joueurEspereAvanceeEnquete": true
+                    },
+                    "next": "hypotheses"
+                },
+                {
+                    "texte": "Refuser de conclure trop vite",
+                    "effet": {
+                        "joueurRestePrudent": true
+                    },
+                    "next": "hypotheses"
+                }
+            ]
+        },
+        "hypotheses": {
+            "dialogues": [
+                {
+                    "personnage": "zoe",
+                    "texte": "Peut-être que les caméras ont montré quelque chose.",
+                    "son":"zoe"
+                },
+                {
+                    "personnage": "bryan",
+                    "texte": "Ou qu'un témoin a parlé.",
+                    "son":"bryan"
+                },
+                {
+                    "personnage": "emelyne",
+                    "texte": "Ce pourrait aussi être quelque chose qui ne concerne pas directement l'enquête.",
+                    "son":"bryan"
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "L'espoir et la peur prennent exactement la même place."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Attendre le lendemain",
+                    "next": "finChapitre12"
+                }
+            ]
+        },
+        "finChapitre12": {
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Quelques minutes plus tôt, ils parlaient des souvenirs d'Eva."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "À présent, chacun imagine ce que Christophe pourrait annoncer."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Une avancée. Une découverte. Ou une vérité qu'aucun d'eux n'est prêt à entendre."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Chapitre 12 terminé."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Continuer vers le chapitre 13",
+                    "next": "chapitre13"
+                }
+            ]
+        }
+    }
+}

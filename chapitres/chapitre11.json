@@ -1,0 +1,1221 @@
+{
+    "titre": "Chapitre 11 - Ce que les rêves savent",
+    "musique": "chapitre11_reve",
+    "debut": "nuitApresDeposition",
+    "scenes": {
+        "nuitApresDeposition": {
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "La nuit suivant sa déposition, {{nomJoueur}} reste longtemps éveillé."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Les questions du lieutenant Morel tournent encore dans son esprit."
+                },
+                {
+                    "personnage": "lieutenant Morel",
+                    "texte": "Pourquoi ne l'avez-vous pas raccompagnée ?",
+                    "son":"lieutenant morel"
+                },
+                {
+                    "personnage": "systeme",
+                    "texte": "Eva : « Promis. Je t'écris dès que je suis rentrée. »"
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "À force de lutter contre le sommeil, {{nomJoueur}} finit par fermer les yeux."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "S'endormir",
+                    "next": "reveEcole"
+                }
+            ]
+        },
+        "reveEcole": {
+            "musique": "chapitre11_reve_calme",
+            "fond":"couloir",
+            "ambiance":"couloir",
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Une lumière douce traverse les fenêtres de l'école."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Zoé rit avec Bryan. Émelyne lit près d'une fenêtre."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Tu dors encore ?",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "joueur",
+                    "texte": "Eva ?"
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Bah oui. Pourquoi tu me regardes comme ça ?"
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Lui demander où elle était",
+                    "next": "evaCommeSiToutEtaitNormal"
+                },
+                {
+                    "texte": "Vérifier si elle est réelle",
+                    "next": "evaCommeSiToutEtaitNormal"
+                }
+            ]
+        },
+        "evaCommeSiToutEtaitNormal": {
+            "dialogues": [
+                {
+                    "personnage": "joueur",
+                    "texte": "Tu as disparu."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Je suis juste devant toi."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Même dans ce rêve, {{nomJoueur}} sait qu'Eva n'est jamais rentrée."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Viens. J'ai quelque chose à te montrer."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Suivre Eva",
+                    "message":{
+                        "personnage":"narrateur",
+                        "texte":"tu décide de suivre eva."
+                    },
+                    "effet": {
+                        "brancheReveEva": "suivre",
+                        "joueurAccepteReve": true
+                    },
+                    "next": "brancheSuivreEva"
+                },
+                {
+                    "texte": "Refuser de la suivre",
+                    "message":{
+                        "personnage":"narrateur",
+                        "texte":"Tu décide de ne pas suivre Eva."
+                    },
+                    "effet": {
+                        "brancheReveEva": "refuser",
+                        "joueurResisteReve": true
+                    },
+                    "next": "brancheRefuserEva"
+                }
+            ]
+        },
+        "brancheSuivreEva": {
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Eva avance dans le couloir. À chaque porte franchie, le décor change."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "La cafétéria devient le parc, puis le chemin qu'Eva avait emprunté après la soirée."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Tu voulais comprendre qui je suis, non ?",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "joueur",
+                    "texte": "Je veux surtout comprendre où tu es."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Ce n'est pas encore la bonne question."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "L'interroger sur sa famille",
+                     "message":{
+                        "personnage":"joueur",
+                        "texte":"Christophe et sa femme sont vraiment tes parents ?"
+                     },
+                    "next": "questionParentsClaire"
+                },
+                {
+                    "texte": "Lui demander pourquoi elle cachait autant de choses",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":""
+                    },
+                    "next": "questionSecretsClaire"
+                }
+            ]
+        },
+        "questionParentsClaire": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "Oui. Mais ils ne sont pas mes parents biologiques.",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "joueur",
+                    "texte": "Tu as été adoptée ?"
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Après être devenue orpheline."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "J'étais encore petite quand ils m'ont accueillie."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Pour moi, ce sont simplement mes parents."
+                },
+                {
+                    "personnage":"systeme",
+                    "texte":"nouvelle information sur eva",
+                    "son":"systeme"
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Lui demander si elle se souvient de sa famille biologique",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Eva tu as des souvenir des ta famille biologique ?"
+                    },
+                    "next": "souvenirsFamilleClaire"
+                },
+                {
+                    "texte": "Lui demander si elle a une sœur",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":""
+                    },
+                    "next": "questionSoeurClaire"
+                }
+            ]
+        },
+        "souvenirsFamilleClaire": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "J'ai quelques souvenirs.",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Des voix, une odeur, une chanson... mais rien de parfaitement net."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Pendant longtemps, j'ai eu peur d'oublier les personnes que j'avais perdues."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Puis j'ai compris qu'aimer ma nouvelle famille ne supprimait pas l'ancienne."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Lui demander si elle a une sœur",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Tu a une soeur ?"
+                    },
+                    "next": "questionSoeurClaire"
+                }
+            ]
+        },
+        "questionSoeurClaire": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "Oui. Elle aussi a été adoptée par Christophe et sa femme.",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "joueur",
+                    "texte": "Vous n'avez aucun lien de sang."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Je n'ai jamais eu besoin de partager son sang pour la considérer comme ma sœur."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Je voulais être pour elle la personne que j'aurais aimé avoir quand j'ai tout perdu."
+                },
+                {
+                    "personnage":"systeme",
+                    "texte":"nouvelle information sur eva",
+                    "son":"systeme"
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Demander pourquoi elle n'en parlait jamais",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Pourquoi tu ne m'as jamais parlé de tout ça ?"
+                    },
+                    "next": "questionSecretsClaire"
+                },
+                {
+                    "texte": "Demander ce qu'elle protégeait",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Qu'est-ce que tu cherchais toujours à protéger ?"
+                    },
+                    "next": "questionProtectionClaire"
+                }
+            ]
+        },
+        "questionSecretsClaire": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "Parce que je ne voulais pas être seulement la fille orpheline ou adoptée.",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Les gens changent parfois de regard quand ils connaissent certaines blessures."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Je voulais que tu me voies d'abord comme Eva."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Pas comme une histoire triste qu'il faudrait réparer."
+                },
+                {
+                    "personnage":"systeme",
+                    "texte":"nouvelle information sur eva",
+                    "son":"systeme"
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Dire que ton regard n'aurait pas changé",
+                    "effet": {
+                        "revePromesseRegardEva": true,
+                        "culpabiliteReve": 1
+                    },
+                    "next": "questionProtectionClaire"
+                },
+                {
+                    "texte": "Reconnaître que tu ne la connaissais pas vraiment",
+                    "effet": {
+                        "joueurReconnaitMeconnaitreEva": true,
+                        "culpabiliteReve": 2
+                    },
+                    "next": "questionProtectionClaire"
+                }
+            ]
+        },
+        "questionProtectionClaire": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "Ma famille. Ma sœur. Mes amis.",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Quand on a déjà perdu des personnes, on peut croire que parler de ses problèmes attire le malheur sur les autres."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Alors je gardais certaines choses pour moi."
+                },
+                {
+                    "personnage": "joueur",
+                    "texte": "Même quand tu avais peur ?"
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Surtout quand j'avais peur."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Lui demander ce qui lui est arrivé",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Alors dis-moi ce qui t'est arrivé après la soirée."
+                    },
+                    "next": "questionDisparitionClaire"
+                }
+            ]
+        },
+        "questionDisparitionClaire": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "Tu n'es pas venu ici pour cette réponse.",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "joueur",
+                    "texte": "Tout le monde te cherche."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Tu cherches une réponse que ton esprit ne possède pas."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Mais il possède déjà des choses que tu n'avais jamais pris le temps d'écouter."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Demander si elle va revenir",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":""
+                    },
+                    "next": "finReveQuestionRetour"
+                }
+            ]
+        },
+        "brancheRefuserEva": {
+            "musique": "chapitre11_reve_inquietant",
+            "fond":"couloir",
+            "ambiance":"couloir",
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "Tu as toujours besoin d'être certain avant d'avancer ?",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "joueur",
+                    "texte": "Je sais que tu as disparu. Tout ça n'est pas réel."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Alors pourquoi me poses-tu des questions ?"
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Le couloir se vide. Les visages autour d'eux deviennent flous."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Tu peux rester ici. Mais les réponses ne seront pas plus simples."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "L'interroger sur sa famille",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Christophe est ton vrai père ?"
+                    },
+                    "next": "questionParentsFloue"
+                },
+                {
+                    "texte": "L'interroger sur ses secrets",
+                    "next": "questionSecretsFloue"
+                }
+            ]
+        },
+        "questionParentsFloue": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "Il est celui qui m'a élevée.",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "joueur",
+                    "texte": "Tu étais orpheline ?"
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Il y a eu une famille avant eux. Puis il y a eu le silence."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Insister sur sa famille biologique",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Tu te souviens de tes parents biologiques ?"
+                    },
+                    "next": "souvenirsFamilleFloue"
+                },
+                {
+                    "texte": "Lui demander si elle a une sœur",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Tu a une soeur ?"
+                    },
+                    "next": "questionSoeurFloue"
+                }
+            ]
+        },
+        "souvenirsFamilleFloue": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "D'une chanson.",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "D'une porte qui se referme."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Peut-être d'une main."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Les souvenirs changent quand on les regarde trop longtemps."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Lui demander si elle a une sœur",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Tu a une soeur ?"
+                    },
+                    "next": "questionSoeurFloue"
+                }
+            ]
+        },
+        "questionSoeurFloue": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "Une fille plus jeune vit avec eux.",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "joueur",
+                    "texte": "Tu la considères comme ta sœur ?"
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Elle m'appelait comme une sœur."
+                },
+                {
+                    "personnage": "joueur",
+                    "texte": "Vous avez été adoptées toutes les deux ?"
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Nous sommes arrivées par des chemins différents dans la même maison."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Demander pourquoi elle cachait tout cela",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Pourquoi tu ne m'as jamais parlé de ton passé ?"
+                    },
+                    "next": "questionSecretsFloue"
+                },
+                {
+                    "texte": "Demander ce qu'elle voulait protéger",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Qui voulais-tu protéger ?"
+                    },
+                    "next": "questionProtectionFloue"
+                }
+            ]
+        },
+        "questionSecretsFloue": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "Peut-être que tu ne l'as jamais demandé.",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "joueur",
+                    "texte": "J'aurais écouté."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Écouter n'empêche pas toujours le regard de changer."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Je préférais être une personne avant de devenir une explication."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Dire qu'elle aurait pu te faire confiance",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Tu aurais pu me faire confiance."
+                    },
+                    "effet": {
+                        "culpabiliteReve": 2
+                    },
+                    "next": "questionProtectionFloue"
+                },
+                {
+                    "texte": "Reconnaître que tu ne sais pas comment tu aurais réagi",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Tu a raison je ne sais pas comment j'aurait réagi."
+                    },
+                    "effet": {
+                        "joueurReconnaitMeconnaitreEva": true,
+                        "culpabiliteReve": 1
+                    },
+                    "next": "questionProtectionFloue"
+                }
+            ]
+        },
+        "questionProtectionFloue": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "Ceux qui seraient encore là après moi.",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "joueur",
+                    "texte": "Après toi ?"
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Je gardais certaines peurs parce qu'elles auraient pu devenir celles des autres."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Lui demander ce qui lui est arrivé",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Qu'est-ce qui t'est arrivé après la soirée ?"
+                    },
+                    "next": "questionDisparitionFloue"
+                }
+            ]
+        },
+        "questionDisparitionFloue": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "texte": "Tu connais le début.",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "joueur",
+                    "texte": "Je veux connaître la suite."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Ton esprit ne peut pas inventer une vérité qu'il n'a jamais reçue."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Il peut seulement transformer les morceaux que tu as oubliés."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Demander si elle va revenir",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Est-ce que tu vas revenir ?"
+                    },
+                    "next": "finReveQuestionRetour"
+                }
+            ]
+        },
+        "finReveQuestionRetour": {
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Pour la première fois, Eva ne répond pas."
+                },
+                {
+                    "personnage": "joueur",
+                    "texte": "Eva, réponds-moi."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Réveille-toi.",
+                    "son":"eva"
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Tenter de la retenir",
+                    "message":{
+                        "personnage":"narrateur",
+                        "texte":"Tu tente par tout les moyens de retenir Eva en vians."
+                    },
+                    "effet": {
+                        "joueurTenteRetenirEvaReve": true,
+                        "culpabiliteReve": 2
+                    },
+                    "next": "reveCulpabilite"
+                },
+                {
+                    "texte": "Fermer les yeux",
+                    "message":{
+                        "personnage":"narrateur",
+                        "texte":"Tu ferme les yeux."
+                    },
+                    "next": "reveCulpabilite"
+                }
+            ]
+        },
+        "reveCulpabilite": {
+            "musique": "chapitre11_cauchemar",
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Le couloir disparaît."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "{{nomJoueur}} se retrouve devant la maison de Zoé, la nuit de la disparition."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Eva marche seule au bout de la rue."
+                },
+                {
+                    "personnage": "joueur",
+                    "texte": "Eva ! Attends !"
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Il essaie de courir, mais la distance ne diminue jamais."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Pourquoi tu ne m'as pas raccompagnée ?",
+                    "son":"eva"
+                },
+                {
+                    "personnage": "joueur",
+                    "texte": "Je ne savais pas."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Pourquoi tu n'as pas compris que j'avais peur ?"
+                },
+                {
+                    "personnage": "joueur",
+                    "texte": "Tu ne m'as rien dit."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Tu aurais dû savoir."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Crier son nom",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"EVA!!!!!"
+                    },
+                    "next": "reveilSursaut"
+                }
+            ]
+        },
+        "reveilSursaut": {
+            "musique": "chapitre11_reveil",
+            "fond":"chambre_joueur_reveille_sursaut",
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "{{nomJoueur}} se réveille en sursaut."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Sa chambre est plongée dans le noir."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Son cœur bat trop vite."
+                },
+                {
+                    "personnage": "systeme",
+                    "texte": "Aucun nouveau message."
+                },
+                {
+                    "personnage": "joueur",
+                    "texte": "Pourquoi est-ce que j'ai rêvé de choses que je ne connaissais pas ?"
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Appeler Zoé",
+                    "message":{
+                        "personnage":"narrateur",
+                        "texte":"tu prend ton téléphone et décide d'apeller zoe."
+                    },
+                    "next": "appelZoeNuit"
+                },
+                {
+                    "texte": "Noter les éléments du rêve avant d'appeler",
+                    "message":{
+                        "personnage":"narrateur",
+                        "texte":"Tu prend ton téléphone ouvre tes note pour écrire tout ce que tu te rapelle de ce rêve puis tu décide d'apeller Zoe."
+                    },
+                    "effet": {
+                        "reveEvaNote": true
+                    },
+                    "next": "appelZoeNuit"
+                }
+            ]
+        },
+        "appelZoeNuit": {
+            "dialogues": [
+                {
+                    "personnage": "systeme",
+                    "texte": "Appel en cours : Zoé"
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "Allô ? {{nomJoueur}} ? Il est tard... Qu'est-ce qui se passe ?",
+                    "son":"zoe"
+                },
+                {
+                    "personnage": "joueur",
+                    "texte": "Désolé. J'avais besoin de te poser quelques questions sur Eva."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Rester vague sur le rêve",
+                    "message":{
+                        "personnage":"narrateur",
+                        "texte":"Tu préfère rester vague sur ton rêve."
+                    },
+                    "effet": {
+                        "joueurCacheReveZoe": true
+                    },
+                    "next": "questionZoeAdoption"
+                },
+                {
+                    "texte": "Dire que tu as fait un rêve étrange",
+                    "message":{
+                        "personnage":"narrateur",
+                        "texte":"Tu choisi de tout dire a zoe."
+                    },
+                    "effet": {
+                        "joueurAvoueReveZoe": true,
+                        "confianceZoe": 1
+                    },
+                    "next": "reactionZoeReve"
+                }
+            ]
+        },
+        "reactionZoeReve": {
+            "dialogues": [
+                {
+                    "personnage": "zoe",
+                    "texte": "Un rêve ?",
+                    "son":"zoe"
+                },
+                {
+                    "personnage": "joueur",
+                    "texte": "Je préfère ne pas tout raconter pour l'instant."
+                },
+                {
+                    "personnage": "zoe",
+                    "variantesConfiance": {
+                        "negative": "D'accord. Pose tes questions.",
+                        "faible": "Très bien... mais tu me fais un peu peur.",
+                        "moyenne": "Je comprends. Demande-moi ce que tu veux vérifier.",
+                        "haute": "Je ne vais pas te forcer à en parler. Dis-moi seulement ce dont tu as besoin."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "L'interroger sur l'adoption d'Eva",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Eva a toujours vécu avec Christophe et sa femme ?"
+                    },
+                    "next": "questionZoeAdoption"
+                }
+            ]
+        },
+        "questionZoeAdoption": {
+            "dialogues": [
+                {
+                    "personnage": "zoe",
+                    "texte": "Non.",
+                    "son":"zoe"
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "Ils l'ont adoptée quand elle était petite."
+                },
+                {
+                    "personnage": "joueur",
+                    "texte": "Parce qu'elle était orpheline ?"
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "Oui. Mais Eva n'aimait pas qu'on la définisse par ça."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Demander si elle a une petite sœur",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Eva a une soeur ?"
+                    },
+                    "next": "questionZoeSoeur"
+                },
+                {
+                    "texte": "Demander pourquoi Zoé ne l'avait jamais dit",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Pourquoi tu ne m'en as jamais parlé ?"
+                    },
+                    "next": "questionZoeSecret"
+                }
+            ]
+        },
+        "questionZoeSecret": {
+            "dialogues": [
+                {
+                    "personnage": "zoe",
+                    "texte": "Parce que ce n'était pas mon histoire à raconter.",
+                    "son":"zoe"
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "Eva décidait elle-même à qui elle parlait de son passé."
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "Elle voulait qu'on la connaisse avant de connaître ce qui lui était arrivé."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "La phrase ressemble presque mot pour mot à celle prononcée dans le rêve."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Demander si Eva a une petite sœur",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Eva a une soeur ?"
+                    },
+                    "next": "questionZoeSoeur"
+                }
+            ]
+        },
+        "questionZoeSoeur": {
+            "dialogues": [
+                {
+                    "personnage": "zoe",
+                    "texte": "Oui. Elle est plus jeune qu'Eva.",
+                    "son":"zoe"
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "Elles n'ont aucun lien biologique, mais Eva l'a toujours considérée comme sa vraie sœur."
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "Elle était extrêmement protectrice avec elle."
+                },
+                {
+                    "personnage": "joueur",
+                    "texte": "Elle disait vouloir être pour elle la personne qu'elle aurait aimé avoir quand elle avait tout perdu ?"
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "Comment tu sais ça ?"
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Avouer que cette phrase venait du rêve",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Eva me la dit dans mon rêve"
+                    },
+                    "effet": {
+                        "zoeConnaitContenuReve": true,
+                        "confianceZoe": 2
+                    },
+                    "next": "reactionZoePhraseReve"
+                },
+                {
+                    "texte": "Dire que tu l'as peut-être entendue auparavant",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"J'ai du entendre eva en parler."
+                    },
+                    "effet": {
+                        "joueurDissimuleOrigineInformation": true
+                    },
+                    "next": "reactionZoePhraseReve"
+                }
+            ]
+        },
+        "reactionZoePhraseReve": {
+            "dialogues": [
+                {
+                    "personnage": "zoe",
+                    "condition": {
+                        "variable": "zoeConnaitContenuReve",
+                        "operateur": "===",
+                        "valeur": true
+                    },
+                    "texte": "Eva m'a déjà dit quelque chose de très proche. Il y a longtemps.",
+                    "son":"zoe"
+                },
+                {
+                    "personnage": "zoe",
+                    "condition": {
+                        "variable": "joueurDissimuleOrigineInformation",
+                        "operateur": "===",
+                        "valeur": true
+                    },
+                    "texte": "Tu l'as peut-être entendue en parler sans t'en souvenir."
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "Notre mémoire conserve parfois des détails qu'on ne remarque pas sur le moment."
+                },
+                {
+                    "personnage": "joueur",
+                    "texte": "Donc mon rêve n'a pas tout inventé."
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "Ça ne veut pas dire qu'il sait où elle est."
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "Seulement que tu avais peut-être compris certaines choses sur elle sans en avoir conscience."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Demander si Eva cachait souvent sa peur",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Eva cachait souvent quand elle avait peur ?"
+                    },
+                    "next": "confirmationZoeProtection"
+                },
+                {
+                    "texte": "Mettre fin à l'appel",
+                    "message":{
+                        "personnage":"narrateur",
+                        "texte":"Tu racroche."
+                    },
+                    "next": "finAppelZoe"
+                }
+            ]
+        },
+        "confirmationZoeProtection": {
+            "dialogues": [
+                {
+                    "personnage": "zoe",
+                    "texte": "Oui.",
+                    "son":"zoe"
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "Elle pensait protéger les autres en gardant ses problèmes pour elle."
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "Parfois, elle souriait justement quand elle allait le moins bien."
+                },
+                {
+                    "personnage": "joueur",
+                    "texte": "Et si elle avait peur pendant la soirée sans que personne ne le remarque ?"
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "On ne peut pas refaire chaque minute en cherchant ce qu'on aurait dû comprendre."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Reconnaître ta culpabilité",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Je me sens coupable de ce qui est arrivée."
+                    },
+                    "effet": {
+                        "joueurAvoueCulpabiliteZoe": true,
+                        "confianceZoe": 1
+                    },
+                    "next": "reponseZoeCulpabilite"
+                },
+                {
+                    "texte": "Garder ta culpabilité pour toi",
+                    "message":{
+                        "personnage":"narrateur",
+                        "texte":"Tu garde ta culpabilitee pour toi."
+                    },
+                    "next": "finAppelZoe"
+                }
+            ]
+        },
+        "reponseZoeCulpabilite": {
+            "dialogues": [
+                {
+                    "personnage": "zoe",
+                    "son":"zoe",
+                    "variantesConfiance": {
+                        "negative": "Tu ne pouvais pas savoir.",
+                        "faible": "Aucun de nous n'a compris ce qui allait arriver.",
+                        "moyenne": "Si tu es responsable parce que tu ne l'as pas raccompagnée, alors je le suis parce que la soirée était chez moi.",
+                        "haute": "On peut tous trouver une raison de se condamner. Mais ça ne fera pas revenir Eva."
+                    }
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "Ce qu'on peut faire, c'est rester disponibles si la police ou sa famille ont besoin de nous."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "La remercier",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"merci"
+                    },
+                    "next": "finAppelZoe"
+                }
+            ]
+        },
+        "finAppelZoe": {
+            "dialogues": [
+                {
+                    "personnage": "zoe",
+                    "texte": "Essaie de dormir un peu.",
+                    "son":"zoe"
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "Et si tu refais ce rêve... ne reste pas seul avec."
+                },
+                {
+                    "personnage": "systeme",
+                    "texte": "Appel terminé."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Relire les notes du rêve",
+                    "message":{
+                        "personnage":"narrateur",
+                        "texte":"Tu relie tes notes"
+                    },
+                    "condition": {
+                        "variable": "reveEvaNote",
+                        "operateur": "===",
+                        "valeur": true
+                    },
+                    "next": "notesApresAppel"
+                },
+                {
+                    "texte": "Rester seul dans le silence",
+                    "message":{
+                        "personnage":"narrateur",
+                        "texte":"Tu etiend ton téléphone et reste dans le silence seul jusqu'a te rendormir."
+                    },
+                    "next": "conclusionChapitre11"
+                }
+            ]
+        },
+        "notesApresAppel": {
+            "dialogues": [
+                {
+                    "personnage": "systeme",
+                    "texte": "Orpheline. Adoptée. Petite sœur."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Zoé vient de confirmer chacun de ces éléments."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Mais aucune réponse ne permet de savoir ce qui est arrivé à Eva."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Le rêve connaissait son passé. Il ignorait sa disparition."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Fermer les notes",
+                    "message":{
+                        "personnage":"narrateur",
+                        "texte":"tu ferme tes notes"
+                    },
+                    "next": "conclusionChapitre11"
+                }
+            ]
+        },
+        "conclusionChapitre11": {
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "{{nomJoueur}} comprend qu'il connaissait Eva moins qu'il ne le pensait."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Son absence révèle maintenant des parties d'elle qu'il n'avait jamais vues."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Il ignore si le rêve venait de souvenirs oubliés, de déductions inconscientes ou simplement de sa culpabilité."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Une seule certitude demeure : Eva n'est toujours pas revenue."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Chapitre 11 terminé."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Continuer vers le chapitre 12",
+                    "next": "chapitre12"
+                }
+            ]
+        }
+    }
+}

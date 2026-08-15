@@ -1,0 +1,1392 @@
+{
+    "titre": "Chapitre 6 - Le déjeuner",
+    "musique": "chapitre6",
+    "debut": "debutRepas",
+    "scenes": {
+        "debutRepas": {
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Le lendemain, la matinée semble passer plus lentement que d'habitude."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Lorsque midi approche, {{nomJoueur}} repense à la proposition d'Eva."
+                }
+            ],
+            "redirections": [
+                {
+                    "condition": {
+                        "variable": "rendezVousEva",
+                        "operateur": "===",
+                        "valeur": true
+                    },
+                    "next": "arriveeRepasEva"
+                },
+                {
+                    "next": "arriveeRepasGroupe"
+                }
+            ],
+            "choix": []
+        },
+        "arriveeRepasEva": {
+            "musique": "repas_eva",
+            "fond":"devant_le_restaurant",
+            "ambiance":"rue parisienne",
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "relationAvec": "eva",
+                    "variantes": {
+                        "negative": "{{nomJoueur}} retrouve Eva devant le restaurant. Elle attend calmement, sans montrer beaucoup d'émotion.",
+                        "neutre": "{{nomJoueur}} retrouve Eva devant le restaurant. Elle lui adresse un léger sourire.",
+                        "amicale": "{{nomJoueur}} retrouve Eva devant le restaurant. Elle semble sincèrement contente de le voir.",
+                        "proche": "Eva attend déjà devant le restaurant. Son visage s'éclaire lorsqu'elle aperçoit {{nomJoueur}}."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "Salut.",
+                        "neutre": "Salut, {{nomJoueur}}.",
+                        "amicale": "Salut, {{nomJoueur}}. Tu es à l'heure.",
+                        "proche": "Salut, {{nomJoueur}}. J'avais vraiment hâte qu'on se retrouve."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "variantesConfiance": {
+                        "negative": "On entre ?",
+                        "faible": "On peut entrer si tu veux.",
+                        "moyenne": "J'ai trouvé une table un peu à l'écart.",
+                        "haute": "J'ai trouvé une table tranquille. J'avais envie qu'on puisse vraiment discuter."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Lui dire que tu attendais ce repas",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "J'attendais ce repas avec impatience."
+                    },
+                    "effet": {
+                        "relationEva": 3,
+                        "confianceEva": 1
+                    },
+                    "next": "installationRepasEva"
+                },
+                {
+                    "texte": "Répondre simplement",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Oui, allons-y."
+                    },
+                    "effet": {
+                        "confianceEva": 1
+                    },
+                    "next": "installationRepasEva"
+                },
+                {
+                    "texte": "La taquiner",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "J'espère que tu as choisi une bonne table."
+                    },
+                    "effet": {
+                        "relationEva": 2,
+                        "humour": 1
+                    },
+                    "next": "evaReagitTable"
+                }
+            ]
+        },
+        "evaReagitTable": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "Tu peux encore en choisir une autre.",
+                        "neutre": "Tu pourras juger par toi-même.",
+                        "amicale": "J'ai fait un effort particulier, alors évite de critiquer.",
+                        "proche": "J'ai choisi la table la plus tranquille. Tu n'as pas intérêt à dire que je ne prends pas soin de toi."
+                    }
+                },
+                {
+                    "personnage": "narrateur",
+                    "relationAvec": "eva",
+                    "variantes": {
+                        "negative": "Eva garde un ton assez sérieux.",
+                        "neutre": "Un léger sourire accompagne sa réponse.",
+                        "amicale": "Eva semble apprécier la plaisanterie.",
+                        "proche": "Son sourire complice montre qu'elle aime cette manière naturelle que vous avez de vous taquiner."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "La suivre",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je te fais confiance."
+                    },
+                    "effet": {
+                        "confianceEva": 2
+                    },
+                    "next": "installationRepasEva"
+                }
+            ]
+        },
+        "installationRepasEva": {
+            "fond":"restaurant",
+            "ambiance":"restaurant",
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Vous vous installez face à face à une table légèrement éloignée des autres élèves."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Pendant quelques secondes, le bruit de la salle remplit le silence."
+                },
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "Alors...",
+                        "neutre": "Alors, comment se passe ta journée ?",
+                        "amicale": "Alors, comment se passe ta journée jusqu'ici ?",
+                        "proche": "Alors... maintenant qu'on est enfin seuls, raconte-moi comment se passe ta journée."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Dire que la journée s'améliore",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Elle vient clairement de s'améliorer."
+                    },
+                    "effet": {
+                        "relationEva": 4,
+                        "audace": 1
+                    },
+                    "next": "evaReagitComplimentRepas"
+                },
+                {
+                    "texte": "Lui parler sincèrement de ta matinée",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Elle était assez ordinaire. J'avais surtout hâte qu'on puisse discuter tranquillement."
+                    },
+                    "effet": {
+                        "relationEva": 3,
+                        "confianceEva": 2
+                    },
+                    "next": "conversationPersonnelleEva"
+                },
+                {
+                    "texte": "Lui retourner la question",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Et toi ? Comment s'est passée ta matinée ?"
+                    },
+                    "effet": {
+                        "confianceEva": 2
+                    },
+                    "next": "conversationPersonnelleEva"
+                }
+            ]
+        },
+        "evaReagitComplimentRepas": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "Tu n'as pas perdu tes habitudes.",
+                        "neutre": "Tu sais toujours quoi répondre.",
+                        "amicale": "Tu sais vraiment comment faire plaisir aux gens.",
+                        "proche": "Tu sais vraiment comment me faire sourire, {{nomJoueur}}."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "variantesConfiance": {
+                        "negative": "Mange avant que ce soit froid.",
+                        "faible": "On devrait peut-être commencer à manger.",
+                        "moyenne": "Je suis quand même contente d'avoir proposé ce repas.",
+                        "haute": "Je suis vraiment contente d'avoir osé te proposer ce moment."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Commencer le repas",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "Vous commencez à manger tout en poursuivant la conversation."
+                    },
+                    "next": "conversationPersonnelleEva"
+                }
+            ]
+        },
+        "conversationPersonnelleEva": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "Tu voulais apprendre à mieux me connaître.",
+                        "neutre": "Tu disais vouloir apprendre à mieux me connaître.",
+                        "amicale": "Tu disais vouloir apprendre à mieux me connaître. C'est le bon moment.",
+                        "proche": "Tu voulais apprendre à mieux me connaître. Aujourd'hui, je veux bien répondre sincèrement."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "variantesConfiance": {
+                        "negative": "Tu peux poser une question.",
+                        "faible": "Tu peux me poser une question.",
+                        "moyenne": "Tu peux me poser une vraie question, pas seulement quelque chose de facile.",
+                        "haute": "Pose-moi une question que tu n'oserais pas forcément poser devant les autres."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Lui demander ce qui lui fait peur",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Qu'est-ce qui te fait vraiment peur dans la vie ?"
+                    },
+                    "effet": {
+                        "confianceEva": 3
+                    },
+                    "next": "evaParlePeur"
+                },
+                {
+                    "texte": "Lui demander ce qu'elle recherche chez quelqu'un",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Qu'est-ce que tu recherches vraiment chez une personne proche de toi ?"
+                    },
+                    "effet": {
+                        "relationEva": 2,
+                        "audace": 1
+                    },
+                    "next": "evaParleConfiance"
+                },
+                {
+                    "texte": "Lui demander de parler de ses projets",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Tu imagines comment ta vie dans quelques années ?"
+                    },
+                    "effet": {
+                        "confianceEva": 2
+                    },
+                    "next": "evaParleAvenir"
+                }
+            ]
+        },
+        "evaParlePeur": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantesConfiance": {
+                        "negative": "Je n'aime pas beaucoup parler de ça.",
+                        "faible": "Je crois que j'ai surtout peur de faire les mauvais choix.",
+                        "moyenne": "J'ai peur de faire confiance aux mauvaises personnes et de m'en rendre compte trop tard.",
+                        "haute": "J'ai peur de laisser quelqu'un devenir important pour moi, puis de découvrir que cette personne ne me connaissait pas vraiment."
+                    }
+                },
+                {
+                    "personnage":"systeme",
+                    "texte":"Nouvelle information sur Eva.",
+                    "son":"systeme"
+                },
+                {
+                    "personnage": "eva",
+                    "variantes": {
+                        "negative": "C'est une question assez personnelle.",
+                        "neutre": "Je ne pensais pas répondre à une question aussi personnelle aujourd'hui.",
+                        "amicale": "Je ne pensais pas te parler de ça aussi rapidement.",
+                        "proche": "Je ne pensais pas réussir à te dire ça aussi facilement."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "La remercier pour sa confiance",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Merci de me faire suffisamment confiance pour me le dire."
+                    },
+                    "effet": {
+                        "confianceEva": 4,
+                        "relationEva": 2
+                    },
+                    "next": "verificationInterventionBryan"
+                },
+                {
+                    "texte": "Lui dire que tu comprends",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je comprends. Accorder sa confiance peut faire peur."
+                    },
+                    "effet": {
+                        "confianceEva": 3
+                    },
+                    "next": "verificationInterventionBryan"
+                }
+            ]
+        },
+        "evaParleConfiance": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "Quelqu'un qui respecte mes choix.",
+                        "neutre": "Quelqu'un d'honnête, qui respecte mes choix.",
+                        "amicale": "Quelqu'un avec qui je peux être moi-même sans devoir constamment me justifier.",
+                        "proche": "Quelqu'un qui me respecte, me fait rire et me donne envie de baisser ma garde."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "variantesConfiance": {
+                        "negative": "Je ne demande rien de compliqué.",
+                        "faible": "Je veux surtout pouvoir faire confiance.",
+                        "moyenne": "Je veux pouvoir parler sans avoir peur que mes mots soient utilisés contre moi.",
+                        "haute": "Je veux sentir que la personne m'écoute vraiment, même lorsqu'elle n'est pas d'accord avec moi."
+                    }
+                },
+                {
+                    "personnage":"systeme",
+                    "texte":"Nouvelle information sur Eva.",
+                    "son":"systeme"
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Dire que tu veux être cette personne",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "J'aimerais pouvoir devenir cette personne pour toi."
+                    },
+                    "effet": {
+                        "relationEva": 4,
+                        "confianceEva": 2,
+                        "audace": 1
+                    },
+                    "next": "verificationInterventionBryan"
+                },
+                {
+                    "texte": "Respecter sa réponse",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je comprends. Ce sont des choses importantes."
+                    },
+                    "effet": {
+                        "confianceEva": 3
+                    },
+                    "next": "verificationInterventionBryan"
+                }
+            ]
+        },
+        "evaParleAvenir": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantesConfiance": {
+                        "negative": "Je ne sais pas encore.",
+                        "faible": "Je ne sais pas exactement. J'aimerais surtout trouver une vie stable.",
+                        "moyenne": "J'aimerais construire quelque chose qui me ressemble, sans choisir uniquement pour rassurer les autres.",
+                        "haute": "J'aimerais avoir une vie dans laquelle je me sens libre, entourée de personnes avec qui je n'ai pas besoin de jouer un rôle."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "variantes": {
+                        "negative": "Et toi ?",
+                        "neutre": "Et toi, tu sais ce que tu veux ?",
+                        "amicale": "Et toi ? Tu arrives à imaginer ce que tu voudrais vraiment construire ?",
+                        "proche": "Et toi ? Est-ce que tu arrives déjà à imaginer les personnes que tu voudrais garder près de toi ?"
+                    }
+                },
+                {
+                    "personnage":"systeme",
+                    "texte":"Nouvelle information sur Eva.",
+                    "son":"systeme"
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Dire que tu cherches encore",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je cherche encore, mais j'aimerais construire quelque chose de sincère."
+                    },
+                    "effet": {
+                        "confianceEva": 3
+                    },
+                    "next": "verificationInterventionBryan"
+                },
+                {
+                    "texte": "L'inclure discrètement dans ta réponse",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je ne sais pas encore tout, mais j'aimerais garder près de moi les personnes qui comptent vraiment."
+                    },
+                    "effet": {
+                        "relationEva": 4,
+                        "audace": 1
+                    },
+                    "next": "verificationInterventionBryan"
+                }
+            ]
+        },
+        "verificationInterventionBryan": {
+            "dialogues": [],
+            "redirections": [
+                {
+                    "condition": {
+                        "variable": "relationBryan",
+                        "operateur": "<=",
+                        "valeur": 0
+                    },
+                    "next": "bryanInterromptRepas"
+                },
+                {
+                    "next": "verificationConfianceBryan"
+                }
+            ],
+            "choix": []
+        },
+        "verificationConfianceBryan": {
+            "dialogues": [],
+            "redirections": [
+                {
+                    "condition": {
+                        "variable": "confianceBryan",
+                        "operateur": "<=",
+                        "valeur": 0
+                    },
+                    "next": "bryanInterromptRepas"
+                },
+                {
+                    "next": "suiteRepasEvaCalme"
+                }
+            ],
+            "choix": []
+        },
+        "bryanInterromptRepas": {
+            "musique": "tension_bryan",
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Une silhouette s'arrête soudain près de votre table."
+                },
+                {
+                    "personnage": "bryan",
+                    "son":"bryan",
+                    "variantes": {
+                        "negative": "Je vois que vous êtes occupés.",
+                        "neutre": "Salut. Je ne pensais pas vous trouver ici.",
+                        "amicale": "Salut. Je passais simplement dire bonjour.",
+                        "proche": "Salut vous deux. Je ne veux pas vous déranger."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "Salut, Bryan.",
+                        "neutre": "Salut, Bryan. On déjeune ensemble.",
+                        "amicale": "Salut, Bryan. On profitait du repas pour discuter.",
+                        "proche": "Salut, Bryan. On avait prévu de passer ce moment tous les deux."
+                    }
+                },
+                {
+                    "personnage": "bryan",
+                    "variantes": {
+                        "negative": "J'avais compris.",
+                        "neutre": "Oui, je vois.",
+                        "amicale": "D'accord. Je ne vais pas vous retenir.",
+                        "proche": "Je comprends. Je vous laisse profiter de votre repas."
+                    }
+                },
+                {
+                    "personnage": "narrateur",
+                    "relationAvec": "bryan",
+                    "variantes": {
+                        "negative": "Bryan regarde {{nomJoueur}} avec une hostilité difficile à dissimuler.",
+                        "neutre": "Un léger malaise s'installe autour de la table.",
+                        "amicale": "Bryan semble hésiter, mais garde un ton correct.",
+                        "proche": "Bryan paraît sincèrement vouloir éviter de créer un conflit."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Rester calme et poli",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Salut, Bryan. On se retrouve plus tard."
+                    },
+                    "effet": {
+                        "confianceBryan": 2,
+                        "confianceEva": 3
+                    },
+                    "next": "bryanReagitCalmement"
+                },
+                {
+                    "texte": "Lui demander directement ce qu'il veut",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Tu voulais quelque chose en particulier ?"
+                    },
+                    "effet": {
+                        "relationBryan": -1
+                    },
+                    "next": "bryanProvoqueRepas"
+                },
+                {
+                    "texte": "Laisser Eva décider",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Eva, tu préfères qu'il reste un moment ou qu'on continue seuls ?"
+                    },
+                    "effet": {
+                        "confianceEva": 4,
+                        "relationBryan": 1
+                    },
+                    "next": "evaPoseLimiteRepas"
+                },
+                {
+                    "texte": "Provoquer Bryan",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Tu as l'habitude d'interrompre les repas privés ?"
+                    },
+                    "effet": {
+                        "relationBryan": -4,
+                        "confianceBryan": -2,
+                        "confianceEva": -2
+                    },
+                    "next": "bryanProvoqueRepas"
+                }
+            ]
+        },
+        "bryanReagitCalmement": {
+            "dialogues": [
+                {
+                    "personnage": "bryan",
+                    "son":"bryan",
+                    "variantes": {
+                        "negative": "Oui. Plus tard.",
+                        "neutre": "D'accord. Bon repas.",
+                        "amicale": "D'accord. Profitez bien.",
+                        "proche": "Aucun problème. On se reparle après."
+                    }
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Bryan s'éloigne sans ajouter un mot."
+                },
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "Au moins, ça ne s'est pas transformé en dispute.",
+                        "neutre": "Merci d'être resté calme.",
+                        "amicale": "Merci. Je n'avais vraiment pas envie d'une nouvelle dispute.",
+                        "proche": "Merci d'avoir géré ça calmement. Ça compte beaucoup pour moi."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Reprendre le repas",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je préfère profiter du moment avec toi."
+                    },
+                    "effet": {
+                        "relationEva": 3,
+                        "confianceEva": 2
+                    },
+                    "next": "suiteRepasEvaApresBryan"
+                }
+            ]
+        },
+        "bryanProvoqueRepas": {
+            "dialogues": [
+                {
+                    "personnage": "bryan",
+                    "son":"bryan",
+                    "variantes": {
+                        "negative": "Je voulais seulement dire bonjour. Mais visiblement, ma présence dérange.",
+                        "neutre": "Je voulais simplement dire bonjour.",
+                        "amicale": "Je ne cherchais pas à provoquer qui que ce soit.",
+                        "proche": "Je vais vous laisser. Je ne veux pas créer un problème."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "Arrêtez tous les deux.",
+                        "neutre": "Je n'ai pas envie que vous recommenciez.",
+                        "amicale": "Je veux simplement terminer ce repas tranquillement.",
+                        "proche": "Ce repas comptait pour moi. Je refuse qu'il devienne encore une dispute."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Présenter tes excuses",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Tu as raison. Désolé, Eva. Et désolé, Bryan."
+                    },
+                    "effet": {
+                        "confianceEva": 3,
+                        "confianceBryan": 2
+                    },
+                    "next": "bryanQuitteRepas"
+                },
+                {
+                    "texte": "Maintenir ton attitude",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Il savait très bien qu'il nous dérangeait."
+                    },
+                    "effet": {
+                        "relationEva": -3,
+                        "confianceEva": -4,
+                        "relationBryan": -3
+                    },
+                    "next": "evaMetFinRepas"
+                }
+            ]
+        },
+        "evaPoseLimiteRepas": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "Je préfère qu'on continue seuls.",
+                        "neutre": "On avait prévu de manger tous les deux.",
+                        "amicale": "Désolée, Bryan, mais j'aimerais continuer ce repas seule avec {{nomJoueur}}.",
+                        "proche": "Bryan, ce moment était important pour moi. J'aimerais vraiment qu'on reste seuls."
+                    }
+                },
+                {
+                    "personnage": "bryan",
+                    "son":"bryan",
+                    "variantes": {
+                        "negative": "Très bien.",
+                        "neutre": "D'accord. Je comprends.",
+                        "amicale": "Aucun problème. Bon repas.",
+                        "proche": "Bien sûr. Je vous laisse tranquilles."
+                    }
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Bryan s'éloigne de la table."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Remercier Eva d'avoir été claire",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Merci d'avoir été claire."
+                    },
+                    "effet": {
+                        "confianceEva": 3,
+                        "relationEva": 2
+                    },
+                    "next": "suiteRepasEvaApresBryan"
+                }
+            ]
+        },
+        "bryanQuitteRepas": {
+            "dialogues": [
+                {
+                    "personnage": "bryan",
+                    "son":"bryan",
+                    "variantes": {
+                        "negative": "Laisse tomber.",
+                        "neutre": "D'accord. Je vous laisse.",
+                        "amicale": "D'accord. On en reparlera calmement.",
+                        "proche": "Ce n'est rien. Profitez de votre repas."
+                    }
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Bryan finit par s'éloigner."
+                },
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "Je déteste ce genre de situation.",
+                        "neutre": "J'espère que ça ne recommencera pas.",
+                        "amicale": "Je suis contente que tu aies reconnu ton erreur.",
+                        "proche": "Merci d'avoir désamorcé la situation. Je ne voulais pas perdre ce moment avec toi."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Reprendre calmement la conversation",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je préfère qu'on profite du temps qu'il nous reste."
+                    },
+                    "effet": {
+                        "confianceEva": 2,
+                        "relationEva": 2
+                    },
+                    "next": "suiteRepasEvaApresBryan"
+                }
+            ]
+        },
+        "evaMetFinRepas": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "Je crois que je vais partir.",
+                        "neutre": "Je préfère arrêter le repas ici.",
+                        "amicale": "Je suis désolée, mais je n'ai plus envie de continuer ce repas.",
+                        "proche": "Ce moment comptait vraiment pour moi. Je suis déçue que tu aies choisi de le transformer en conflit."
+                    }
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Eva rassemble ses affaires et quitte la table."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "La laisser partir",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "{{nomJoueur}} reste seul à la table, conscient d'avoir aggravé la situation."
+                    },
+                    "effet": {
+                        "repasEvaRate": true
+                    },
+                    "next": "finChapitre6Froide"
+                }
+            ]
+        },
+        "suiteRepasEvaCalme": {
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Le repas se poursuit sans interruption."
+                },
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "C'était une discussion intéressante.",
+                        "neutre": "Je suis contente qu'on ait pu discuter tranquillement.",
+                        "amicale": "J'ai vraiment aimé pouvoir parler seule avec toi.",
+                        "proche": "J'ai vraiment aimé ce moment. J'avais l'impression que le temps passait trop vite."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Lui proposer de recommencer",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "On pourrait recommencer un autre jour."
+                    },
+                    "effet": {
+                        "relationEva": 4,
+                        "confianceEva": 2
+                    },
+                    "next": "finRepasEva"
+                },
+                {
+                    "texte": "La remercier pour son invitation",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Merci de m'avoir proposé ce repas."
+                    },
+                    "effet": {
+                        "confianceEva": 3
+                    },
+                    "next": "finRepasEva"
+                }
+            ]
+        },
+        "suiteRepasEvaApresBryan": {
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "L'atmosphère met quelques instants à redevenir naturelle."
+                },
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "On devrait peut-être terminer de manger.",
+                        "neutre": "Je suis contente qu'on puisse reprendre calmement.",
+                        "amicale": "Je ne veux pas que son passage gâche tout le repas.",
+                        "proche": "Je refuse que cette interruption efface le moment qu'on vient de partager."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Lui dire que ce repas reste important",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Ce repas reste important pour moi."
+                    },
+                    "effet": {
+                        "relationEva": 4,
+                        "confianceEva": 2
+                    },
+                    "next": "finRepasEva"
+                },
+                {
+                    "texte": "Changer de sujet",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Parlons d'autre chose. Je veux profiter du temps avec toi."
+                    },
+                    "effet": {
+                        "confianceEva": 3
+                    },
+                    "next": "finRepasEva"
+                }
+            ]
+        },
+        "finRepasEva": {
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "a la fin du repas eva regarde l'heure sur sont téléphone une heure est déjà passer. Il est temps pour {{nomJoueur}} et Eva de retourner en cours."
+                },
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "On devrait y aller.",
+                        "neutre": "Il faut retourner en cours.",
+                        "amicale": "J'aurais bien continué un peu, mais on va être en retard.",
+                        "proche": "J'aurais aimé que ce repas dure plus longtemps."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "variantesConfiance": {
+                        "negative": "Merci pour le repas.",
+                        "faible": "Merci d'être venu.",
+                        "moyenne": "J'aimerais bien qu'on recommence.",
+                        "haute": "La prochaine fois, c'est encore moi qui t'invite. Je crois que j'aime vraiment ces moments avec toi."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Retourner en cours avec Eva",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "{{nomJoueur}} quitte la cafétéria aux côtés d'Eva."
+                    },
+                    "effet": {
+                        "repasEvaReussi": true
+                    },
+                    "next": "finChapitre6"
+                }
+            ]
+        },
+        "arriveeRepasGroupe": {
+            "musique": "chapitre6",
+            "fond":"restaurant_groupe",
+            "ambiance":"restaurant",
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "À midi, {{nomJoueur}} rejoint le restaurant."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Eva, Zoé, Émelyne et Bryan occupent déjà une grande table."
+                },
+                {
+                    "personnage": "zoe",
+                    "son":"zoe",
+                    "variantes": {
+                        "negative": "Il reste une place.",
+                        "neutre": "Tu arrives enfin.",
+                        "amicale": "Tu arrives enfin, {{nomJoueur}}. On allait commencer sans toi.",
+                        "proche": "Voilà notre retardataire préféré. J'avais gardé une place exprès."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "Salut.",
+                        "neutre": "Salut, {{nomJoueur}}.",
+                        "amicale": "Salut, {{nomJoueur}}. Viens t'asseoir.",
+                        "proche": "Salut, {{nomJoueur}}. Je suis contente que tu sois venu."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "T'asseoir près d'Eva",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "{{nomJoueur}} choisit la place près d'Eva."
+                    },
+                    "condition": {
+                        "variable": "confianceEva",
+                        "operateur": ">=",
+                        "valeur": 3
+                    },
+                    "effet": {
+                        "relationEva": 2
+                    },
+                    "next": "discussionRepasGroupe"
+                },
+                {
+                    "texte": "T'asseoir près d'Émelyne",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "{{nomJoueur}} s'installe près d'Émelyne."
+                    },
+                    "effet": {
+                        "relationEmelyne": 2
+                    },
+                    "next": "discussionRepasGroupe"
+                },
+                {
+                    "texte": "T'asseoir près de Bryan",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "{{nomJoueur}} s'installe près de Bryan."
+                    },
+                    "effet": {
+                        "relationBryan": 2
+                    },
+                    "next": "discussionRepasGroupe"
+                },
+                {
+                    "texte": "T'asseoir près de Zoé",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "{{nomJoueur}} s'installe près de Zoé."
+                    },
+                    "effet": {
+                        "relationZoe": 2
+                    },
+                    "next": "discussionRepasGroupe"
+                }
+            ]
+        },
+        "discussionRepasGroupe": {
+            "dialogues": [
+                {
+                    "personnage": "zoe",
+                    "son":"zoe",
+                    "variantes": {
+                        "negative": "Il faut choisir un sujet.",
+                        "neutre": "J'ai une question importante.",
+                        "amicale": "J'ai une question extrêmement importante.",
+                        "proche": "J'ai préparé une question capable de détruire définitivement notre groupe."
+                    }
+                },
+                {
+                    "personnage": "emelyne",
+                    "son":"emelyne",
+                    "variantes": {
+                        "negative": "Ça commence mal.",
+                        "neutre": "Je sens déjà que c'est une mauvaise idée.",
+                        "amicale": "Quand tu précises que c'est important, c'est généralement inquiétant.",
+                        "proche": "Je propose qu'on l'empêche de parler avant qu'il ne soit trop tard."
+                    }
+                },
+                {
+                    "personnage": "zoe",
+                    "variantes": {
+                        "negative": "Quel est le pire défaut de la personne à votre droite ?",
+                        "neutre": "Quel est le pire défaut de la personne assise à votre droite ?",
+                        "amicale": "Quel est le défaut le plus insupportable de la personne à votre droite ?",
+                        "proche": "Quel est le défaut secret de la personne à votre droite ? Soyez cruels, mais honnêtes."
+                    }
+                },
+                {
+                    "personnage": "bryan",
+                    "son":"bryan",
+                    "variantes": {
+                        "negative": "Je refuse.",
+                        "neutre": "Je pense que personne ne devrait répondre.",
+                        "amicale": "Je suis presque certain que cette question va mal finir.",
+                        "proche": "On peut encore sauver ce repas en faisant semblant de ne pas avoir entendu."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Jouer le jeu sans être blessant",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je dirais surtout qu'on ne se connaît pas encore assez pour répondre sérieusement."
+                    },
+                    "effet": {
+                        "confianceEva": 2,
+                        "confianceEmelyne": 2,
+                        "confianceBryan": 2,
+                        "relationZoe": 1
+                    },
+                    "next": "reactionsRepasGroupe"
+                },
+                {
+                    "texte": "Taquiner Zoé",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Le pire défaut de Zoé, c'est qu'elle pose ce genre de question pendant qu'on mange."
+                    },
+                    "effet": {
+                        "relationZoe": 3,
+                        "humour": 1
+                    },
+                    "next": "reactionsRepasGroupe"
+                },
+                {
+                    "texte": "Complimenter discrètement Eva",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je n'ai pas encore trouvé de défaut vraiment gênant chez Eva."
+                    },
+                    "effet": {
+                        "relationEva": 3,
+                        "audace": 1
+                    },
+                    "next": "reactionsRepasGroupe"
+                },
+                {
+                    "texte": "Défendre Bryan",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Bryan a peut-être raison. On peut éviter de transformer le repas en règlement de comptes."
+                    },
+                    "effet": {
+                        "relationBryan": 3,
+                        "confianceBryan": 2
+                    },
+                    "next": "reactionsRepasGroupe"
+                }
+            ]
+        },
+        "reactionsRepasGroupe": {
+            "dialogues": [
+                {
+                    "personnage": "zoe",
+                    "son":"zoe",
+                    "variantes": {
+                        "negative": "Vous êtes ennuyeux.",
+                        "neutre": "Vous manquez tous de courage.",
+                        "amicale": "Vous êtes beaucoup trop raisonnables.",
+                        "proche": "Je suis entourée de lâches, mais je vous apprécie quand même."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "C'est probablement mieux ainsi.",
+                        "neutre": "Je pense que c'est mieux de ne pas se juger trop vite.",
+                        "amicale": "On peut apprendre à se connaître sans chercher immédiatement les défauts.",
+                        "proche": "Je préfère découvrir les défauts de chacun naturellement. C'est aussi ce qui rend les gens intéressants."
+                    }
+                },
+                {
+                    "personnage": "emelyne",
+                    "son":"emelyne",
+                    "variantes": {
+                        "negative": "Pour une fois, je suis d'accord.",
+                        "neutre": "Je suis d'accord avec Eva.",
+                        "amicale": "Je suis entièrement d'accord avec Eva.",
+                        "proche": "Je confirme. Et je refuse de donner à Zoé des armes contre nous."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Lancer un sujet plus personnel",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Alors dites plutôt ce que vous aimeriez faire après les études."
+                    },
+                    "effet": {
+                        "confianceEva": 2,
+                        "confianceEmelyne": 2,
+                        "confianceBryan": 1
+                    },
+                    "next": "projetsRepasGroupe"
+                },
+                {
+                    "texte": "Proposer un sujet plus léger",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "On peut simplement parler de ce qu'on fera ce week-end."
+                    },
+                    "effet": {
+                        "relationZoe": 2,
+                        "relationEva": 1,
+                        "relationEmelyne": 1,
+                        "relationBryan": 1
+                    },
+                    "next": "weekendRepasGroupe"
+                }
+            ]
+        },
+        "projetsRepasGroupe": {
+            "dialogues": [
+                {
+                    "personnage": "emelyne",
+                    "son":"emelyne",
+                    "variantes": {
+                        "negative": "Je ne sais pas encore précisément.",
+                        "neutre": "J'aimerais faire quelque chose d'utile.",
+                        "amicale": "J'aimerais trouver une voie où je peux réellement être utile aux autres.",
+                        "proche": "J'aimerais faire quelque chose d'utile, même si je ne sais pas encore exactement quelle forme cela prendra."
+                    }
+                },
+                {
+                    "personnage": "bryan",
+                    "son":"bryan",
+                    "variantes": {
+                        "negative": "Je veux surtout réussir.",
+                        "neutre": "Je voudrais travailler dans un domaine où je peux évoluer.",
+                        "amicale": "Je veux un métier qui me pousse à progresser et à dépasser mes limites.",
+                        "proche": "Je veux construire quelque chose dont je pourrai être fier, pas seulement obtenir un bon salaire."
+                    }
+                },
+                {
+                    "personnage": "zoe",
+                    "son":"zoe",
+                    "variantes": {
+                        "negative": "Je verrai plus tard.",
+                        "neutre": "Je veux être payée pour jouer aux jeux vidéo.",
+                        "amicale": "Je veux tester des jeux vidéo, voyager et ne jamais me lever avant dix heures.",
+                        "proche": "Je veux diriger un studio de jeux vidéo où les réunions commencent à midi et où les pauses sont obligatoires."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "Je cherche encore.",
+                        "neutre": "Je veux surtout trouver quelque chose qui me corresponde.",
+                        "amicale": "J'aimerais construire une vie qui me ressemble vraiment.",
+                        "proche": "J'aimerais construire une vie libre et sincère, entourée de personnes avec qui je peux être moi-même."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Partager tes propres projets",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "J'aimerais surtout créer quelque chose qui compte pour les autres et pour moi."
+                    },
+                    "effet": {
+                        "relationEva": 2,
+                        "relationEmelyne": 2,
+                        "confianceBryan": 1,
+                        "relationZoe": 1
+                    },
+                    "next": "finRepasGroupe"
+                }
+            ]
+        },
+        "weekendRepasGroupe": {
+            "dialogues": [
+                {
+                    "personnage": "zoe",
+                    "son":"zoe",
+                    "variantes": {
+                        "negative": "Je n'ai rien prévu.",
+                        "neutre": "On devrait faire quelque chose tous ensemble.",
+                        "amicale": "On devrait organiser une vraie sortie de groupe.",
+                        "proche": "Je décide officiellement qu'on passe une partie du week-end ensemble."
+                    }
+                },
+                {
+                    "personnage": "bryan",
+                    "son":"bryan",
+                    "variantes": {
+                        "negative": "Ça dépendra de l'heure.",
+                        "neutre": "Pourquoi pas, si tout le monde est disponible.",
+                        "amicale": "Je suis partant si on trouve quelque chose qui plaît à tout le monde.",
+                        "proche": "Je suis partant. Ce groupe commence presque à fonctionner."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "On verra.",
+                        "neutre": "Ça pourrait être sympa.",
+                        "amicale": "Oui, ça pourrait être vraiment sympa.",
+                        "proche": "Je suis partante, surtout si {{nomJoueur}} vient aussi."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Accepter l'idée",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je suis partant si on organise quelque chose."
+                    },
+                    "effet": {
+                        "relationEva": 1,
+                        "relationZoe": 2,
+                        "relationEmelyne": 1,
+                        "relationBryan": 1
+                    },
+                    "next": "finRepasGroupe"
+                }
+            ]
+        },
+        "finRepasGroupe": {
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "au bout d'une heure Eva regarde l'heure sur sont téléphone déjàS 13h. Il est temps pour notre groupe d'amis de retourner en cours."
+                },
+                {
+                    "personnage": "zoe",
+                    "son":"zoe",
+                    "variantes": {
+                        "negative": "Il faut y aller.",
+                        "neutre": "Déjà ? Je n'ai même pas terminé.",
+                        "amicale": "Cette pause était beaucoup trop courte.",
+                        "proche": "Je proteste officiellement contre la durée des pauses du midi."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "On devrait retourner en cours.",
+                        "neutre": "On devrait y aller.",
+                        "amicale": "On devrait y aller avant d'être en retard.",
+                        "proche": "On devrait y aller. Tu marches avec moi, {{nomJoueur}} ?"
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Retourner en cours avec le groupe",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "Vous quittez la cafétéria ensemble."
+                    },
+                    "effet": {
+                        "repasGroupeReussi": true
+                    },
+                    "next": "finChapitre6"
+                }
+            ]
+        },
+        "finChapitre6": {
+            "fond":"universite",
+            "ambiance":"rue parisienne",
+            "musique":"chapitre6",
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Le déjeuner vient de se terminer."
+                },
+                {
+                    "personnage": "narrateur",
+                    "relationAvec": "eva",
+                    "variantes": {
+                        "negative": "La relation avec Eva reste encore fragile.",
+                        "neutre": "Ce repas a permis à {{nomJoueur}} de mieux comprendre Eva.",
+                        "amicale": "La confiance entre Eva et {{nomJoueur}} semble continuer à grandir.",
+                        "proche": "Le lien entre Eva et {{nomJoueur}} devient de plus en plus difficile à considérer comme une simple amitié."
+                    }
+                },
+                {
+                    "personnage": "narrateur",
+                    "relationAvec": "bryan",
+                    "variantes": {
+                        "negative": "La tension avec Bryan pourrait encore provoquer de nouveaux conflits.",
+                        "neutre": "La relation avec Bryan reste incertaine.",
+                        "amicale": "Bryan semble commencer à respecter davantage {{nomJoueur}}.",
+                        "proche": "Une véritable confiance semble commencer à se construire entre Bryan et {{nomJoueur}}."
+                    }
+                },
+                {
+                    "personnage": "systeme",
+                    "texte": "Chapitre 6 terminé."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Continuer",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "L'après-midi pourrait révéler de nouvelles tensions..."
+                    },
+                    "next": "chapitre7"
+                }
+            ]
+        },
+        "finChapitre6Froide": {
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Le repas s'est terminé beaucoup plus tôt que prévu."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "L'intervention de Bryan et la réaction de {{nomJoueur}} ont profondément déçu Eva."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Il faudra probablement regagner sa confiance."
+                },
+                {
+                    "personnage": "systeme",
+                    "texte": "Chapitre 6 terminé."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Continuer",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "Les conséquences de ce déjeuner apparaîtront rapidement."
+                    },
+                    "next": "chapitre7"
+                }
+            ]
+        }
+    }
+}

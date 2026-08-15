@@ -1,0 +1,1141 @@
+{
+    "titre":"chapitre 10 - La déposition",
+    "musique":"chapitre10",
+    "debut":"arriveeCommissariat",
+    "scenes":{
+        "arriveeCommissariat":{
+            "fond":"devant_commissaria",
+            "ambiance":"rue parisienne",
+            "dialogues":[
+                {
+                    "personnage":"narrateur",
+                    "texte":"Le lendemain matin, {{nomJoueur}} s'arrête devant le commissariat."
+                },
+                {
+                    "personnage":"narrateur",
+                    "texte":"Toute la nuit, il a essayé de remettre dans l'ordre les événements de cette fameuse soirée."
+                },
+                {
+                    "personnage":"narrateur",
+                    "texte":"Mais plus il y pense, plus certains détails semblent confus."
+                },
+                {
+                    "personnage":"narrateur",
+                    "texte":"Devant l'entrée, plusieurs véhicules de police sont stationnés."
+                },
+                {
+                    "personnage":"narrateur",
+                    "texte":"La disparition d'Eva ne concernne désormais plus seulement ses proches. Une enquête officielle a commencé."
+                }
+            ],
+            "choix":[
+                {
+                    "texte":"Entrer dans le commissariat",
+                    "message":{
+                        "personnage":"narrateur",
+                        "texte":"{{nomJoueur}} prend une profonde inspiration et franchit les portes."
+                    },
+                    "next":"accueilCommissariat"
+                }
+            ]
+        },
+        "accueilCommissariat":{
+            "fond":"accueil_commissaria",
+            "ambiance":"accueil_commissaria",
+            "dialogues":[
+                {
+                    "personnage":"agentAccueil",
+                    "texte":"Bonjour. Vous êtes bien {{nomJoueur}} ?",
+                    "son":"agentaccueil"
+                },
+                {
+                    "personnage":"joueur",
+                    "texte":"Oui. Je viens pour la disparition de madamoiselle Belle."
+                },
+                {
+                    "personnage":"agentAccueil",
+                    "texte":"Nous vous attendions. un enquêteur va venir vous chercher."
+                },
+                {
+                    "personnage":"agentAccueil",
+                    "texte":"En attendant, vous pouvez vous assoir dans le couloir."
+                }
+            ],
+            "choix":[
+                {
+                    "texte":"Rejoindre la salle d'attente",
+                    "message":{
+                        "personnage":"narrateur",
+                        "texte":"{{nomJoueur}} avance dans le couloir indiqué par l'agent"
+                    },
+                    "next":"salleAttente"
+                }
+            ]
+        },
+        "salleAttente":{
+            "fond":"salle_attente",
+            "ambiance":"salle_attente",
+            "dialogues":[
+                {
+                    "personnage":"narrateur",
+                    "texte":"Dans la d'attente, plusieurs visages familliers sont déjàs présents."
+                },
+                {
+                    "personnage":"narrateur",
+                    "texte":"Christophe discute à voix basse avec un policier."
+                },
+                {
+                    "personnage":"narrateur",
+                    "texte":"Zoé fixe le sol, les mains serrées autour de son téléphone."
+                },
+                {
+                    "personnage":"narrateur",
+                    "texte":"emelyne reste assise un peu plus loin, silencieuse."
+                },
+                {
+                    "personnage":"narrateur",
+                    "texte":"Bryan est également là. Il évite le regard de {{nomJoueur}}."
+                }
+            ],
+            "choix":[
+                {
+                    "texte":"Aller voir Zoé",
+                    "next":"parlerZoeAvantDeposition"
+                },
+                {
+                    "texte":"Aller voir Emelyne",
+                    "next":"parlerEmelyneAvantDeposition"
+                },
+                {
+                    "texte":"Aller voir Bryan",
+                    "next":"parlerBryanAvantDeposition"
+                }
+            ]
+        },
+        "parlerZoeAvantDeposition":{
+            "dialogues":[
+                {
+                    "personnage":"zoe",
+                    "son":"zoe",
+                    "variantes":{
+                        "negative":"Salut",
+                        "neutre":"Salut... Tu viens aussi pour ta déposition ?",
+                        "amicale":"Tu as réussi à dormir un peu ?",
+                        "proche":"{{nomJoueur}}... Je suis contente que tu sois là."
+                    }
+                },
+                {
+                    "personnage":"zoe",
+                    "condition":{
+                        "variable":"relationZoe",
+                        "operateur":">=",
+                        "valeur":15
+                    },
+                    "texte":"Zoé prend brièvemet la main de {{nomJoueur}}, comme pour vérifier qu'elle n'est pas seule."
+                },
+                {
+                    "personnage":"joueur",
+                    "texte":"Tu as déjà été entendue ?"
+                },
+                {
+                    "personnage":"zoe",
+                    "texte":"Oui. Ils m'ont demandé de raconter toute la soirée depuis l'arrivée d'Eva jusqu'à son départ."
+                },
+                {
+                    "personnage":"zoe",
+                    "variableConfiance":{
+                        "negative":"Je leur ai dit ce que je savait.",
+                        "faible":"Je ne sais pas si mes réponses vont les aider.",
+                        "moyenne":"Ils m'ont posé beaucoup de quuestions sur son comportement.",
+                        "haute":"Ils voulaient savoir si Eva avait peur de quelqu'un ou si elle cachait quelque chose."
+                    }
+                }
+            ],
+            "choix":[
+                {
+                    "texte":"Lui dire que tout va bien se passer.",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Tu as fait ce que tu pouvais. Maintenant, ils vont chercher la vérité."
+                    }, 
+                    "effet":{
+                        "relationZoe":1,
+                        "confianceZoé":1
+                    },
+                    "next":"appelPourDeposition"
+                },
+                {
+                    "texte":"Lui demander si Eva lui cachait quelque chose",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Tu crois qu'Eva pouvait cacher quelque chose à tout le monde ?"
+                    },
+                    "next":"douteZoeEva"
+                }
+            ]
+        },
+        "douteZoeEva":{
+            "dialogues":[
+                {
+                    "personnage":"zoe",
+                    "son":"zoe",
+                    "variantesConfiance":{
+                        "negative":"Je ne sais pas.",
+                        "faible":"Peut-être. On ne se disait plus tout comme avant.",
+                        "moyenne":"Eva gardait souvent ses problème pour elle.",
+                        "haute":"Même avec moi, Eva faisait parfois semblant d'aller bien pour ne pas inquiéter les autres."
+                    }
+                },
+                {
+                    "personnage":"zoe",
+                    "condition":{
+                        "variable":"confianceZoe",
+                        "operateur":">=",
+                        "valeur":15
+                    },
+                    "texte":"Elle disait toujours qu'elle parlerait quand elle serait prête. Mais parfois, elle ne parlait jamais."
+                },
+                {
+                    "personnage":"narrateur",
+                    "texte":"Avant que {{nomJoueur}}puisse répondre, une porte s'ouvre au bout du couloir."
+                }
+            ],
+            "choix":[
+                {
+                    "texte":"Se préparer à être appelé",
+                    "next":"appelPourDeposition"
+                }
+            ]
+        },
+        "parlerEmelyneAvantDeposition": {
+            "dialogues": [
+                {
+                    "personnage": "emelyne",
+                    "relationAvec": "emelyne",
+                    "son":"emelyne",
+                    "variantes": {
+                        "negative": "Bonjour.",
+                        "neutre": "Salut. Tu attends aussi ?",
+                        "amicale": "Je me demandais quand tu arriverais.",
+                        "proche": "Viens t'asseoir. Tu n'as pas besoin de rester seul."
+                    }
+                },
+                {
+                    "personnage": "narrateur",
+                    "condition": {
+                        "variable": "relationEmelyne",
+                        "operateur": ">=",
+                        "valeur": 15
+                    },
+                    "texte": "Émelyne se décale pour laisser une place à côté d'elle."
+                },
+                {
+                    "personnage": "joueur",
+                    "texte": "Tu as déjà parlé aux policiers ?"
+                },
+                {
+                    "personnage": "emelyne",
+                    "texte": "Pas encore. Mais ils m'ont dit qu'ils voulaient connaître tout ce que j'avais remarqué pendant la soirée."
+                },
+                {
+                    "personnage": "emelyne",
+                    "variantesConfiance": {
+                        "negative": "Je leur répondrai.",
+                        "faible": "Je vais essayer de rester précise.",
+                        "moyenne": "Je préfère réfléchir avant de parler. Une mauvaise interprétation pourrait compliquer les choses.",
+                        "haute": "J'ai peur d'oublier un détail important, même si je sais que je n'aurais probablement rien pu empêcher."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "La rassurer",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Tu raconteras ce dont tu te souviens. Personne ne peut te demander davantage."
+                    },
+                    "effet": {
+                        "relationEmelyne": 1,
+                        "confianceEmelyne": 1
+                    },
+                    "next": "appelPourDeposition"
+                },
+                {
+                    "texte": "Avouer que tu as peur de te tromper",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "J'ai peur de mélanger mes souvenirs ou d'oublier quelque chose d'important."
+                    },
+                    "next": "conseilEmelyneDeposition"
+                }
+            ]
+        },
+        "conseilEmelyneDeposition": {
+            "dialogues": [
+                {
+                    "personnage": "emelyne",
+                    "son":"emelyne",
+                    "variantesConfiance": {
+                        "negative": "Dis seulement ce que tu sais.",
+                        "faible": "Ne cherche pas à compléter les souvenirs dont tu n'es pas certain.",
+                        "moyenne": "Sépare ce que tu as réellement vu de ce que tu supposes aujourd'hui.",
+                        "haute": "Raconte les faits, puis précise clairement quand tu n'es plus certain. Ils ont besoin de ta mémoire, pas d'une histoire parfaite."
+                    }
+                },
+                {
+                    "personnage": "emelyne",
+                    "condition": {
+                        "variable": "confianceEmelyne",
+                        "operateur": ">=",
+                        "valeur": 15
+                    },
+                    "texte": "Et quoi qu'ils te demandent, ne transforme pas chaque question en accusation contre toi."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "{{nomJoueur}} acquiesce au moment où une porte s'ouvre au bout du couloir."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "La remercier",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Merci. Je vais essayer de m'en souvenir."
+                    },
+                    "effet": {
+                        "confianceEmelyne": 1
+                    },
+                    "next": "appelPourDeposition"
+                }
+            ]
+        },
+        "parlerBryanAvantDeposition": {
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "condition": {
+                        "variable": "bryanSuspectAuxYeuxJoueur",
+                        "operateur": "===",
+                        "valeur": true
+                    },
+                    "texte": "Les paroles de Bryan la veille reviennent immédiatement à l'esprit de {{nomJoueur}}."
+                },
+                {
+                    "personnage": "narrateur",
+                    "condition": {
+                        "variable": "bryanSuspectAuxYeuxJoueur",
+                        "operateur": "!==",
+                        "valeur": true
+                    },
+                    "texte": "Bryan semble aussi fatigué que les autres."
+                },
+                {
+                    "personnage": "bryan",
+                    "son":"bryan",
+                    "condition": {
+                        "variable": "relationBryan",
+                        "operateur": ">=",
+                        "valeur": 10
+                    },
+                    "texte": "J'ai raconté aux policiers ce que j'ai vu dans le quartier."
+                },
+                {
+                    "personnage": "bryan",
+                    "condition": {
+                        "variable": "relationBryan",
+                        "operateur": "<",
+                        "valeur": 10
+                    },
+                    "texte": "Ne commence pas. Je vais leur dire ce que j'ai à leur dire."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Ne pas provoquer de nouvelle dispute",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "{{nomJoueur}} garde ses questions pour l'enquêteur."
+                    },
+                    "next": "appelPourDeposition"
+                }
+            ]
+        },
+        "appelPourDeposition":{
+             "dialogues": [
+                {
+                    "personnage": "enqueteur",
+                    "texte": "{{nomJoueur}} ?"
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Un enquêteur se tient devant une porte ouverte, un dossier à la main."
+                },
+                {
+                    "personnage": "lieutenant Morel",
+                    "texte": "Suivez-moi, s'il vous plaît.",
+                    "son":"lieutenant morel"
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Entrer dans la salle d'audition",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "{{nomJoueur}} entre dans une petite pièce équipée d'une table et de deux chaises."
+                    },
+                    "next": "debutDeposition"
+                }
+            ]
+        },
+        "debutDeposition": {
+            "fond":"salle_d'interogatoire",
+            "dialogues": [
+                {
+                    "personnage": "lieutenant Morel",
+                    "texte": "Je suis le lieutenant Morel. Je vais recueillir votre témoignage concernant la disparition d'Eva.",
+                    "son":"lieutenant morel"
+                },
+                {
+                    "personnage": "lieutenant Morel",
+                    "texte": "Vous êtes entendu comme témoin. Vous n'êtes pas placé en garde à vue."
+                },
+                {
+                    "personnage": "lieutenant Morel",
+                    "texte": "Je vais vous demander de répondre avec précision et de me signaler chaque fois que vous n'êtes pas certain d'un souvenir."
+                },
+                {
+                    "personnage": "lieutenant Morel",
+                    "texte": "Depuis combien de temps connaissez-vous Eva ?"
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Expliquer votre rencontre",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je l'ai rencontrée récemment à l'école. Nous avons commencé à passer de plus en plus de temps ensemble.",
+                        "son":"choix important"
+                    },
+                    "next": "questionsRelationEva"
+                },
+                {
+                    "texte": "Rester très factuel",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je la connais depuis mon arrivée à l'école. Nous faisions partie du même groupe d'amis."
+                    },
+                    "next": "questionsRelationEva"
+                }
+            ]
+        },
+        "questionsRelationEva": {
+            "dialogues": [
+                {
+                    "personnage": "lieutenant Morel",
+                    "texte": "Quelle était la nature exacte de votre relation ?",
+                    "son":"lieutenant morel"
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Dire que vous étiez proches",
+                    "condition": {
+                        "variable": "relationEva",
+                        "operateur": ">=",
+                        "valeur": 15
+                    },
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Nous étions proches. Je tenais beaucoup à elle, même si nous n'avions pas défini notre relation.",
+                        "son":"choix important"
+                    },
+                    "effet": {
+                        "joueurReconnaitAttachementEva": true
+                    },
+                    "next": "questionsSoiree"
+                },
+                {
+                    "texte": "Dire que vous appreniez à vous connaître",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Nous apprenions encore à nous connaître. Elle comptait déjà beaucoup pour moi."
+                    },
+                    "effet": {
+                        "joueurReconnaitAttachementEva": true
+                    },
+                    "next": "questionsSoiree"
+                },
+                {
+                    "texte": "Présenter Eva comme une amie",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "C'était une amie."
+                    },
+                    "effet": {
+                        "joueurMinimiseAttachementEva": true
+                    },
+                    "next": "questionsSoiree"
+                }
+            ]
+        },
+        "questionsSoiree": {
+            "dialogues": [
+                {
+                    "personnage": "lieutenant Morel",
+                    "texte": "Racontez-moi maintenant la soirée depuis votre arrivée chez Zoé.",
+                    "son":"lieutenant morel"
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "{{nomJoueur}} décrit les discussions, le film et les personnes présentes."
+                },
+                {
+                    "personnage": "lieutenant Morel",
+                    "texte": "Eva vous a-t-elle paru inquiète, distraite ou différente de son comportement habituel ?"
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Dire qu'elle semblait normale",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Non. Elle semblait normale. Je n'ai rien remarqué d'inquiétant."
+                    },
+                    "effet": {
+                        "temoignageEvaSemblaitNormale": true
+                    },
+                    "next": "questionsDepartEva"
+                },
+                {
+                    "texte": "Dire que vous n'êtes plus certain",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Sur le moment, non. Mais depuis sa disparition, je repense à chaque détail et je ne sais plus ce qui était réellement normal."
+                    },
+                    "effet": {
+                        "temoignageJoueurIncertain": true
+                    },
+                    "next": "questionsDepartEva"
+                }
+            ]
+        },
+        "questionsDepartEva": {
+            "dialogues": [
+                {
+                    "personnage": "lieutenant Morel",
+                    "texte": "À quel moment l'avez-vous vue pour la dernière fois ?",
+                    "son":"lieutenant morel"
+                },
+                {
+                    "personnage": "joueur",
+                    "texte": "À la fin de la soirée, quand elle est partie de chez Zoé."
+                },
+                {
+                    "personnage": "lieutenant Morel",
+                    "texte": "Pourquoi ne l'avez-vous pas raccompagnée ?"
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Expliquer que rien ne semblait dangereux",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Elle savait rentrer seule et rien ne semblait dangereux. Je n'avais aucune raison de penser qu'elle risquait quelque chose."
+                    },
+                    "effet": {
+                        "culpabiliteDeposition": 1
+                    },
+                    "next": "preuveDernierMessage"
+                },
+                {
+                    "texte": "Avouer que vous regrettez",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je ne pensais pas qu'il pouvait lui arriver quelque chose. Maintenant, je regrette de ne pas avoir insisté.",
+                        "son":"choix important"
+                    },
+                    "effet": {
+                        "culpabiliteDeposition": 3
+                    },
+                    "next": "preuveDernierMessage"
+                },
+                {
+                    "texte": "Refuser de vous rendre responsable",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Elle avait décidé de rentrer seule. Je ne pouvais pas prévoir sa disparition."
+                    },
+                    "effet": {
+                        "culpabiliteDeposition": 0
+                    },
+                    "next": "preuveDernierMessage"
+                }
+            ]
+        },
+        "preuveDernierMessage": {
+            "dialogues": [
+                {
+                    "personnage": "lieutenant Morel",
+                    "texte": "Son père nous a parlé d'un message qu'Eva devait vous envoyer après son retour.",
+                    "son":"lieutenant morel"
+                },
+                {
+                    "personnage": "lieutenant Morel",
+                    "texte": "Pouvez-vous me montrer votre conversation avec elle ?"
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Donner votre téléphone",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "{{nomJoueur}} déverrouille son téléphone et ouvre la conversation avec Eva.",
+                        "son":"choix important"
+                    },
+                    "effet": {
+                        "telephoneMontrePolice": true
+                    },
+                    "next": "lectureMessageEva"
+                },
+                {
+                    "texte": "Demander ce qu'ils vont en faire",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Vous allez conserver mon téléphone ?"
+                    },
+                    "next": "explicationTelephone"
+                }
+            ]
+        },
+        "explicationTelephone": {
+            "dialogues": [
+                {
+                    "personnage": "lieutenant Morel",
+                    "texte": "Pas nécessairement. Nous devons d'abord consulter la conversation et conserver une copie des éléments utiles.",
+                    "son":"lieutenant morel"
+                },
+                {
+                    "personnage": "lieutenant Morel",
+                    "texte": "Ne supprimez aucun message, même s'il vous paraît sans importance."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Accepter",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "{{nomJoueur}} déverrouille son téléphone et le pose devant l'enquêteur."
+                    },
+                    "effet": {
+                        "telephoneMontrePolice": true
+                    },
+                    "next": "lectureMessageEva"
+                }
+            ]
+        },
+        "lectureMessageEva": {
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Le lieutenant Morel parcourt lentement la conversation."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Il s'arrête sur les derniers échanges de la soirée."
+                },
+                {
+                    "personnage": "systeme",
+                    "texte": "Eva : « Promis. Je t'écris dès que je suis rentrée. »"
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "L'enquêteur relit le message, puis note l'heure exacte dans son dossier."
+                },
+                {
+                    "personnage": "lieutenant Morel",
+                    "texte": "Avez-vous reçu un appel, un message supprimé ou une notification inhabituelle après cela ?",
+                    "son":"lieutenant morel"
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Dire que vous n'avez rien reçu",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Non. Rien du tout."
+                    },
+                    "effet": {
+                        "dernierMessageEvaConfirmePolice": true
+                    },
+                    "next": "questionBryan"
+                }
+            ]
+        },
+        "questionBryan": {
+            "dialogues": [
+                {
+                    "personnage": "lieutenant Morel",
+                    "condition": {
+                        "variable": "bryanApercuEva",
+                        "operateur": "===",
+                        "valeur": true
+                    },
+                    "texte": "Vous avez également indiqué qu'un certain Bryan aurait aperçu Eva après la soirée."
+                },
+                {
+                    "personnage": "lieutenant Morel",
+                    "condition": {
+                        "variable": "bryanSuspectAuxYeuxJoueur",
+                        "operateur": "===",
+                        "valeur": true
+                    },
+                    "texte": "Vous avez signalé une conversation tendue avec Bryan. Racontez-moi précisément ce qu'il a dit."
+                },
+                {
+                    "personnage": "lieutenant Morel",
+                    "condition": {
+                        "variable": "bryanApercuEva",
+                        "operateur": "!==",
+                        "valeur": true
+                    },
+                    "texte": "Une personne vous a-t-elle communiqué une information concernant Eva depuis sa disparition ?"
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Répéter précisément les paroles de Bryan",
+                    "condition": {
+                        "variable": "temoignageBryanNote",
+                        "operateur": "===",
+                        "valeur": true
+                    },
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "J'ai noté ses paroles juste après notre conversation. Il a dit : « Si j'avais compris ce qui se passait quand je l'ai vue, je ne l'aurais pas laissée continuer seule. »"
+                    },
+                    "effet": {
+                        "temoignageBryanTransmisPrecis": true
+                    },
+                    "next": "reactionEnqueteurBryan"
+                },
+                {
+                    "texte": "Raconter ce dont vous vous souvenez",
+                    "condition": {
+                        "variable": "bryanApercuEva",
+                        "operateur": "===",
+                        "valeur": true
+                    },
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Il m'a dit qu'il se trouvait dans le quartier et qu'il croyait avoir vu Eva marcher vers la grande avenue."
+                    },
+                    "effet": {
+                        "temoignageBryanTransmis": true
+                    },
+                    "next": "reactionEnqueteurBryan"
+                },
+                {
+                    "texte": "Parler de vos soupçons",
+                    "condition": {
+                        "variable": "bryanSuspectAuxYeuxJoueur",
+                        "operateur": "===",
+                        "valeur": true
+                    },
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Il m'a accusé, puis il a laissé échapper qu'il avait vu Eva. Quand je lui ai demandé où il était, il a refusé de répondre."
+                    },
+                    "effet": {
+                        "soupconsBryanTransmisPolice": true
+                    },
+                    "next": "reactionEnqueteurBryan"
+                },
+                {
+                    "texte": "Dire que vous n'avez reçu aucune information",
+                    "condition": {
+                        "variable": "bryanApercuEva",
+                        "operateur": "!==",
+                        "valeur": true
+                    },
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Non. Personne ne m'a donné d'information précise."
+                    },
+                    "next": "finDeposition"
+                }
+            ]
+        },
+        "reactionEnqueteurBryan": {
+            "dialogues": [
+                {
+                    "personnage": "lieutenant Morel",
+                    "texte": "Très bien. Nous vérifierons ses horaires et son trajet.",
+                    "son":"lieutenant morel"
+                },
+                {
+                    "personnage": "lieutenant Morel",
+                    "condition": {
+                        "variable": "temoignageBryanTransmisPrecis",
+                        "operateur": "===",
+                        "valeur": true
+                    },
+                    "texte": "Le fait d'avoir noté ses mots exacts est utile."
+                },
+                {
+                    "personnage": "lieutenant Morel",
+                    "texte": "Ne confrontez plus Bryan vous-même. S'il détient une information, nous nous en chargerons."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Accepter",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "D'accord."
+                    },
+                    "next": "finDeposition"
+                }
+            ]
+        },
+        "finDeposition": {
+            "dialogues": [
+                {
+                    "personnage": "lieutenant Morel",
+                    "texte": "Votre témoignage est terminé pour aujourd'hui.",
+                    "son":"lieutenant morel"
+                },
+                {
+                    "personnage": "lieutenant Morel",
+                    "texte": "Nous pourrons vous contacter de nouveau si certains éléments doivent être précisés."
+                },
+                {
+                    "personnage": "lieutenant Morel",
+                    "texte": "Gardez votre téléphone accessible et prévenez-nous immédiatement si Eva vous contacte."
+                },
+                {
+                    "personnage": "lieutenant Morel",
+                    "texte": "Le lieutenant Morel rend son téléphone à {{nomJoueur}}."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Quitter la salle d'audition",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "{{nomJoueur}} rejoint le couloir, épuisé d'avoir revécu toute la soirée."
+                    },
+                    "next": "couloirApresDeposition"
+                }
+            ]
+        },
+        "couloirApresDeposition": {
+            "fond":"salle_attente",
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Zoé vient de sortir d'une autre salle. Ses yeux sont rouges."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Émelyne attend encore son tour, le dos droit mais les mains crispées."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Bryan n'est plus dans le couloir."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Christophe parle toujours avec plusieurs enquêteurs."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Parler brièvement à Zoé",
+                    "next": "zoeApresDeposition"
+                },
+                {
+                    "texte": "Faire un signe à Émelyne",
+                    "next": "emelyneApresDeposition"
+                },
+                {
+                    "texte": "Sortir sans déranger les autres",
+                    "next": "revelationVideosurveillance"
+                }
+            ]
+        },
+        "zoeApresDeposition": {
+            "dialogues": [
+                {
+                    "personnage": "zoe",
+                    "relationAvec": "zoe",
+                    "son":"zoe",
+                    "variantes": {
+                        "negative": "C'est fini pour toi aussi ?",
+                        "neutre": "Ils t'ont posé beaucoup de questions ?",
+                        "amicale": "J'ai l'impression d'avoir raconté la même scène cent fois.",
+                        "proche": "Chaque fois que je raconte son départ, j'ai l'impression de la regarder disparaître encore une fois."
+                    }
+                },
+                {
+                    "personnage": "joueur",
+                    "texte": "Ils essaient de reconstituer chaque minute."
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "J'espère qu'une de nos réponses leur donnera quelque chose."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Lui promettre de la prévenir",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je te préviens dès que j'apprends quoi que ce soit."
+                    },
+                    "effet": {
+                        "relationZoe": 1
+                    },
+                    "next": "revelationVideosurveillance"
+                }
+            ]
+        },
+        "emelyneApresDeposition": {
+            "dialogues": [
+                {
+                    "personnage": "emelyne",
+                    "relationAvec": "emelyne",
+                    "son":"emelyne",
+                    "variantes": {
+                        "negative": "C'est terminé ?",
+                        "neutre": "Ça s'est bien passé ?",
+                        "amicale": "Tu as l'air épuisé.",
+                        "proche": "Je t'écris dès que je sors. Ne reste pas seul avec tout ça."
+                    }
+                },
+                {
+                    "personnage": "joueur",
+                    "texte": "Ils m'ont fait raconter toute la soirée et relire les derniers messages d'Eva."
+                },
+                {
+                    "personnage": "emelyne",
+                    "variantesConfiance": {
+                        "negative": "Je vois.",
+                        "faible": "Ça ne devait pas être facile.",
+                        "moyenne": "Revoir ses messages a dû rendre tout ça encore plus réel.",
+                        "haute": "Tu risques de repenser à chaque mot ce soir. Essaie de ne pas rester seul si ça devient trop lourd."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "La remercier",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Merci. Bon courage pour ta déposition."
+                    },
+                    "effet": {
+                        "relationEmelyne": 1
+                    },
+                    "next": "revelationVideosurveillance"
+                }
+            ]
+        },
+        "revelationVideosurveillance": {
+            "fond":"accueil_commissaria",
+            "ambiance":"accueil_commissaria",
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Alors que {{nomJoueur}} se dirige vers la sortie, deux policiers avancent rapidement dans le couloir."
+                },
+                {
+                    "personnage": "policier",
+                    "texte": "On vient enfin de récupérer les images de vidéosurveillance de la grande avenue."
+                },
+                {
+                    "personnage": "autrePolicier",
+                    "texte": "Elles couvrent bien l'heure de sa disparition ?"
+                },
+                {
+                    "personnage": "policier",
+                    "texte": "Oui. Préviens immédiatement le lieutenant Morel."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Les deux policiers s'interrompent en remarquant {{nomJoueur}}, puis disparaissent derrière une porte."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Essayer d'en savoir plus",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Excusez-moi... Est-ce qu'on voit Eva sur ces images ?"
+                    },
+                    "next": "refusInformationPolice"
+                },
+                {
+                    "texte": "Ne pas intervenir",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "{{nomJoueur}} comprend qu'aucune réponse ne lui sera donnée immédiatement."
+                    },
+                    "next": "sortieCommissariat"
+                }
+            ]
+        },
+        "refusInformationPolice": {
+            "dialogues": [
+                {
+                    "personnage": "policier",
+                    "texte": "Nous ne pouvons rien confirmer tant que les images n'ont pas été analysées."
+                },
+                {
+                    "personnage": "policier",
+                    "texte": "Le père d'Eva sera informé si elles apportent un élément utile."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Le policier rejoint son collègue sans ajouter un mot."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Quitter le commissariat",
+                    "next": "sortieCommissariat"
+                }
+            ]
+        },
+        "sortieCommissariat": {
+            "fond":"devant_commissaria",
+            "ambiance":"rue parisienne",
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "À l'extérieur, l'air paraît plus froid que le matin."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Les images de la grande avenue pourraient montrer Eva."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Elles pourraient aussi montrer ce qui lui est arrivé."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Mais pour l'instant, {{nomJoueur}} ne peut qu'attendre."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Rentrer chez toi",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "{{nomJoueur}} reprend le chemin de son domicile."
+                    },
+                    "next": "messageApresCommissariat"
+                }
+            ]
+        },
+        "messageApresCommissariat": {
+            "fond":"chambre_joueur",
+            "ambiance":"chambre_joueur",
+            "dialogues": [
+                {
+                    "personnage": "systeme",
+                    "condition": {
+                        "variable": "relationEmelyne",
+                        "operateur": ">=",
+                        "valeur": 15
+                    },
+                    "texte": "Nouveau message d'Émelyne."
+                },
+                {
+                    "personnage": "emelyne",
+                    "condition": {
+                        "variable": "relationEmelyne",
+                        "operateur": ">=",
+                        "valeur": 15
+                    },
+                    "texte": "Je viens de sortir. Tu es bien rentré ?"
+                },
+                {
+                    "personnage": "systeme",
+                    "condition": {
+                        "variable": "relationEmelyne",
+                        "operateur": "<",
+                        "valeur": 15
+                    },
+                    "texte": "Le téléphone de {{nomJoueur}} reste silencieux."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "{{nomJoueur}} ouvre machinalement la conversation avec Eva."
+                },
+                {
+                    "personnage": "systeme",
+                    "texte": "Eva : « Promis. Je t'écris dès que je suis rentrée. »"
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Les mots paraissent différents maintenant qu'ils figurent dans un dossier de police."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Répondre à Émelyne",
+                    "condition": {
+                        "variable": "relationEmelyne",
+                        "operateur": ">=",
+                        "valeur": 15
+                    },
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Oui, je suis rentré. Merci de vérifier."
+                    },
+                    "effet": {
+                        "relationEmelyne": 1,
+                        "confianceEmelyne": 1
+                    },
+                    "next": "finChapitre10"
+                },
+                {
+                    "texte": "Verrouiller le téléphone",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "{{nomJoueur}} éteint l'écran, mais le dernier message d'Eva reste imprimé dans son esprit."
+                    },
+                    "next": "finChapitre10"
+                }
+            ]
+        },
+        "finChapitre10": {
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "La déposition est terminée, mais les questions sont plus nombreuses qu'avant."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Cette nuit-là, {{nomJoueur}} sait déjà qu'il aura du mal à dormir."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Chapitre 10 terminé."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Continuer vers le chapitre 11",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "Les souvenirs, les regrets et la culpabilité de {{nomJoueur}} vont se mêler pendant son sommeil."
+                    },
+                    "next": "chapitre11"
+                }
+            ]
+        }
+    }
+}

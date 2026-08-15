@@ -1,0 +1,748 @@
+{
+    "titre":"Chapitre 9 - Les premiers doutes",
+    "musique":"chapitre9",
+    "debut":"soirDisparition",
+    "scenes":{
+        "soirDisparition":{
+            "fond":"chambre_joueur_début_soiree",
+            "ambiance":"chambre_joueur",
+            "dialogues":[
+                {
+                    "personnage":"narrateur",
+                    "texte":"Le soir tombe sur une journée qui semnlé interminable."
+                },
+                {
+                    "personnage":"narrateur",
+                    "texte":"Depuis l'appel de Christophe, {{nomJoueur}} n'arrive plus à panser à autre chose qu'à Eva."
+                },
+                {
+                    "personnage":"narrateur",
+                    "texte":"Aucune nouvelle rassurante n'est arrivée. Rester enfermé devient insupportable."
+                }
+            ],
+            "choix":[
+                {
+                    "texte":"Sortir prendre l'air",
+                    "message":{
+                        "personnage":"narrateur",
+                        "texte":"{{nomJoueur}} enfile une veste et quitte son domicile sans savoir vraiment où aller."
+                    },
+                    "next":"rencontreBryan"
+                }
+            ]
+        },
+        "rencontreBryan":{
+            "fond":"rue parisienne",
+            "ambiance":"rue parisienne",
+            "dialogues":[
+                {
+                    "personnage":"narrateur",
+                    "texte":"Les rues sont presque désertes. Au détour d'une rue {{nomJoueur}} aperçoit Bryan."
+                },
+                {
+                    "personnage":"bryan",
+                    "texte":"{{nomJoueur}} ?",
+                    "son":"bryan"
+                }
+            ],
+            "choix":[
+                {
+                    "texte":"Aller lui parler",
+                    "condition":{
+                        "variable":"relationBryan",
+                        "operateur":">=",
+                        "valeur":10
+                    },
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Salut Bryan. Tu as appris pour Eva  ?"
+                    },
+                    "next":"discussionBryanBonne"
+                },
+                {
+                    "texte":"Lui demander ce qu'il veut",
+                    "condition":{
+                        "variable":"relationBryan",
+                        "operateur":"<",
+                        "valeur":10
+                    },
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Qu'est-ce que tu veux, Bryan ?"
+                    },
+                    "next":"disputeBryan"
+                }
+            ]
+        },
+        "discussionBryanBonne":{
+            "dialogues":[
+                {
+                    "personnage":"bryan",
+                    "son":"bryan",
+                    "variantes":{
+                        "negative":"Oui",
+                        "neutre":"Oui. Tout le monde commence à en parler.",
+                        "amicale":"Oui. J'ai appris ça cet après-midi.",
+                        "proche":"Oui. Je voulait justement savoir si tu avais eu des nouvelles."
+                    }
+                },
+                {
+                    "personnage":"bryan",
+                    "texte":"Tu as une sale tête. Tu tiens le coup ?"
+                }
+            ],
+            "choix":[
+                {
+                    "texte":"Dire que tu te sens coupable",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Pas vraiment. Elle devait m'écrire en rentrant et je n'ai compris que ce matin que quelque chose n'allait pas."
+                    },
+                    "effet":{
+                        "confianceBryan":2,
+                        "relationBryan":1
+                    },
+                    "next":"bryanQuartier"
+                },
+                {
+                    "texte":"Dire que tu veux comprendre",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Je veux seulement comprende ce qui lui est arrivé."
+                    },
+                    "effet":{
+                        "confianceBryan":1
+                    },
+                    "next":"bryanQuartier"
+                }
+            ]
+        },
+        "bryanQuartier":{
+            "dialogues":[
+                {
+                    "personnage":"bryan",
+                    "texte":"Hier soir, j'étais encore dans le quartier de Zoé.",
+                    "son":"bryan"
+                },
+                {
+                    "personnage":"joueur",
+                    "texte":"Pourquoi ?"
+                },
+                {
+                    "personnage":"bryan",
+                    "variantesConfiance":{
+                        "negative":"Je passais simplement dans le coin.",
+                        "faible":"Je rentrais chez moi après avoir vu quelqu'un.",
+                        "moyenne":"J'étais chez un ami qui habite à quelque rue de chez Zoé.",
+                        "haute":"J'étais chez un ami dans le quartier. En partant, je crois avoir aperçu Eva."
+                    }
+                },
+                {
+                    "personnage":"bryan",
+                    "texte":"Je n'y ai pas vraiment fait attention. Si j'avais su..."
+                }
+            ],
+            "choix":[
+                {
+                    "texte":"Lui demander ce qu'il a vu",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Tu te souviens de la direction qu'elle prenait ou de quelqu'un près d'elle ?"
+                    },
+                    "next":"souvenirBryan"
+                },
+                {
+                    "texte":"Ne pas insister",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Personne ne pouvait savoir."
+                    },
+                    "effet":{
+                        "relationBryan":2,
+                        "confianceBryan":1,
+                        "bryanApercuEva":true
+                    },
+                    "next":"finBryanCalme"
+                }
+            ]
+        },
+        "souvenirBryan":{
+            "dialogues":[
+                {
+                    "personnage":"bryan",
+                    "texte":"Je ne suis même pas certain que c'était bien elle.",
+                    "son":"bryan"
+                },
+                {
+                    "personnage":"bryan",
+                    "texte":"J'ai vu une fille marcher seule en direction de la grande avenue. Il faisiat sombre."
+                },
+                {
+                    "personnage":"bryan",
+                    "texte":"Je raconterai tout ça à la police si elle me contacte."
+                }
+            ],
+            "choix":[
+                {
+                    "texte":"Le remercier",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Merci de me l'avoir dit."
+                    },
+                    "effet":{
+                        "relationBryan":2,
+                        "confianceBryan":2,
+                        "bryanApercuEva":true,
+                        "directionEvaSelonBryan":"grande_avenue"
+                    },
+                    "next":"finBryanCalme"
+                }
+            ]
+        },
+        "finBryanCalme":{
+            "dialogues":[
+                {
+                    "personnage":"bryan",
+                    "son":"bryan",
+                    "variantes":{
+                        "negative":"Je dois y aller.",
+                        "neutre":"Préviens-moi si tu apprend quelque chose.",
+                        "amicale":"Si tu as besoin d'aide, appelle moi.",
+                        "proche":"Tu n'es pas obligé de gérer ça seul. Apelle- moi si tu as besoin."
+                    }
+                },
+                {
+                    "personnage":"narrateur",
+                    "texte":"Bryan s'éloigne, laissant {{nomJoueur}} avec cette nouvelle information."
+                }
+            ],
+            "choix":[
+                {
+                    "texte":"Rentrer chez toi",
+                    "message":{
+                        "personnage":"narrateur",
+                        "texte":"{{nomJoueur}} reprend le chemin de son domicile."
+                    },
+                    "next":"retourCalme"
+                }
+            ]
+        },
+        "disputeBryan":{
+            "dialogues":[
+                {
+                    "personnage":"bryan",
+                    "texte":"Félicitations.",
+                    "son":"bryan"
+                },
+                {
+                    "personnage":"joueur",
+                    "texte":"De quoi tu parles ?"
+                },
+                {
+                    "personnage":"bryan",
+                    "texte":"Eva disparaît après avoir passé la soirée avec toi, et tu te promènes comme si de rien n'était."
+                }
+            ],
+            "choix":[
+                {
+                    "texte":"Lui dire qu'il ne sait rien",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Tu ne sais rien de ca qui s'est passé. Arrête de m'accuser."
+                    },
+                    "effet":{
+                        "relationBryan":-2
+                    },
+                    "next":"escaladeBryan"
+                },
+                {
+                    "texte":"Lui demander ce qu'il sait",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Pourquoi tu m'accuse directement ? Qu'est-ce que tu sais ?"
+                    },
+                    "effet":{
+                        "confianceBryan":-1
+                    },
+                    "next":"escaladeBryan"
+                }
+            ]
+        },
+        "escaladeBryan":{
+            "dialogues":[
+                {
+                    "personnage":"bryan",
+                    "texte":"Je sais que tu était avec elle avant qu'elle disparaisse. Tu aurais dû faire attention à elle.",
+                    "son":"bryan"
+                },
+                {
+                    "personnage":"joueur",
+                    "texte":"Je ne pouvait pas savoir ce qui allait arriver."
+                },
+                {
+                    "personnage":"bryan",
+                    "texte":"Moi au moins, si j'avais compris ce qui se passait quand je l'ai vue, je ne l'aurait pas laissée continuer seule."
+                },
+                {
+                    "personnage":"narrateur",
+                    "texte":"Bryan s'interrompt brusquement."
+                }
+            ],
+            "choix":[
+                {
+                    "texte":"Relever sa phrase",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Attend tu viens de dire que tu l'as vue ?",
+                        "son":"choix important"
+                    },
+                    "next":"phraseDeTrop"
+                }
+            ]
+        },
+        "phraseDeTrop":{
+            "dialogues":[
+                {
+                    "personnage":"bryan",
+                    "texte":"Laisse tomber.",
+                    "son":"bryan"
+                },
+                {
+                    "personnage":"joueur",
+                    "texte":"Bryan tu étais où hier soir ?"
+                },
+                {
+                    "personnage":"bryan",
+                    "texte":"ça ne te regarde pas."
+                },
+                {
+                    "personnage":"joueur",
+                    "texte":"Tu m'accuses alors que tu étais toi-même au près d'elle ?"
+                },
+                {
+                    "personnage":"bryan",
+                    "texte":"Je n'ai rien à te dire."
+                },
+                {
+                    "personnage":"narrateur",
+                    "texte":"Bryan tourne les talons et s'élogne rapidemant."
+                }
+            ],
+            "choix":[
+                {
+                    "texte":"Le laisser partir",
+                    "message":{
+                        "personnage":"narrateur",
+                        "texte":"{{nomJoueur}} reste immobile, troublé par ce que Bryan vien de révéler."
+                    },
+                    "effet":{
+                        "bryanSupectAuxYeuxJoueur":true,
+                        "bryanEtaiPresEva":true,
+                        "relationBryan":-3
+                    },
+                    "nexte":"retourDispute"
+                }
+            ]
+        },
+        "retourDispute":{
+            "dialogues":[
+                {
+                    "personnage":"narrateur",
+                    "texte":"Sur le chemin du retour, les accusation de Bryan tournent en boucle dans l'esprit de {{nomJoueur}}."
+                },
+                {
+                    "personnage":"narrateur",
+                    "texte":"Une partie de lui sait qu'il ne pouvait rien prévoir. Une autre se demande s'il aurait dû réagir plus tôt."
+                }
+            ],
+            "choix":[
+                {
+                      "texte": "Appeler Émelyne",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "Une fois chez lui, {{nomJoueur}} appelle Émelyne."
+                    },
+                    "next": "appelEmelyne"
+                }
+            ]
+        },
+             "appelEmelyne": {
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Après quelques sonneries, Émelyne décroche."
+                },
+                {
+                    "personnage": "emelyne",
+                    "relationAvec": "emelyne",
+                    "son":"emelyne",
+                    "variantes": {
+                        "negative": "Allô ?",
+                        "neutre": "Salut. Il y a un problème ?",
+                        "amicale": "Salut, {{nomJoueur}}. Ta voix n'a pas l'air normale.",
+                        "proche": "{{nomJoueur}} ? Qu'est-ce qui se passe ?"
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Raconter la dispute",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Bryan m'a accusé pour la disparition d'Eva, puis il a laissé entendre qu'il l'avait vue hier soir."
+                    },
+                    "next": "reactionEmelyne"
+                }
+            ]
+        },
+        "reactionEmelyne": {
+            "dialogues": [
+                {
+                    "personnage": "emelyne",
+                    "son":"emelyne",
+                    "variantesConfiance": {
+                        "negative": "Tu devrais le dire à la police.",
+                        "faible": "Ne tire pas de conclusion trop vite, mais parle-en à la police.",
+                        "moyenne": "Bryan cache peut-être quelque chose, ou il culpabilise. Dans les deux cas, la police doit savoir.",
+                        "haute": "Je comprends que tu doutes. Mais ne reste pas seul à imaginer le pire. Tu raconteras exactement ses paroles à la police."
+                    }
+                },
+                {
+                    "personnage": "emelyne",
+                    "relationAvec": "emelyne",
+                    "variantes": {
+                        "negative": "Je ne peux pas t'aider davantage.",
+                        "neutre": "Essaie de te calmer.",
+                        "amicale": "Tu n'es pas responsable de ce que Bryan ressent.",
+                        "proche": "Tu n'es pas obligé d'affronter ça tout seul. Je peux rester au téléphone."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Avouer ta culpabilité",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Et s'il avait raison ? J'aurais peut-être dû vérifier plus tôt qu'Eva était rentrée."
+                    },
+                    "next": "confidenceEmelyne"
+                },
+                {
+                    "texte": "Parler de tes soupçons",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Pourquoi aurait-il caché qu'il était dans le quartier ?"
+                    },
+                    "next": "conseilEmelyne"
+                }
+            ]
+        },
+        "confidenceEmelyne": {
+            "dialogues": [
+                {
+                    "personnage": "emelyne",
+                    "son":"emelyne",
+                    "variantesConfiance": {
+                        "negative": "Tu ne pouvais pas savoir.",
+                        "faible": "Tu ne pouvais pas deviner qu'elle avait disparu.",
+                        "moyenne": "L'incertitude pousse à réécrire les événements après coup. Tu n'avais pas les informations que tu as maintenant.",
+                        "haute": "Je connais cette sensation : chercher le moment précis où l'on aurait pu empêcher quelque chose, jusqu'à se convaincre que tout est de notre faute."
+                    }
+                },
+                {
+                    "personnage": "emelyne",
+                    "condition": {
+                        "variable": "confianceEmelyne",
+                        "operateur": ">=",
+                        "valeur": 15
+                    },
+                    "texte": "J'ai déjà attendu des nouvelles de quelqu'un qui avait décidé de partir sans rien expliquer."
+                },
+                {
+                    "personnage": "emelyne",
+                    "condition": {
+                        "variable": "confianceEmelyne",
+                        "operateur": ">=",
+                        "valeur": 15
+                    },
+                    "texte": "Depuis, je supporte mal de ne pas comprendre pourquoi les gens disparaissent de ma vie. C'est aussi pour ça que je garde mes distances."
+                },
+                {
+                    "personnage":"systeme",
+                    "texte":"nouvelle information sur emelyne",
+                    "son":"systeme"
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "La remercier de s'être confiée",
+                    "condition": {
+                        "variable": "confianceEmelyne",
+                        "operateur": ">=",
+                        "valeur": 15
+                    },
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Merci de m'avoir raconté ça. Je comprends mieux."
+                    },
+                    "effet": {
+                        "relationEmelyne": 3,
+                        "confianceEmelyne": 3,
+                        "emelyneAParleDeSonPasse": true
+                    },
+                    "next": "finAppelEmelyne"
+                },
+                {
+                    "texte": "Accepter son conseil",
+                    "condition": {
+                        "variable": "confianceEmelyne",
+                        "operateur": "<",
+                        "valeur": 15
+                    },
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Tu as raison. Je vais attendre les faits avant de me condamner."
+                    },
+                    "effet": {
+                        "relationEmelyne": 1,
+                        "confianceEmelyne": 1
+                    },
+                    "next": "finAppelEmelyne"
+                }
+            ]
+        },
+        "conseilEmelyne": {
+            "dialogues": [
+                {
+                    "personnage": "emelyne",
+                    "texte": "Tu n'as pas besoin de décider ce soir s'il est coupable ou innocent.",
+                    "son":"emelyne"                    
+                },
+                {
+                    "personnage": "emelyne",
+                    "texte": "Note exactement ses paroles, son comportement et l'endroit où vous étiez. Tu transmettras tout à la police."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Noter les paroles de Bryan",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "{{nomJoueur}} note les paroles de Bryan dans son téléphone."
+                    },
+                    "effet": {
+                        "temoignageBryanNote": true,
+                        "confianceEmelyne": 1
+                    },
+                    "next": "finAppelEmelyne"
+                }
+            ]
+        },
+        "finAppelEmelyne": {
+            "dialogues": [
+                {
+                    "personnage": "emelyne",
+                    "relationAvec": "emelyne",
+                    "son":"emelyne",
+                    "variantes": {
+                        "negative": "Je vais te laisser.",
+                        "neutre": "Essaie de dormir un peu.",
+                        "amicale": "Appelle-moi si ça ne va pas.",
+                        "proche": "Je peux rester au téléphone aussi longtemps qu'il le faudra."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Terminer l'appel",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Merci, Émelyne. Ça m'a fait du bien de te parler."
+                    },
+                    "effet": {
+                        "relationEmelyne": 2
+                    },
+                    "next": "appelPolice"
+                }
+            ]
+        },
+        "retourCalme":{
+            "dialogues":[
+                {
+                    "personnage":"narrateur",
+                    "texte":"De retour chez lui, {{nomJoueur}} repense à ce que Bryan a perçu dans le quartier."
+                },
+                {
+                    "personnage":"narrateur",
+                    "texte":"Cette information pourrait être importante pour l'enquête."
+                }
+            ],
+            "choix":[
+                {
+                    "texte":"Garder ton téléphone près de  toi",
+                    "message":{
+                        "personnage":"narrateur",
+                        "texte":"{{nomJoueur}} s'assoit, le téléphone posé à côté de lui."
+                    },
+                    "next":"appelPolice"
+                }
+            ]
+        },
+        "appelPolice":{
+            "dialogues":[
+                {
+                    "personnage":"narrateur",
+                    "texte":"Le téléphone de {{nomJoueur}} se met soudainement à sonner."
+                },
+                {
+                    "personnage":"systeme",
+                    "texte":"Appel entrant : numéro privée.",
+                    "son":"systeme"
+                }
+            ],
+            "choix":[
+                {
+                    "texte":"Décrocher",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Allô ?"
+                    },
+                    "next":"convocationPolice"
+                }
+            ]
+        },
+        "convocationPolice":{
+            "dialogues":[
+                {
+                    "personnage":"lieutenant Morel",
+                    "texte":"Bonsoir monsieur. Je suis le lieutenant Morel, je vous appele dans le cadre de l'enquête concernant la dispariton de mademoiselle  Eva Belle.",
+                    "son":"lieutenant morel"
+                },
+                {
+                    "personnage":"lieutenant Morel",
+                    "texte":"Je dois recueillir votre déposition. Vous faisiez partie des dernières personnes connues à avoir passé la soirée avec elle."
+                },
+                {
+                    "personnage":"lieutenant Morel",
+                    "texte":"Je vous attend donc demain matin au commissariat."
+                }
+            ],
+            "choix":[
+                {
+                    "texte":"Accepter",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"D'accord. je serai présent."
+                    },
+                    "effet":{
+                        "convocationPoliceAcceptee":true
+                    },
+                    "next":"instructionPolice"
+                },
+                {
+                    "texte":"Demander si tu es suspect",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"Est-ce que je suis considéré comme suspect ?"
+                    },
+                    "effet":{
+                        "insuietudePolice":2
+                    },
+                    "next":"reponsePolice"
+                }
+            ]
+        },
+        "reponsePolice":{
+            "dialogues":[
+                {
+                    "personnage":"lieutenant Morel",
+                    "texte":"à ce stade, je dois reccueillir les témoignages de toutes les personnes ayant vu mademoiselle Belle avant sa disparition.",
+                    "son":"lieutenant morel"
+                },
+                {
+                    "personnage":"lieutenant Morel",
+                    "texte":"Votre déposition peut nous aider à reconstituer précisément sa soirée."
+                }
+            ],
+            "choix":[
+                {
+                    "texte":"Accepter de venir",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"D'accord je viendrait demain."
+                    },
+                    "effet":{
+                        "convocationPoliceAcceptee":true
+                    },
+                    "next":"instructionPolice"
+                }
+            ]
+        },
+        "instructionPolice":{
+            "dialogues":[
+                {
+                    "personnage":"lieutenant Morel",
+                    "texte":"Apportez votre téléphone et ne supprimez aucun message lié a mademoiselle Belle."
+                },
+                {
+                    "personnage":"lieutenant Morel",
+                    "texte":"Notez aussi tout ce dont vous vous souvenez avant votre arrivée."
+                },
+                {
+                    "personnage": "lieutenant Morel",
+                    "condition": {
+                        "variable": "bryanApercuEva",
+                        "operateur": "===",
+                        "valeur": true
+                    },
+                    "texte":"Toute information sur les déplacements de mademoiselle Belle devra nous être transmise."
+                },
+                {
+                        "personnage": "lieutenant Morel",
+                    "condition": {
+                        "variable": "bryanApercuEva",
+                        "operateur": "===",
+                        "valeur": true
+                    },
+                    "texte":"Même une phrase étrange ou imprécise peut être utile."
+                }
+            ],
+            "choix":[
+                {
+                    "texte":"confirmer",
+                    "message":{
+                        "personnage":"joueur",
+                        "texte":"J'ai compris."
+                    },
+                    "next":"finchapitre9"
+                }
+            ]
+        },
+        "finchapitre9":{
+            "dialogues":[
+                   {
+                    "personnage": "narrateur",
+                    "texte": "L'appel se termine."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Demain, {{nomJoueur}} devra raconter chaque détail de la soirée et expliquer ce que Bryan a révélé."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Chapitre 9 terminé."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Continuer vers le chapitre 10",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "La déposition de {{nomJoueur}} est sur le point de commencer."
+                    },
+                    "next": "chapitre10"
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,529 @@
+{
+ "titre":"chapitre 8 - Aucun signe",
+ "musique":"chapitre8",
+ "debut":"reveilLendemain",
+ "scenes":{
+    "reveilLendemain":{
+        "fond":"chambre_joueur3",
+        "ambiance":"chambre_joueur_réveille",
+        "dialogues":[
+            {
+                "personnage":"narrateur",
+                "texte":"Le lendemain matin, la lumière traverse lentement les rideaux de la chambre de {{nomJoueur}}."
+            },
+            {
+                "personnage":"narrateur",
+                "texte":"Encore à moitié endormi, {{nomJoueur}} repense à la soirée de la veille."
+            },
+            {
+               "personnage":"narrateur",
+               "texte":"UN détail lui revient immédiatement : Eva devait envoyer un message une fois rentrée chez elle." 
+            },
+            {
+              "personnage":"narrateur",
+              "texte":"{{nomJoueur}} attrape son téléphone et ouvre la conversation."  
+            },
+            {
+              "personnage":"systeme",
+              "texte":"Aucun nouveaux message d'Eva",
+              "son":"systeme"
+            }
+        ],
+        "choix":[
+            {
+                "texte":"Lui envoyer un message",
+                "message":{
+                    "personnage":"joueur",
+                    "texte":"Salut Eva. Tu es bien rentrée hier soir ?"
+                },
+                "effet":{
+                "messageEvaMatinEnvoye": true    
+                },
+                "next":"attenteMessageEva"
+            },
+            {
+                "texte":"Vérifier une nouvelle fois la conversation",
+                "message":{
+                    "personnage":"narrateur",
+                    "texte":"{{nomJoueur}} fait défiler la conversation, mais aucun message n'a été reçu pendant la nuit."
+                },
+                "next":"attenteMessageEva"
+            },
+            {
+                "texte":"Contacter immédiatement Zoé",
+                "message":{
+                    "personnage":"joueur",
+                    "texte":"Salut Zoé. Est-ce que tu as eu des nouvelle d'Eva depuis hier soir ?"
+                },
+                "effet":{
+                    "zoeContacteePourEva":true
+                },
+                "next":"reponseZoe"
+            }
+        ]
+    },
+    "attenteMessageEva":{
+        "dialogues":[
+            {
+                "personnage":"narrateur",
+                "texte":"Quelque minute passent."
+            },
+            {
+                "personnage":"narrateur",
+                "texte":"le message reste sans réponse."
+            },
+            {
+                "personnage":"narrateur",
+                "texte":"L'inquiétude de {{nomJoueur}} commence à grandir"
+            }
+        ],
+        "choix":[
+            {
+                "texte":"Demander à Zoé si elle a des nouvelles",
+                "message":{
+                    "personnage":"joueur",
+                    "texte":"Salut Zoé. Est-ce que tu as eu des nouvelle d'Eva depuis hier soir ?"
+                },
+                "effet":{
+                    "zoeContacteePourEva":true
+                },
+                "next":"reponseZoe"
+            }
+        ]
+    },
+    "reponseZoe":{
+        "dialogues":[
+            {
+                "personnage":"zoe",
+                "son":"zoe",
+                "variantes":{
+                    "negative":"Non. pourquoi ?",
+                    "neutre":"Non, pas depuis hier pourquoi ?",
+                    "amicale":"Non... Elle ne t'a pas écrit en rentrant ?",
+                    "proche":"Non... Et maintenant que tu me le demandes, c'est vraiment étrange."
+                }
+            },
+            {
+                "personnage":"joueur",
+                "texte":"elle devait m'envoyer un message quand elle serait rentrée, mais elle ne l'a jamais fait."
+            },
+            {
+                "personnage":"zoe",
+                "variantesConfiance":{
+                    "negative":"Peut-être qu'elle a simplement oublié.",
+                    "faible":"Elle a peut-être oublié ou son téléphone est peut-être déchargé.",
+                    "moyenne":"Ce n'est pas vraiment son genre d'oublier ce genre de chose.",
+                    "haute":"Eva ne promet pas ce genre de chose si elle ne compte pas le faire."
+                }
+            }
+        ],
+        "choix":[
+            {
+                "texte":"Demander à Zoé d'appeler Eva",
+                "message":{
+                    "personnage":"joueur",
+                    "texte":"Tu peux essayer de l'appeler ? Peut-être qu'elle te répondra"
+                },
+                "next":"zoeApelleEva"
+            },
+            {
+                "texte":"Lui demander de contacter les parents d'Eva",
+                "condition":{
+                    "variable":"infoEvaZozAnciennesAmies",
+                    "operateur":"===",
+                    "valeur":true
+                },
+                "message":{
+                    "personnage":"joueur",
+                    "texte":"Vous vous connaissez depuis longtemps. Tu pourrais demander à ses parents s'ils ont des nouvelles ?"
+                },
+                "effet":{
+                    "zoeVacontacterParentsEva":true
+                },
+                "next":"zoePrendLesChosesEnMain"
+            }
+        ]
+    },
+    "zoeApelleEva":{
+        "dialogues":[
+            {
+                "personnage":"narrateur",
+                "texte":"Zoé essaie immédiatement d'appeler Eva."
+            },
+            {
+                "personnage":"narrateur",
+                "texte":"Quelque instants plus tard, elle répons à {{nomJoueur}}."
+            },
+            {
+                "personnage":"zoe",
+                "son":"zoe",
+                "texte":"Elle ne répond pas."
+            },
+            {
+                "personnage":"zoe",
+                "variantes":{
+                    "negative":"Je vais attendre un peu.",
+                    "neutre":"Je vais essayer de joindre ses parents",
+                    "amicale":"Je vais appeler ses parents. Ils savent peut-être quelque chose.",
+                    "proche":"Je m'en occupe. Je vais appeler ses patents et continuer d'essayer de joindre Eva."
+                }
+            }
+        ],
+        "choix":[
+            {
+                "texte":"Laisser Zoé vérifier de son côté",
+                "message":{
+                    "personnage":"joueur",
+                    "texte":"D'accord. Préviens-moi dès que tu sais quelque chose."
+                },
+                "effet":{
+                    "zoeContacteePourEva":true
+                },
+                "next":"verifierEmelyne"
+            }
+        ]
+    },
+    "zoePrendLesChosesEnMain":{
+        "dialogues":[
+            {
+                "personnage":"zoe",
+                "texte":"Oui. Je vais appeler chez elle",
+                "son":"zoe"
+            },
+            {
+                "personnage":"zoe",
+                "texte":"Je vais aussi continuer de joindre Eva."
+            },
+            {
+                "personnage":"zoe",
+                "variantes":{
+                    "negative":"Je te préviendrait si j'apprend quelque chose.",
+                    "neutre":"Je te tiens au courant.",
+                    "amicale":"Ne t'inquiète pas seull. Je te tiens au courant dès que j'ai une réponse.",
+                    "proche":"Je m'en occupe. Dès que je sais quelque chose, je te préviens."
+                }
+            }
+        ],
+        "choix":[
+            {
+                "texte":"Vérifier si Emelyne est bien rentrée",
+                "message":{
+                    "personnage":"narrateur",
+                    "texte":"En attendant la réponse de Zoé, {{nomJoueur}} pense à émelyne."
+                },
+                "next":"verifierEmelyne"
+            }
+        ]
+    },
+    "verifierEmelyne":{
+        "dialogues":[
+            {
+                "personnage":"narrateur",
+                "texte":"{{nomJoueur}} ouvre la conversation avec émelyne."
+            }
+        ],
+        "choix":[
+            {
+                "texte":"Lui demander si elle est bien rentrée",
+                "message":{
+                    "personnage":"joueur",
+                    "texte":"Salut émelyne. Tu es bien rentrée hier soir ?"
+                },
+                "next":"reponseEmelyneMatin"
+            }
+        ]
+    },
+    "reponseEmelyneMatin":{
+        "dialogues":[
+            {
+                "personnage":"emelyne",
+                "son":"emelyne",
+                "variantes":{
+                    "negative":"Oui pourquoi ?",
+                    "neutre":"Oui, je suis bien rentrée. Pourquoi ?",
+                    "amicale":"Oui, je suis bien rentrée. Tu t'inquiétais ?",
+                    "proche":"Oui, je suis vien rentrée. C'est gentil de vérifier."
+                }
+            }
+        ],
+        "choix":[
+            {
+                "texte":"Lui parler d'Eva",
+                "message":{
+                    "personnage":"joueur",
+                    "texte":"Personne n'a de nouvelle d'Eva depuis hier soir. Elle devait m'écrire une fois rentrée, mais elle ne l'a jamais fait."
+                },
+                "next":"reactionEmelyneEva"
+            }
+        ]
+    },
+    "reactionEmelyneEva":{
+        "dialogues":[
+            {
+                "personnage":"emelyne",
+                "son":"emelyne",
+                "variantesConfiance":{
+                    "negative":"Je ne sais pas quoi te dire.",
+                    "faible":"Il vaut mieux attendre un peut elle vas surment te répondre.",
+                    "haute":"Préviens-moi dès qu tu apprends quelque chose.",
+                    "moyenne":"Je vais garder mon téléphone près de moi. Si tu as besoin d'aide, tu m'appelles immédiatement."
+                }
+            }
+        ],
+        "choix":[
+            {
+                "texte":"La remercier",
+                "message":{
+                    "personnage":"joueur",
+                    "texte":"Merci. Je te previens dès que j'en sais plus."
+                },
+                "effet":{
+                    "relationEmelyne":1,
+                    "confianceEmelyne":1
+                },
+                "next":"appelChristophe"
+            }
+        ]
+    },
+    "appelChristophe":{
+        "dialogues":[
+            {
+                "personnage":"narrateur",
+                "texte":"Quelque instants après la conversation  avec émelyne, le téléphone de {{nomJoueur}} se met à sonner."
+            },
+            {
+                "personnage":"systeme",
+                "texte":"Appel entrant: numéro inconnu.",
+                "son":"systeme"
+            }
+        ],
+        "choix":[
+            {
+                "texte":"Décrocher",
+                "message":{
+                    "personnage":"joueur",
+                    "texte":"Allo ?"
+                },
+                "next":"presentationChristophe"
+            }
+        ]
+    },
+    "presentationChristophe":{
+        "dialogues":[
+            {
+                "personnage":"christophe",
+                "texte":"Bonjour. Je suis Christophe, le père d'éva",
+                "son":"christophe"
+            },
+            {
+                "personnage":"christophe",
+                "condition":{
+                    "variable":"zoeVacontacterParentsEva",
+                    "operateur":"===",
+                    "valeur":true
+                },
+                "message":{
+                    "personnage":"christophe",
+                    "texte":"Zoé vient de m'appeler? Elle ma dit que vous étiez ensemble hier soir."
+                }
+            },
+            {
+                "personnage":"christophe",
+                "condition":{
+                    "variable":"zoeVacontacterParentsEva",
+                    "operateur":"===",
+                    "valeur":true
+                },
+                "message":{
+                    "texte":"Je suis inquiet. Eva n'est pas rentrée et je n'ai aucune nouvelle d'elle."
+                }
+            },
+            {
+                "personnage":"christophe",
+                "texte":"Est-ce que vous savez où elle pourrait être ?"
+            }
+        ],
+        "choix":[
+            {
+                "texte":"Dire que tu ne sais pas.",
+                "message":{
+                    "personnage":"joueur",
+                    "texte":"Non. Je ne sais pas où elle est."
+                },
+                "next":"expliquerDernierSoiree"
+            },
+            {
+                "texte":"Raconter directement la fin de la soirée.",
+                "message":{
+                    "personnage":"joueur",
+                    "texte":"Je l'ai vu partir après la soirée, mais je n'ai plus eu de nouvelles depuis."
+                },
+                "next":"expliquerDernierSoiree"
+            }
+        ]
+    },
+    "expliquerDernierSoiree":{
+        "dialogues":[
+            {
+                "personnage":"christophe",
+                "texte":"à quelle heure l'avez-vous vue pour la dernière fois ?",
+                "son":"christophe"
+            },
+            {
+                "personnage":"narrateur",
+                "texte":"{{nomJoueur}} repense aux derniers instant devant la maison de Zoé."
+            }
+        ],
+        "choix":[
+            {
+                "texte":"Parler du message qu'Eva devait encoyer",
+                "message":{
+                    "personnage":"joueur",
+                    "texte":"Avant qu'elle parte, je lui ai demandé de m'envoyer un message quand elle serait rentrée. Elle ma promis de le faire, mais je n'ai jamais rien reçu."
+                },
+                "effet":{
+                    "christopheInformePromesseEva":true
+                },
+                "next":"paniqueChristophe"
+            }
+        ]
+    },
+    "paniqueChristophe":{
+        "musique":"atmosfere_lourd",
+        "dialogues":[
+            {
+                "personnage":"narrateur",
+                "texte":"Un silence lourd s'installe au téléphone."
+            },
+            {
+                "personnage":"narrateur",
+                "texte":"La respiration de christophe devient plus rapide."
+            },
+            {
+                "personnage":"christophe",
+                "texte":"Vous êtes certain qu'elle vous avait promis de vous écrire ?",
+                "son":"christophe"
+            },
+            {
+                "personnage":"joueur",
+                "texte":"Oui" 
+            },
+            {
+                "personnage":"christophe",
+                "texte":"Eva tient toujours ce genre de promesse."
+            },
+            {
+                "personnage":"christophe",
+                "texte":"Pourquoi vous ne m'avez pas prévenu plus tôt ?"
+            },
+            {
+                "personnage":"christophe",
+                "texte":"Vous saviez qu'elle devait vous écrire. Vous auriez dû faire davantage attention à elle."
+            },
+            {
+                "personnage":"narrateur",
+                "texte":"Sa voix tremble entre la peur et la colère."
+            }
+        ],
+        "choix":[
+            {
+                "texte":"Expliquer que tu pensais qu'elle avait simplement oublié",
+                "message":{
+                    "personnage":"joueur",
+                    "texte":"Je penssais qu'elle s'était endormie ou qu'elle avait oublié. Je ne savais pas qu'elle n'étais jamais rentrée."
+                },
+                "effet":{
+                    "culpabiliteDisparitionEva":2
+                },
+                "next":"decisionPolice"
+            },
+            {
+                "texte":"Presenter tes excuse",
+                "message":{
+                    "personnage":"joueur",
+                    "texte":"Je suis désolé? J'aurais dû réagir plus tôt."
+                },
+                "effet":{
+                    "culpabiliteDisparitionEva":4,
+                    "relationChristophe":1
+                },
+                "next":"decisionPolice"
+            },
+            {
+                "texte":"Refuser d'être tenu responsable",
+                "message":{
+                    "personnage":"joueur",
+                    "texte":"Je ne pouvais pas qavoir qu'elle avait disparu. Je n'était pas responsable de son trajet."
+                },
+                "effet":{
+                    "culpabiliteDisparitionEva":0,
+                    "relationChristophe":-2
+                },
+                "next":"decisionPolice"
+            }
+        ]
+    },
+    "decisionPolice":{
+        "dialogues":[
+            {
+                "personnage":"christophe",
+                "texte":"Je vais appeler la police immédiatement.",
+                "son":"christophe"
+            },
+            {
+                "personnage":"christophe",
+                "texte":"Gardez votre téléphone près de vous. Ils voudront probablement vous parler."
+            },
+            {
+                "personnage":"christophe",
+                "texte":"Essayer de vous souvenir du moindre détail."
+            },
+            {
+                "personnage":"narrateur",
+                "texte":"L'appel prend fin."
+            },
+            {
+                "personnage":"systeme",
+                "texte":"Christophe a décidé de signaler la disparion d'Eva à la police"
+            }
+        ],
+        "choix":[
+            {
+                "texte":"Relire les dernier messages d'Eva",
+                "message":{
+                    "personnage":"narrateur",
+                    "texte":"{{nomJoueur}} ouvre une nouvelle fois la conversation avec Eva, cherchent un détail qui aurait pu lui échapper."
+                },
+                "next":"finchapitre8"
+            }
+        ]
+    },
+    "finchapitre8":{
+        "musique":"chapitre8",
+        "dialogues":[
+            {
+                "personnage":"narrateur",
+                "texte":"Le dernier message d'Eva reste affiché sur l'écran."
+            },
+            {
+                "personnage":"narrateur",
+                "texte":"Quelque mots ordinaires, devenus soudainement inquiétants."
+            },
+            {
+                "personnage":"narrateur",
+                "texte":"Chapitre 8 terminé."
+            }
+        ],
+        "choix":[
+            {
+                "texte":"continuer vers le chapitre 9",
+                "message":{
+                    "personnage":"narrateur",
+                    "texte":"La recherche d'Eva est sur le point de commencer."
+                },
+                "next":"chapitre9"
+            }
+        ]
+    }
+  }
+}

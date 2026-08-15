@@ -1,0 +1,2032 @@
+{
+    "titre": "Chapitre 3 - Premier message",
+    "musique": "chapitre3",
+    "debut": "premierMessage",
+    "scenes": {
+        "premierMessage": {
+            "fond":"chambre_joueur",
+            "ambiance":"appartement joueur",
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Plus tard dans la journée, tu décides d'envoyer un premier message à Eva."
+                },
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "On se connaît ?",
+                        "neutre": "On se connaît ?",
+                        "amicale": "Salut. On s'est déjà parlé, non ?",
+                        "proche": "Salut {{nomJoueur}}. Je me demandais quand tu allais m'écrire."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Lui rappeler votre rencontre à la cafétéria",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "On s'est rencontrés plus tôt dans la semaine, à la cafétéria."
+                    },
+                    "condition": {
+                        "variable": "rencontreZoe",
+                        "operateur": "===",
+                        "valeur": true
+                    },
+                    "next": "souvenirCafeteria"
+                },
+                {
+                    "texte": "Lui rappeler le cours de géologie",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "On suit le même cours de géologie."
+                    },
+                    "next": "souvenirGeologie"
+                },
+                {
+                    "texte": "Être directement honnête",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Pas encore vraiment, mais j'aimerais beaucoup apprendre à te connaître. Tu me plais déjà."
+                    },
+                    "effet": {
+                        "relationEva": 1,
+                        "audace": 2
+                    },
+                    "next": "reponseApprocheDirecte"
+                }
+            ]
+        },
+        "souvenirCafeteria": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "Ah. Oui, je crois me souvenir.",
+                        "neutre": "Ah oui, je me souviens.",
+                        "amicale": "Ah oui, bien sûr. Je me souviens maintenant.",
+                        "proche": "Évidemment que je me souviens. Je voulais voir comment tu allais me le rappeler."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "variantes": {
+                        "negative": "Tu es le nouveau, c'est ça ?",
+                        "neutre": "Tu es le nouveau, c'est ça ?",
+                        "amicale": "Tu es bien {{nomJoueur}}, le nouveau ?",
+                        "proche": "Tu es {{nomJoueur}}. Je n'avais pas oublié ton prénom."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Répondre avec enthousiasme",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "C'est bien ça ! :)"
+                    },
+                    "effet": {
+                        "relationEva": 2,
+                        "humour": 1
+                    },
+                    "next": "rappelIncidentZoe"
+                },
+                {
+                    "texte": "Répondre simplement",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Oui, c'est moi."
+                    },
+                    "effet": {
+                        "confianceEva": 1
+                    },
+                    "next": "rappelIncidentZoe"
+                }
+            ]
+        },
+        "rappelIncidentZoe": {
+            "dialogues": [
+                {
+                    "personnage": "joueur",
+                    "texte": "On a discuté juste après que ton amie a renversé son chocolat chaud sur sa voisine."
+                },
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "C'est Zoé.",
+                        "neutre": "C'est Zoé.",
+                        "amicale": "C'est Zoé.",
+                        "proche": "C'est Zoé."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "variantes": {
+                        "negative": "Elle est un peu geek sur les bords.",
+                        "neutre": "Elle est un peu geek sur les bords.",
+                        "amicale": "Elle est un peu geek sur les bords.",
+                        "proche": "Elle est un peu geek sur les bords."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "variantes": {
+                        "negative": "Elle s'était énervée parce que sa voisine lui avait demandé d'arrêter de parler de ses jeux vidéo.",
+                        "neutre": "Elle s'était énervée parce que sa voisine lui avait demandé d'arrêter de parler de ses jeux vidéo.",
+                        "amicale": "Elle s'était énervée parce que sa voisine lui avait demandé d'arrêter de parler de ses jeux vidéo.",
+                        "proche": "Elle s'était énervée parce que sa voisine lui avait demandé d'arrêter de parler de ses jeux vidéo."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "variantes": {
+                        "negative": "C'était assez drôle à voir .",
+                        "neutre": "C'était assez drôle à voir :)",
+                        "amicale": "C'était assez drôle à voir :)",
+                        "proche": "C'était assez drôle à voir :)"
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "variantes": {
+                        "negative": "Enfin, c'est une personne géniale.",
+                        "neutre": "Enfin, c'est une personne géniale.",
+                        "amicale": "Enfin, c'est une personne géniale.",
+                        "proche": "Enfin, c'est une personne géniale."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Complimenter aussi Eva",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Tout comme toi !"
+                    },
+                    "effet": {
+                        "relationEva": 4,
+                        "audace": 1
+                    },
+                    "next": "complimentEva"
+                },
+                {
+                    "texte": "Être d'accord au sujet de Zoé",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "J'en suis certain :)"
+                    },
+                    "effet": {
+                        "relationZoe": 2,
+                        "confianceEva": 1
+                    },
+                    "next": "evaParleDeBryanSimple"
+                }
+            ]
+        },
+        "evaParleDeBryanSimple": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "Tu vois ! Même toi, tu as remarqué que c'est une superbe personne !",
+                        "neutre": "Tu vois ! Même toi, tu as remarqué que c'est une superbe personne !",
+                        "amicale": "Tu vois ! Même toi, tu as remarqué que c'est une superbe personne !",
+                        "proche": "Tu vois ! Même toi, tu as remarqué que c'est une superbe personne !"
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "variantes": {
+                        "negative": "Bon, je suis désolée de couper court, mais je dois rejoindre Bryan dans une heure.",
+                        "neutre": "Bon, je suis désolée de couper court, mais je dois rejoindre Bryan dans une heure.",
+                        "amicale": "Bon, je suis désolée de couper court, mais je dois rejoindre Bryan dans une heure.",
+                        "proche": "Bon, je suis désolée de couper court, mais je dois rejoindre Bryan dans une heure."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "variantes": {
+                        "negative": "C'est un garçon que j'ai aussi rencontré à la cafétéria.",
+                        "neutre": "C'est un garçon que j'ai aussi rencontré à la cafétéria.",
+                        "amicale": "C'est un garçon que j'ai aussi rencontré à la cafétéria.",
+                        "proche": "C'est un garçon que j'ai aussi rencontré à la cafétéria."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Accepter sans faire de remarque",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Pas de souci."
+                    },
+                    "effet": {
+                        "confianceEva": 2
+                    },
+                    "next": "evaPropose22h"
+                },
+                {
+                    "texte": "Mettre Eva en garde contre Bryan",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je le connais. Ce n'est pas un mec bien."
+                    },
+                    "effet": {
+                        "relationBryan": -2,
+                        "confianceEva": -1
+                    },
+                    "next": "evaDefendBryan"
+                }
+            ]
+        },
+        "complimentEva": {
+            "dialogues": [
+                {
+                    "personnage": "joueur",
+                    "texte": "C'est d'ailleurs pour ça que je t'ai ajoutée. J'essaie de m'entourer de bonnes personnes."
+                },
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "C'est gentil.",
+                        "neutre": "Oh, c'est très gentil.",
+                        "amicale": "Oh... c'est vraiment gentil de me dire ça.",
+                        "proche": "Tu sais vraiment comment me prendre au dépourvu."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "variantes": {
+                        "negative": "Je ne m'attendais pas à ça.",
+                        "neutre": "Ça me touche beaucoup.",
+                        "amicale": "Ça me touche plus que tu ne l'imagines.",
+                        "proche": "Ça me touche vraiment, surtout venant de toi."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "variantes": {
+                        "negative": "Qu'est-ce qui te fait penser ça ?",
+                        "neutre": "Mais... qu'est-ce qui te fait dire que je suis une bonne personne ?",
+                        "amicale": "Qu'est-ce qui t'a donné cette impression aussi rapidement ?",
+                        "proche": "Qu'est-ce que tu as vu chez moi pour être aussi sûr de toi ?"
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Tout lui dire",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Ta façon de parler, ta façon d'être, ta façon de sourire..."
+                    },
+                    "effet": {
+                        "relationEva": 5,
+                        "audace": 2
+                    },
+                    "next": "evaToucheeCompliment"
+                },
+                {
+                    "texte": "Dire que tu prends le risque",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je prends le risque de me tromper."
+                    },
+                    "effet": {
+                        "relationEva": 2,
+                        "confianceEva": 2
+                    },
+                    "next": "evaReagitRisque"
+                }
+            ]
+        },
+        "evaToucheeCompliment": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "C'est beaucoup pour quelqu'un que tu connais à peine.",
+                        "neutre": "Ce que tu dis est vraiment très mignon.",
+                        "amicale": "Ce que tu dis est vraiment très mignon... Je ne m'attendais pas à ça.",
+                        "proche": "Ce que tu dis est vraiment très mignon. Tu réussis encore à me surprendre."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "variantes": {
+                        "negative": "Oh, j'allais complètement oublier !",
+                        "neutre": "Oh, j'allais complètement oublier !",
+                        "amicale": "Oh, j'allais complètement oublier !",
+                        "proche": "Oh, j'allais complètement oublier !"
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "variantes": {
+                        "negative": "Je dois sortir avec Bryan.",
+                        "neutre": "Je dois sortir avec Bryan.",
+                        "amicale": "Je dois sortir avec Bryan.",
+                        "proche": "Je dois sortir avec Bryan."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "variantes": {
+                        "negative": "C'est un garçon que j'ai rencontré à la cafétéria de l'université.",
+                        "neutre": "C'est un garçon que j'ai rencontré à la cafétéria de l'université.",
+                        "amicale": "C'est un garçon que j'ai rencontré à la cafétéria de l'université.",
+                        "proche": "C'est un garçon que j'ai rencontré à la cafétéria de l'université."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Accepter sans faire de remarque",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Pas de souci."
+                    },
+                    "effet": {
+                        "confianceEva": 2
+                    },
+                    "next": "evaPropose22h"
+                },
+                {
+                    "texte": "Mettre Eva en garde contre Bryan",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je le connais. Ce n'est pas un mec bien."
+                    },
+                    "effet": {
+                        "confianceEva": -1,
+                        "relationBryan": -2
+                    },
+                    "next": "evaDefendBryan"
+                }
+            ]
+        },
+        "evaReagitRisque": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "Au moins, tu reconnais que tu peux te tromper.",
+                        "neutre": "Au moins, tu es honnête.",
+                        "amicale": "Au moins, tu es honnête. J'apprécie ça.",
+                        "proche": "Au moins, tu es honnête. C'est aussi quelque chose que j'apprécie chez toi."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "variantes": {
+                        "negative": "J'espère que tu ne te trompes pas alors .",
+                        "neutre": "J'espère que tu ne te trompes pas alors :)",
+                        "amicale": "J'espère que tu ne te trompes pas alors :)",
+                        "proche": "J'espère que tu ne te trompes pas alors :)"
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "variantes": {
+                        "negative": "Je dois bientôt rejoindre Bryan, un garçon que j'ai rencontré à la cafétéria.",
+                        "neutre": "Je dois bientôt rejoindre Bryan, un garçon que j'ai rencontré à la cafétéria.",
+                        "amicale": "Je dois bientôt rejoindre Bryan, un garçon que j'ai rencontré à la cafétéria.",
+                        "proche": "Je dois bientôt rejoindre Bryan, un garçon que j'ai rencontré à la cafétéria."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Ne pas faire de remarque",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Pas de souci."
+                    },
+                    "effet": {
+                        "confianceEva": 2
+                    },
+                    "next": "evaPropose22h"
+                },
+                {
+                    "texte": "Mettre Eva en garde",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je le connais. Ce n'est pas un mec bien."
+                    },
+                    "effet": {
+                        "confianceEva": -1,
+                        "relationBryan": -2
+                    },
+                    "next": "evaDefendBryan"
+                }
+            ]
+        },
+        "evaDefendBryan": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "Ah bon ?",
+                        "neutre": "Ah bon ?",
+                        "amicale": "Ah bon ?",
+                        "proche": "Ah bon ?"
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "variantes": {
+                        "negative": "Je n'ai pas eu cette impression-là.",
+                        "neutre": "Je n'ai pas eu cette impression-là.",
+                        "amicale": "Je n'ai pas eu cette impression-là.",
+                        "proche": "Je n'ai pas eu cette impression-là."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "variantes": {
+                        "negative": "Il avait l'air plutôt timide avec moi.",
+                        "neutre": "Il avait l'air plutôt timide avec moi.",
+                        "amicale": "Il avait l'air plutôt timide avec moi.",
+                        "proche": "Il avait l'air plutôt timide avec moi."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "variantes": {
+                        "negative": "Je trouve ça mignon.",
+                        "neutre": "Je trouve ça mignon.",
+                        "amicale": "Je trouve ça mignon.",
+                        "proche": "Je trouve ça mignon."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "variantes": {
+                        "negative": "Tu peux m'écrire vers 22 h si tu veux.",
+                        "neutre": "Tu peux m'envoyer un message vers 22 h. Je serai de retour.",
+                        "amicale": "Tu peux m'envoyer un message vers 22 h. Je devrais être rentrée.",
+                        "proche": "Écris-moi vers 22 h. J'aurai envie de reprendre notre conversation."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Répondre sans promettre",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Si j'y pense."
+                    },
+                    "effet": {
+                        "relationEva": -1
+                    },
+                    "next": "evaReponseSiJyPense"
+                },
+                {
+                    "texte": "Accepter simplement",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Pas de souci."
+                    },
+                    "effet": {
+                        "confianceEva": 1
+                    },
+                    "next": "evaReponsePasDeSouci"
+                },
+                {
+                    "texte": "Montrer ton enthousiasme",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "J'ai hâte !"
+                    },
+                    "effet": {
+                        "relationEva": 2
+                    },
+                    "next": "evaReponseHate"
+                }
+            ]
+        },
+        "evaPropose22h": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "Tu peux m'écrire vers 22 h si tu veux.",
+                        "neutre": "Tu peux m'envoyer un message vers 22 h. Je serai de retour.",
+                        "amicale": "Tu peux m'envoyer un message vers 22 h. Je devrais être rentrée.",
+                        "proche": "Écris-moi vers 22 h. J'attendrai probablement ton message."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Répondre sans promettre",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Si j'y pense."
+                    },
+                    "effet": {
+                        "relationEva": -1
+                    },
+                    "next": "evaReponseSiJyPense"
+                },
+                {
+                    "texte": "Accepter simplement",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Pas de souci."
+                    },
+                    "effet": {
+                        "confianceEva": 1
+                    },
+                    "next": "evaReponsePasDeSouci"
+                },
+                {
+                    "texte": "Montrer ton enthousiasme",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "J'ai hâte !"
+                    },
+                    "effet": {
+                        "relationEva": 2
+                    },
+                    "next": "evaReponseHate"
+                }
+            ]
+        },
+        "evaReponseSiJyPense": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "D'accord.",
+                        "neutre": "D'accord.",
+                        "amicale": "D'accord... Essaie quand même d'y penser.",
+                        "proche": "D'accord... mais j'espère vraiment que tu y penseras."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "variantes": {
+                        "negative": "À ce soir.",
+                        "neutre": "À ce soir.",
+                        "amicale": "À ce soir.",
+                        "proche": "À ce soir."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Terminer la conversation",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "Eva se déconnecte pour aller rejoindre Bryan."
+                    },
+                    "next": "finPremierMessage"
+                }
+            ]
+        },
+        "evaReponsePasDeSouci": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "variantes": {
+                        "negative": "À ce soir.",
+                        "neutre": "À ce soir.",
+                        "amicale": "À ce soir, {{nomJoueur}}.",
+                        "proche": "À ce soir, {{nomJoueur}}. J'attendrai ton message."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Terminer la conversation",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "Eva se déconnecte pour aller rejoindre Bryan."
+                    },
+                    "next": "finPremierMessage"
+                }
+            ]
+        },
+        "evaReponseHate": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "Tu es très enthousiaste.",
+                        "neutre": "Haha, tu es très enthousiaste.",
+                        "amicale": "Haha, tu es vraiment très enthousiaste, {{nomJoueur}}.",
+                        "proche": "Haha, tu es vraiment adorable quand tu es aussi enthousiaste."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "variantes": {
+                        "negative": "À ce soir.",
+                        "neutre": "À ce soir.",
+                        "amicale": "À ce soir.",
+                        "proche": "À ce soir."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Terminer la conversation",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "Eva se déconnecte pour aller rejoindre Bryan."
+                    },
+                    "next": "finPremierMessage"
+                }
+            ]
+        },
+        "souvenirGeologie": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "Ah oui !",
+                        "neutre": "Ah oui !",
+                        "amicale": "Ah oui !",
+                        "proche": "Ah oui !"
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "variantes": {
+                        "negative": "Tu es le nouveau avec qui j'ai travaillé en géologie.",
+                        "neutre": "Tu es le nouveau avec qui j'ai travaillé en géologie.",
+                        "amicale": "Tu es le nouveau avec qui j'ai travaillé en géologie.",
+                        "proche": "Tu es le nouveau avec qui j'ai travaillé en géologie."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "variantes": {
+                        "negative": "Je me souviens maintenant.",
+                        "neutre": "Je me souviens maintenant.",
+                        "amicale": "Je me souviens maintenant.",
+                        "proche": "Je me souviens maintenant."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Confirmer",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Oui, c'est bien moi."
+                    },
+                    "effet": {
+                        "relationEva": 2
+                    },
+                    "next": "discussionGeologie"
+                },
+                {
+                    "texte": "Faire une plaisanterie",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Celui qui essayait surtout de ne pas se perdre dans les consignes."
+                    },
+                    "effet": {
+                        "relationEva": 3,
+                        "humour": 1
+                    },
+                    "next": "discussionGeologie"
+                }
+            ]
+        },
+        "discussionGeologie": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "Tu ne t'en es pas si mal sorti.",
+                        "neutre": "Tu ne t'en es pas si mal sorti.",
+                        "amicale": "Tu ne t'en es pas si mal sorti.",
+                        "proche": "Tu ne t'en es pas si mal sorti."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "variantes": {
+                        "negative": "Le travail était correct.",
+                        "neutre": "En tout cas, j'ai bien aimé travailler avec toi.",
+                        "amicale": "En tout cas, j'ai vraiment bien aimé travailler avec toi.",
+                        "proche": "J'ai vraiment aimé travailler avec toi. J'espère qu'on sera encore ensemble une prochaine fois."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "variantes": {
+                        "negative": "Je dois rejoindre Bryan dans une heure, mais on pourra reparler plus tard.",
+                        "neutre": "Je dois rejoindre Bryan dans une heure, mais on pourra reparler plus tard.",
+                        "amicale": "Je dois rejoindre Bryan dans une heure, mais on pourra reparler plus tard.",
+                        "proche": "Je dois rejoindre Bryan dans une heure, mais on pourra reparler plus tard."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Accepter",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Pas de souci."
+                    },
+                    "next": "evaPropose22h"
+                },
+                {
+                    "texte": "Mettre Eva en garde contre Bryan",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je le connais. Ce n'est pas un mec bien."
+                    },
+                    "next": "evaDefendBryan"
+                }
+            ]
+        },
+        "evaPoseLimite": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "Je comprends.",
+                        "neutre": "Je comprends.",
+                        "amicale": "Je comprends.",
+                        "proche": "Je comprends."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "variantes": {
+                        "negative": "Mais je préfère qu'on prenne notre temps.",
+                        "neutre": "Mais je préfère qu'on prenne notre temps.",
+                        "amicale": "Mais je préfère qu'on prenne notre temps.",
+                        "proche": "Mais je préfère qu'on prenne notre temps."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "variantes": {
+                        "negative": "Tu peux m'envoyer un message vers 22 h si tu veux.",
+                        "neutre": "Tu peux m'envoyer un message vers 22 h si tu veux.",
+                        "amicale": "Tu peux m'envoyer un message vers 22 h si tu veux.",
+                        "proche": "Tu peux m'envoyer un message vers 22 h si tu veux."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Accepter sa limite",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "D'accord. Je respecte ça."
+                    },
+                    "effet": {
+                        "confianceEva": 2
+                    },
+                    "next": "evaReponsePasDeSouci"
+                }
+            ]
+        },
+        "finPremierMessage": {
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "relationAvec": "eva",
+                    "variantes": {
+                        "negative": "La première conversation privée avec Eva vient de se terminer assez rapidement.",
+                        "neutre": "La première conversation privée avec Eva vient de se terminer.",
+                        "amicale": "La première conversation privée avec Eva se termine sur une impression plutôt positive.",
+                        "proche": "La première conversation privée avec Eva se termine, mais tu as l'impression qu'aucun de vous n'avait vraiment envie de s'arrêter."
+                    }
+                },
+                {
+                    "personnage": "narrateur",
+                    "relationAvec": "eva",
+                    "variantes": {
+                        "negative": "Elle t'a malgré tout laissé la possibilité de lui écrire vers 22 h.",
+                        "neutre": "Elle t'a proposé de reprendre la discussion vers 22 h.",
+                        "amicale": "Elle t'a proposé de reprendre la discussion vers 22 h et semblait sincèrement en avoir envie.",
+                        "proche": "Elle t'a demandé de lui écrire vers 22 h, comme si ce prochain échange comptait déjà pour elle."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Sortir prendre l'air",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "Tu décides de sortir un moment plutôt que de rester à attendre devant ton téléphone."
+                    },
+                    "next": "sortieApresMessage"
+                },
+                {
+                    "texte": "Rester chez toi",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "Tu décides de rester chez toi en attendant que l'heure avance."
+                    },
+                    "next": "attenteChezSoi"
+                }
+            ]
+        },
+        "sortieApresMessage": {
+            "ambiance":"rue parisienne",
+            "fond":"rue_parisienne",
+            "musique": "promenade",
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Tu enfiles ta veste et quittes ton logement."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "L'air frais te fait du bien après cette première conversation avec Eva."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Tu marches sans destination précise, en repensant à ses messages."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Au détour d'une rue, tu aperçois une silhouette familière devant une librairie."
+                },
+                {
+                    "personnage": "emelyne",
+                    "fomd":"rue_croise_emelyne",
+                    "ambiance":"rue_parisienne_nuit",
+                    "son":"emelyne",
+                    "variantes": {
+                        "negative": "Bonsoir.",
+                        "neutre": "Tiens... Salut.",
+                        "amicale": "Tiens, salut {{nomJoueur}}.",
+                        "proche": "Salut {{nomJoueur}}. Je ne pensais pas te croiser ici, mais ça me fait plaisir."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Aller saluer Émelyne",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Salut, Émelyne. Je ne pensais pas te croiser ici."
+                    },
+                    "effet": {
+                        "relationEmelyne": 2
+                    },
+                    "next": "discussionLibrairie"
+                },
+                {
+                    "texte": "Lui demander ce qu'elle fait ici",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Salut. Tu fais quoi devant cette librairie à cette heure-ci ?"
+                    },
+                    "effet": {
+                        "confianceEmelyne": 1
+                    },
+                    "next": "discussionLibrairie"
+                }
+            ]
+        },
+        "discussionLibrairie": {
+            "dialogues": [
+                {
+                    "personnage": "emelyne",
+                    "son":"emelyne",
+                    "variantes": {
+                        "negative": "Je viens chercher un livre.",
+                        "neutre": "Je viens chercher un livre que j'avais commandé.",
+                        "amicale": "Je viens chercher un livre que j'avais commandé. J'attendais sa sortie depuis un moment.",
+                        "proche": "Je viens chercher un livre que j'avais commandé. Je te montrerai peut-être lequel si ça t'intéresse."
+                    }
+                },
+                {
+                    "personnage": "emelyne",
+                    "variantes": {
+                        "negative": "Ils ferment bientôt, alors je suis venue directement après mes devoirs.",
+                        "neutre": "Ils ferment bientôt, alors je suis venue directement après mes devoirs.",
+                        "amicale": "Ils ferment bientôt, alors je suis venue directement après mes devoirs.",
+                        "proche": "Ils ferment bientôt, alors je suis venue directement après mes devoirs."
+                    }
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Elle tient un sac contenant plusieurs livres."
+                },
+                {
+                    "personnage": "emelyne",
+                    "variantes": {
+                        "negative": "Et toi ?",
+                        "neutre": "Et toi ? Tu te promènes tout seul ?",
+                        "amicale": "Et toi ? Tu te promènes seul à cette heure-ci ?",
+                        "proche": "Et toi ? Qu'est-ce qui t'amène ici tout seul ? Tu avais besoin de prendre l'air ?"
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Dire que tu avais besoin de prendre l'air",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "J'avais besoin de prendre un peu l'air et de penser à autre chose."
+                    },
+                    "effet": {
+                        "confianceEmelyne": 2
+                    },
+                    "next": "emelyneProposeMarcher"
+                },
+                {
+                    "texte": "Lui parler de ta conversation avec Eva",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je viens de discuter avec Eva. Elle est sortie rejoindre Bryan, alors j'ai décidé de marcher un peu."
+                    },
+                    "effet": {
+                        "confianceEmelyne": 3
+                    },
+                    "next": "reactionEmelyneEva"
+                },
+                {
+                    "texte": "Rester vague",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je n'avais rien de particulier à faire, alors je suis sorti."
+                    },
+                    "effet": {
+                        "relationEmelyne": 1
+                    },
+                    "next": "emelyneProposeMarcher"
+                }
+            ]
+        },
+        "reactionEmelyneEva": {
+            "dialogues": [
+                {
+                    "personnage": "emelyne",
+                    "son":"emelyne",
+                    "variantes": {
+                        "negative": "Eva et Bryan ?",
+                        "neutre": "Eva et Bryan ?",
+                        "amicale": "Eva et Bryan ? Je ne savais pas qu'ils se voyaient.",
+                        "proche": "Eva et Bryan ? Je comprends mieux pourquoi tu semblais préoccupé."
+                    }
+                },
+                {
+                    "personnage": "emelyne",
+                    "variantes": {
+                        "negative": "Je ne savais pas qu'ils se connaissaient aussi bien.",
+                        "neutre": "Je ne savais pas qu'ils se connaissaient aussi bien.",
+                        "amicale": "Je ne savais pas qu'ils se connaissaient aussi bien.",
+                        "proche": "Je ne savais pas qu'ils se connaissaient aussi bien."
+                    }
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Émelyne semble surprise, mais ne fait aucun commentaire négatif."
+                },
+                {
+                    "personnage": "emelyne",
+                    "variantes": {
+                        "negative": "Tu avais envie de rester chez toi à attendre qu'elle revienne ?",
+                        "neutre": "Tu avais envie de rester chez toi à attendre qu'elle revienne ?",
+                        "amicale": "Tu avais envie de rester chez toi à attendre qu'elle revienne ?",
+                        "proche": "Tu avais envie de rester chez toi à attendre qu'elle revienne ?"
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Dire que tu ne veux pas attendre toute la soirée",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Non. Je ne veux pas passer toute la soirée à attendre un message."
+                    },
+                    "effet": {
+                        "confianceEmelyne": 3,
+                        "courage": 1
+                    },
+                    "next": "emelyneProposeMarcher"
+                },
+                {
+                    "texte": "Admettre que la situation te travaille un peu",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Un peu, oui. Je crois que ça me travaille plus que je ne voudrais l'admettre."
+                    },
+                    "effet": {
+                        "confianceEmelyne": 4,
+                        "relationEmelyne": 2
+                    },
+                    "next": "emelyneReassure"
+                }
+            ]
+        },
+        "emelyneReassure": {
+            "dialogues": [
+                {
+                    "personnage": "emelyne",
+                    "son":"emelyne",
+                    "variantes": {
+                        "negative": "Tu la connais encore peu.",
+                        "neutre": "Tu la connais encore peu.",
+                        "amicale": "Tu la connais encore peu, alors essaie de ne pas imaginer le pire.",
+                        "proche": "Je comprends que ça te travaille, mais tu la connais encore peu. Protège-toi aussi de tes propres conclusions."
+                    }
+                },
+                {
+                    "personnage": "emelyne",
+                    "variantes": {
+                        "negative": "Tu ne devrais peut-être pas tirer trop vite de conclusions.",
+                        "neutre": "Tu ne devrais peut-être pas tirer trop vite de conclusions.",
+                        "amicale": "Tu ne devrais peut-être pas tirer trop vite de conclusions.",
+                        "proche": "Tu ne devrais peut-être pas tirer trop vite de conclusions."
+                    }
+                },
+                {
+                    "personnage": "emelyne",
+                    "variantes": {
+                        "negative": "Et puis sortir avec quelqu'un ne veut pas forcément dire qu'il se passe quelque chose.",
+                        "neutre": "Et puis sortir avec quelqu'un ne veut pas forcément dire qu'il se passe quelque chose.",
+                        "amicale": "Et puis sortir avec quelqu'un ne veut pas forcément dire qu'il se passe quelque chose.",
+                        "proche": "Et puis sortir avec quelqu'un ne veut pas forcément dire qu'il se passe quelque chose."
+                    }
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Son ton est calme et sans jugement."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Reconnaître qu'elle a raison",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Tu as raison. Je réfléchis probablement trop."
+                    },
+                    "effet": {
+                        "confianceEmelyne": 2
+                    },
+                    "next": "emelyneProposeMarcher"
+                },
+                {
+                    "texte": "La remercier pour sa franchise",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Merci de me le dire franchement."
+                    },
+                    "effet": {
+                        "relationEmelyne": 3
+                    },
+                    "next": "emelyneProposeMarcher"
+                }
+            ]
+        },
+        "emelyneProposeMarcher": {
+            "dialogues": [
+                {
+                    "personnage": "emelyne",
+                    "son":"emelyne",
+                    "variantes": {
+                        "negative": "Je dois rentrer aussi.",
+                        "neutre": "Je dois rentrer aussi.",
+                        "amicale": "Je dois rentrer aussi.",
+                        "proche": "Je dois rentrer aussi."
+                    }
+                },
+                {
+                    "personnage": "emelyne",
+                    "variantes": {
+                        "negative": "On peut faire un bout de chemin ensemble.",
+                        "neutre": "On peut marcher un peu ensemble si tu veux.",
+                        "amicale": "On peut marcher un peu ensemble si tu veux. Ça me ferait plaisir.",
+                        "proche": "On peut marcher ensemble un moment. J'aimerais bien continuer à discuter avec toi."
+                    }
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Elle désigne une rue plus calme qui longe un petit parc."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Accepter de marcher avec elle",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Oui, avec plaisir."
+                    },
+                    "effet": {
+                        "relationEmelyne": 3
+                    },
+                    "next": "promenadeEmelyne"
+                },
+                {
+                    "texte": "Refuser et rentrer directement",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Merci, mais je vais rentrer. Il commence à se faire tard."
+                    },
+                    "effet": {
+                        "relationEmelyne": -1
+                    },
+                    "next": "retourAvant22h"
+                }
+            ]
+        },
+        "promenadeEmelyne": {
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Vous commencez à marcher côte à côte."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Le quartier est calme et les rues sont presque vides."
+                },
+                {
+                    "personnage": "emelyne",
+                    "son":"emelyne",
+                    "variantes": {
+                        "negative": "Tu réfléchis beaucoup.",
+                        "neutre": "Tu as l'air de beaucoup penser aux autres.",
+                        "amicale": "Tu sembles toujours beaucoup penser aux autres.",
+                        "proche": "Tu penses énormément aux autres, parfois au point de t'oublier toi-même."
+                    }
+                },
+                {
+                    "personnage": "emelyne",
+                    "variantes": {
+                        "negative": "Mais tu parles rarement de toi.",
+                        "neutre": "Mais tu parles rarement de toi.",
+                        "amicale": "Mais tu parles rarement de toi.",
+                        "proche": "Mais tu parles rarement de toi."
+                    }
+                },
+                {
+                    "personnage": "emelyne",
+                    "variantes": {
+                        "negative": "Qu'est-ce qui t'intéresse ?",
+                        "neutre": "Qu'est-ce qui t'intéresse vraiment ?",
+                        "amicale": "Et toi, qu'est-ce qui te passionne vraiment ?",
+                        "proche": "J'aimerais vraiment savoir ce qui te passionne, quand tu ne penses pas aux autres."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Lui parler de tes passions",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "J'aime surtout créer des choses, découvrir de nouvelles histoires et comprendre les gens."
+                    },
+                    "effet": {
+                        "relationEmelyne": 3,
+                        "confianceEmelyne": 2
+                    },
+                    "next": "emelyneParlePassions"
+                },
+                {
+                    "texte": "Lui dire que tu cherches encore",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Honnêtement, je cherche encore ce qui me correspond vraiment."
+                    },
+                    "effet": {
+                        "confianceEmelyne": 4
+                    },
+                    "next": "emelyneParleAvenir"
+                },
+                {
+                    "texte": "Retourner la question",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Et toi ? À part les livres et les études, qu'est-ce qui te passionne ?"
+                    },
+                    "effet": {
+                        "relationEmelyne": 2
+                    },
+                    "next": "emelyneParlePassions"
+                }
+            ]
+        },
+        "emelyneParlePassions": {
+            "dialogues": [
+                {
+                    "personnage": "emelyne",
+                    "variantes": {
+                        "negative": "J'aime apprendre, évidemment.",
+                        "neutre": "J'aime apprendre, évidemment.",
+                        "amicale": "J'aime apprendre, évidemment.",
+                        "proche": "J'aime apprendre, évidemment."
+                    }
+                },
+                {
+                    "personnage": "emelyne",
+                    "variantes": {
+                        "negative": "Mais j'aime aussi observer les gens.",
+                        "neutre": "Mais j'aime aussi observer les gens.",
+                        "amicale": "Mais j'aime aussi observer les gens.",
+                        "proche": "Mais j'aime aussi observer les gens."
+                    }
+                },
+                {
+                    "personnage":"systeme",
+                    "texte":"Nouvelle information sur émelyne.",
+                    "son":"systeme"
+                },
+                {
+                    "personnage": "emelyne",
+                    "variantes": {
+                        "negative": "Pas pour les juger. Plutôt pour essayer de comprendre pourquoi ils agissent comme ils le font.",
+                        "neutre": "Pas pour les juger. Plutôt pour essayer de comprendre pourquoi ils agissent comme ils le font.",
+                        "amicale": "Pas pour les juger. Plutôt pour essayer de comprendre pourquoi ils agissent comme ils le font.",
+                        "proche": "Pas pour les juger. Plutôt pour essayer de comprendre pourquoi ils agissent comme ils le font."
+                    }
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Tu comprends qu'Émelyne est plus curieuse et sensible qu'elle ne le laisse paraître."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Dire que vous avez ce point en commun",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je crois qu'on a ça en commun. J'essaie aussi de comprendre les gens."
+                    },
+                    "effet": {
+                        "relationEmelyne": 4,
+                        "confianceEmelyne": 3
+                    },
+                    "next": "discussionPersonnelleEmelyne"
+                },
+                {
+                    "texte": "Lui demander ce qu'elle pense de toi",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Alors, qu'est-ce que tu as compris sur moi jusqu'à présent ?"
+                    },
+                    "effet": {
+                        "confianceEmelyne": 2
+                    },
+                    "next": "analyseEmelyneJoueur"
+                }
+            ]
+        },
+        "emelyneParleAvenir": {
+            "dialogues": [
+                {
+                    "personnage": "emelyne",
+                    "son":"emelyne",
+                    "variantes": {
+                        "negative": "Ce n'est pas forcément grave.",
+                        "neutre": "Ce n'est pas forcément grave.",
+                        "amicale": "Ce n'est pas forcément grave.",
+                        "proche": "Ce n'est pas forcément grave."
+                    }
+                },
+                {
+                    "personnage": "emelyne",
+                    "variantes": {
+                        "negative": "Beaucoup de personnes prétendent savoir exactement ce qu'elles veulent.",
+                        "neutre": "Beaucoup de personnes prétendent savoir exactement ce qu'elles veulent.",
+                        "amicale": "Beaucoup de personnes prétendent savoir exactement ce qu'elles veulent.",
+                        "proche": "Beaucoup de personnes prétendent savoir exactement ce qu'elles veulent."
+                    }
+                },
+                {
+                    "personnage": "emelyne",
+                    "variantes": {
+                        "negative": "Mais elles changent souvent d'avis plus tard.",
+                        "neutre": "Mais elles changent souvent d'avis plus tard.",
+                        "amicale": "Mais elles changent souvent d'avis plus tard.",
+                        "proche": "Mais elles changent souvent d'avis plus tard."
+                    }
+                },
+                {
+                    "personnage": "emelyne",
+                    "variantes": {
+                        "negative": "Au moins, tu es honnête.",
+                        "neutre": "Au moins, toi, tu es honnête.",
+                        "amicale": "Au moins, tu es honnête avec toi-même.",
+                        "proche": "Au moins, tu as l'honnêteté de reconnaître que tu cherches encore. C'est une qualité que j'apprécie chez toi."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Lui demander si elle sait ce qu'elle veut",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Et toi ? Tu sais exactement ce que tu veux faire plus tard ?"
+                    },
+                    "effet": {
+                        "confianceEmelyne": 3
+                    },
+                    "next": "avenirEmelyne"
+                },
+                {
+                    "texte": "La remercier",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Merci. Ça fait du bien de l'entendre."
+                    },
+                    "effet": {
+                        "relationEmelyne": 3
+                    },
+                    "next": "discussionPersonnelleEmelyne"
+                }
+            ]
+        },
+        "avenirEmelyne": {
+            "dialogues": [
+                {
+                    "personnage": "emelyne",
+                    "son":"emelyne",
+                    "variantes": {
+                        "negative": "Pas complètement.",
+                        "neutre": "Pas complètement.",
+                        "amicale": "Pas complètement.",
+                        "proche": "Pas complètement."
+                    }
+                },
+                {
+                    "personnage": "emelyne",
+                    "variantes": {
+                        "negative": "J'aimerais faire quelque chose d'utile.",
+                        "neutre": "J'aimerais faire quelque chose d'utile.",
+                        "amicale": "J'aimerais faire quelque chose d'utile.",
+                        "proche": "J'aimerais faire quelque chose d'utile."
+                    }
+                },
+                {
+                    "personnage": "emelyne",
+                    "variantes": {
+                        "negative": "J'ai peur de faire le mauvais choix.",
+                        "neutre": "Mais j'ai peur de choisir une voie et de découvrir trop tard qu'elle ne me correspond pas.",
+                        "amicale": "J'ai peur de choisir une voie qui ne me corresponde finalement pas.",
+                        "proche": "J'ai peur de choisir une voie et de découvrir trop tard que j'ai construit ma vie autour de quelque chose qui ne me ressemble pas."
+                    }
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "C'est la première fois qu'Émelyne te parle aussi directement de ses doutes."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Lui dire qu'elle aura le droit de changer",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Tu auras toujours le droit de changer de direction si tu réalises que ce n'est pas pour toi."
+                    },
+                    "effet": {
+                        "relationEmelyne": 4,
+                        "confianceEmelyne": 4
+                    },
+                    "next": "emelyneTouchee"
+                },
+                {
+                    "texte": "L'encourager à suivre ses capacités",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Tu es sérieuse et intelligente. Je pense que tu arriveras à trouver ta voie."
+                    },
+                    "effet": {
+                        "relationEmelyne": 3,
+                        "confianceEmelyne": 2
+                    },
+                    "next": "emelyneTouchee"
+                }
+            ]
+        },
+        "analyseEmelyneJoueur": {
+            "dialogues": [
+                {
+                    "personnage": "emelyne",
+                    "son":"emelyne",
+                    "variantes": {
+                        "negative": "Tu veux vraiment savoir ?",
+                        "neutre": "Tu veux vraiment savoir ?",
+                        "amicale": "Tu veux vraiment savoir ?",
+                        "proche": "Tu veux vraiment savoir ?"
+                    }
+                },
+                {
+                    "personnage": "emelyne",
+                    "variantes": {
+                        "negative": "Je pense que tu essaies de donner une bonne image de toi.",
+                        "neutre": "Je pense que tu essaies de donner une bonne image de toi.",
+                        "amicale": "Je pense que tu essaies souvent de montrer le meilleur de toi.",
+                        "proche": "Je pense que tu veux donner une bonne image de toi, surtout quand quelqu'un compte déjà pour toi."
+                    }
+                },
+                {
+                    "personnage": "emelyne",
+                    "variantes": {
+                        "negative": "Mais tu es aussi plus sensible que tu ne veux le montrer.",
+                        "neutre": "Mais tu es aussi plus sensible que tu ne veux le montrer.",
+                        "amicale": "Mais tu es aussi plus sensible que tu ne veux le montrer.",
+                        "proche": "Mais tu es aussi plus sensible que tu ne veux le montrer."
+                    }
+                },
+                {
+                    "personnage": "emelyne",
+                    "variantes": {
+                        "negative": "Et tu sembles t'attacher rapidement aux personnes qui t'intéressent.",
+                        "neutre": "Et tu sembles t'attacher rapidement aux personnes qui t'intéressent.",
+                        "amicale": "Et tu sembles t'attacher rapidement aux personnes qui t'intéressent.",
+                        "proche": "Et tu sembles t'attacher rapidement aux personnes qui t'intéressent."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Reconnaître qu'elle t'a bien compris",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je crois que tu m'as plutôt bien cerné."
+                    },
+                    "effet": {
+                        "confianceEmelyne": 4,
+                        "relationEmelyne": 2
+                    },
+                    "next": "discussionPersonnelleEmelyne"
+                },
+                {
+                    "texte": "Dire qu'elle analyse trop",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Tu analyses peut-être un peu trop les gens."
+                    },
+                    "effet": {
+                        "relationEmelyne": -1
+                    },
+                    "next": "reactionAnalyseEmelyne"
+                }
+            ]
+        },
+        "reactionAnalyseEmelyne": {
+            "dialogues": [
+                {
+                    "personnage": "emelyne",
+                    "son":"emelyne",
+                    "variantes": {
+                        "negative": "Probablement.",
+                        "neutre": "Probablement.",
+                        "amicale": "Probablement.",
+                        "proche": "Probablement."
+                    }
+                },
+                {
+                    "personnage": "emelyne",
+                    "variantes": {
+                        "negative": "C'est parfois plus fort que moi.",
+                        "neutre": "C'est parfois plus fort que moi.",
+                        "amicale": "C'est parfois plus fort que moi.",
+                        "proche": "C'est parfois plus fort que moi."
+                    }
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Elle ne semble pas vexée, mais devient légèrement plus réservée."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Continuer à marcher",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "Vous continuez à marcher dans le parc."
+                    },
+                    "next": "discussionPersonnelleEmelyne"
+                }
+            ]
+        },
+        "emelyneTouchee": {
+            "dialogues": [
+                {
+                    "personnage": "emelyne",
+                    "son":"emelyne",
+                    "variantes": {
+                        "negative": "Merci.",
+                        "neutre": "Merci.",
+                        "amicale": "Merci... Ça me fait vraiment plaisir.",
+                        "proche": "Merci. Je ne pensais pas que tes mots me toucheraient autant."
+                    }
+                },
+                {
+                    "personnage": "emelyne",
+                    "variantes": {
+                        "negative": "Je ne parle pas souvent de ça.",
+                        "neutre": "Je ne parle pas souvent de ça.",
+                        "amicale": "Je ne parle pas souvent de ça.",
+                        "proche": "Je ne parle pas souvent de ça."
+                    }
+                },
+                {
+                    "personnage": "emelyne",
+                    "variantes": {
+                        "negative": "Je ne sais même pas pourquoi je te le raconte.",
+                        "neutre": "Je ne sais même pas pourquoi je te le raconte.",
+                        "amicale": "Je ne sais même pas pourquoi je te le raconte.",
+                        "proche": "Je ne sais même pas pourquoi je te le raconte."
+                    }
+                },
+                {
+                    "personnage": "narrateur",
+                    "relationAvec": "emelyne",
+                    "variantes": {
+                        "negative": "Elle baisse légèrement les yeux.",
+                        "neutre": "Elle te sourit avec une sincérité que tu ne lui avais encore jamais vue.",
+                        "amicale": "Elle te sourit avec une douceur inhabituelle.",
+                        "proche": "Son sourire sincère montre qu'elle vient de te laisser entrer dans une partie très personnelle de sa vie."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Lui dire qu'elle peut te faire confiance",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Tu peux me faire confiance. Je ne répéterai rien."
+                    },
+                    "effet": {
+                        "confianceEmelyne": 5,
+                        "relationEmelyne": 3
+                    },
+                    "next": "discussionPersonnelleEmelyne"
+                },
+                {
+                    "texte": "Ne pas rendre le moment trop sérieux",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Peut-être parce que je suis incroyablement facile à qui parler."
+                    },
+                    "effet": {
+                        "relationEmelyne": 3,
+                        "humour": 1
+                    },
+                    "next": "emelyneRit"
+                }
+            ]
+        },
+        "emelyneRit": {
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Émelyne laisse échapper un petit rire."
+                },
+                {
+                    "personnage": "emelyne",
+                    "son":"emelyne",
+                    "variantes": {
+                        "negative": "Ne prends pas trop confiance.",
+                        "neutre": "Ne prends pas trop confiance.",
+                        "amicale": "Ne prends pas trop confiance.",
+                        "proche": "Ne prends pas trop confiance."
+                    }
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "L'atmosphère devient plus légère."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Continuer la promenade",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "Vous continuez à marcher encore quelques minutes."
+                    },
+                    "next": "discussionPersonnelleEmelyne"
+                }
+            ]
+        },
+        "discussionPersonnelleEmelyne": {
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Vous arrivez près de la sortie du parc."
+                },
+                {
+                    "personnage": "emelyne",
+                    "son":"emelyne",
+                    "variantes": {
+                        "negative": "Je ne pensais pas qu'on discuterait aussi longtemps.",
+                        "neutre": "Je ne pensais pas qu'on discuterait aussi longtemps.",
+                        "amicale": "Je ne pensais pas qu'on passerait autant de temps à discuter.",
+                        "proche": "Je ne pensais pas que le temps passerait aussi vite avec toi."
+                    }
+                },
+                {
+                    "personnage": "emelyne",
+                    "variantes": {
+                        "negative": "C'était agréable.",
+                        "neutre": "C'était agréable.",
+                        "amicale": "J'ai vraiment apprécié ce moment.",
+                        "proche": "Honnêtement, j'aurais aimé que cette promenade dure encore un peu."
+                    }
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Tu regardes l'heure sur ton téléphone."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Il est déjà 21 h 35."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Décider de rentrer",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je vais devoir rentrer. Il commence à se faire tard."
+                    },
+                    "next": "auRevoirEmelyne"
+                },
+                {
+                    "texte": "Rester encore quelques minutes",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "On peut encore marcher quelques minutes si tu veux."
+                    },
+                    "effet": {
+                        "relationEmelyne": 2
+                    },
+                    "next": "quelquesMinutesEmelyne"
+                }
+            ]
+        },
+        "quelquesMinutesEmelyne": {
+            "dialogues": [
+                {
+                    "personnage": "emelyne",
+                    "son":"emelyne",
+                    "variantes": {
+                        "negative": "D'accord, mais pas trop longtemps.",
+                        "neutre": "D'accord, mais pas trop longtemps.",
+                        "amicale": "D'accord, mais pas trop longtemps.",
+                        "proche": "D'accord, mais pas trop longtemps."
+                    }
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Vous faites encore quelques pas ensemble."
+                },
+                {
+                    "personnage": "emelyne",
+                    "variantes": {
+                        "negative": "Tu devais faire quelque chose ce soir ?",
+                        "neutre": "Tu devais faire quelque chose ce soir ?",
+                        "amicale": "Tu devais faire quelque chose ce soir ?",
+                        "proche": "Tu devais faire quelque chose ce soir ?"
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Lui parler du message prévu avec Eva",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Eva m'a proposé de lui écrire vers 22 h."
+                    },
+                    "effet": {
+                        "confianceEmelyne": 2
+                    },
+                    "next": "reactionEmelyne22h"
+                },
+                {
+                    "texte": "Rester vague",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "J'ai juste quelque chose de prévu un peu plus tard."
+                    },
+                    "next": "auRevoirEmelyne"
+                }
+            ]
+        },
+        "reactionEmelyne22h": {
+            "dialogues": [
+                {
+                    "personnage": "emelyne",
+                    "son":"emelyne",
+                    "variantes": {
+                        "negative": "Je comprends.",
+                        "neutre": "Je comprends.",
+                        "amicale": "Je comprends.",
+                        "proche": "Je comprends."
+                    }
+                },
+                {
+                    "personnage": "emelyne",
+                    "variantes": {
+                        "negative": "Alors tu devrais probablement rentrer.",
+                        "neutre": "Alors tu devrais probablement rentrer.",
+                        "amicale": "Alors tu devrais probablement rentrer.",
+                        "proche": "Alors tu devrais probablement rentrer."
+                    }
+                },
+                {
+                    "personnage": "emelyne",
+                    "variantes": {
+                        "negative": "Ce serait dommage d'être en retard pour ton rendez-vous par messages.",
+                        "neutre": "Ce serait dommage d'être en retard pour ton rendez-vous par messages.",
+                        "amicale": "Ce serait dommage d'être en retard pour ton rendez-vous par messages.",
+                        "proche": "Ce serait dommage d'être en retard pour ton rendez-vous par messages."
+                    }
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Elle prononce la dernière phrase avec un léger sourire."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Dire que ce n'est pas vraiment un rendez-vous",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Ce n'est pas vraiment un rendez-vous."
+                    },
+                    "effet": {
+                        "relationEmelyne": 1
+                    },
+                    "next": "emelyneTaquine"
+                },
+                {
+                    "texte": "Accepter de rentrer",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Tu as raison. Je vais rentrer."
+                    },
+                    "next": "auRevoirEmelyne"
+                }
+            ]
+        },
+        "emelyneTaquine": {
+            "dialogues": [
+                {
+                    "personnage": "emelyne",
+                    "son":"emelyne",
+                    "variantes": {
+                        "negative": "Bien sûr.",
+                        "neutre": "Bien sûr.",
+                        "amicale": "Bien sûr.",
+                        "proche": "Bien sûr."
+                    }
+                },
+                {
+                    "personnage": "emelyne",
+                    "variantes": {
+                        "negative": "Tu regardes seulement l'heure toutes les cinq minutes.",
+                        "neutre": "Tu regardes seulement l'heure toutes les cinq minutes.",
+                        "amicale": "Tu regardes seulement l'heure toutes les cinq minutes.",
+                        "proche": "Tu regardes seulement l'heure toutes les cinq minutes."
+                    }
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Tu réalises qu'elle a remarqué ton impatience."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Admettre qu'elle a raison",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "D'accord, peut-être que j'attends un peu cette conversation."
+                    },
+                    "effet": {
+                        "confianceEmelyne": 2
+                    },
+                    "next": "auRevoirEmelyne"
+                }
+            ]
+        },
+        "auRevoirEmelyne": {
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Vous vous arrêtez à l'intersection où vos chemins se séparent."
+                },
+                {
+                    "personnage": "emelyne",
+                    "son":"emelyne",
+                    "variantes": {
+                        "negative": "Merci pour la promenade.",
+                        "neutre": "Merci pour la promenade.",
+                        "amicale": "Merci pour la promenade. J'ai passé un bon moment.",
+                        "proche": "Merci pour cette promenade, {{nomJoueur}}. Je suis vraiment contente qu'on se soit croisés."
+                    }
+                },
+                {
+                    "personnage": "emelyne",
+                    "variantes": {
+                        "negative": "À demain.",
+                        "neutre": "On se voit demain.",
+                        "amicale": "On se voit demain, {{nomJoueur}}.",
+                        "proche": "À demain, {{nomJoueur}}. J'espère qu'on pourra reparler tranquillement."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "La saluer chaleureusement",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Merci à toi. J'ai passé un bon moment. À demain."
+                    },
+                    "effet": {
+                        "relationEmelyne": 3,
+                        "confianceEmelyne": 1
+                    },
+                    "next": "retourAvant22h"
+                },
+                {
+                    "texte": "La saluer simplement",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "À demain, Émelyne."
+                    },
+                    "effet": {
+                        "relationEmelyne": 1
+                    },
+                    "next": "retourAvant22h"
+                }
+            ]
+        },
+        "retourAvant22h": {
+            "musique": "soiree",
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Tu prends le chemin du retour."
+                },
+                {
+                    "personnage": "narrateur",
+                    "relationAvec": "emelyne",
+                    "variantes": {
+                        "negative": "La conversation avec Émelyne t'a permis d'en apprendre un peu plus sur elle.",
+                        "neutre": "La conversation avec Émelyne t'a permis de découvrir une facette plus personnelle de sa personnalité.",
+                        "amicale": "La promenade t'a permis de découvrir une Émelyne plus ouverte et plus sensible.",
+                        "proche": "La promenade avec Émelyne laisse l'impression qu'un lien profond commence à se créer entre vous."
+                    }
+                },
+                {
+                    "fond":"chambre joueur",
+                    "ambiance":"chambre joueur",
+                    "personnage": "narrateur",
+                    "texte": "Lorsque tu arrives chez toi, il est 21 h 52."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Tu poses ta veste et récupères ton téléphone."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Eva devrait bientôt être de retour."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Attendre 22 h",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "Tu t'installes en attendant que l'heure du prochain message arrive."
+                    },
+                    "next": "finChapitre3"
+                }
+            ]
+        },
+        "attenteChezSoi": {
+            "fond":"chambre_joueur",
+            "ambiance":"chambre_joueur",
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Tu restes chez toi pendant le reste de la soirée."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Les minutes passent lentement tandis que tu regardes régulièrement l'heure."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Peu avant 22 h, tu reprends ton téléphone."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Attendre le retour d'Eva",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "Tu attends que l'heure convenue arrive."
+                    },
+                    "next": "finChapitre3"
+                }
+            ]
+        },
+        "finChapitre3": {
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Chapitre 3 terminé."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Continuer vers le chapitre 4",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "La conversation reprendra à 22 h..."
+                    },
+                    "next": "chapitre4"
+                }
+            ]
+        },
+        "reponseApprocheDirecte": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "C'est assez direct.",
+                        "neutre": "Tu es assez direct.",
+                        "amicale": "Tu es vraiment direct, toi.",
+                        "proche": "Tu es vraiment direct... même si je crois que je m'y attendais un peu."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "variantes": {
+                        "negative": "On ne se connaît presque pas encore.",
+                        "neutre": "On ne se connaît presque pas encore.",
+                        "amicale": "On ne se connaît presque pas encore.",
+                        "proche": "On ne se connaît presque pas encore."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "variantes": {
+                        "negative": "Je veux bien discuter, mais rien de plus pour le moment.",
+                        "neutre": "Mais je veux bien discuter avec toi.",
+                        "amicale": "Mais j'ai quand même envie d'apprendre à te connaître.",
+                        "proche": "Mais j'ai aussi envie d'apprendre à te connaître. Je ne vais pas te reprocher d'être honnête."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "variantes": {
+                        "negative": "Je dois rejoindre Bryan dans une heure.",
+                        "neutre": "Je dois rejoindre Bryan dans une heure.",
+                        "amicale": "Je dois rejoindre Bryan dans une heure.",
+                        "proche": "Je dois rejoindre Bryan dans une heure."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Respecter sa réponse",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je comprends. On peut simplement apprendre à se connaître."
+                    },
+                    "effet": {
+                        "confianceEva": 3,
+                        "relationEva": 1
+                    },
+                    "next": "evaPropose22h"
+                },
+                {
+                    "texte": "Insister sur ton attirance",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je voulais quand même être honnête sur ce que je ressens."
+                    },
+                    "effet": {
+                        "relationEva": -1,
+                        "audace": 2
+                    },
+                    "next": "evaPoseLimite"
+                }
+            ]
+        }
+    }
+}

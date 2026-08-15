@@ -1,0 +1,1461 @@
+{
+    "titre": "Chapitre 7 - Soirée frissons",
+    "musique": "chapitre7",
+    "debut": "debutVacances",
+    "scenes": {
+        "debutVacances": {
+            "fond":"chambre_joueur2",
+            "ambiance":"chambre_joueur",
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Quelques semaines se sont écoulées. Les vacances scolaires viennent enfin de commencer."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "En ce début de soirée, {{nomJoueur}} profite du calme lorsqu'une notification apparaît sur son téléphone."
+                },
+                {
+                    "personnage": "systeme",
+                    "texte": "Nouveau message d'Eva.",
+                    "evenement": "information-personnage"
+                },
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "Salut. Zoé organise une soirée films d'horreur ce soir. Elle m'a demandé de te proposer de venir.",
+                        "neutre": "Salut, {{nomJoueur}}. Zoé organise une soirée films d'horreur ce soir. Ça te dirait de venir ?",
+                        "amicale": "Salut, {{nomJoueur}}. Zoé veut organiser une soirée films d'horreur ce soir et elle aimerait que tu viennes avec nous.",
+                        "proche": "Salut, {{nomJoueur}}. Zoé organise une soirée films d'horreur ce soir. J'aimerais vraiment que tu viennes avec nous."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "variantesConfiance": {
+                        "negative": "Tu n'es évidemment pas obligé.",
+                        "faible": "Ce sera simplement Zoé, moi et peut-être toi.",
+                        "moyenne": "Ce sera une soirée tranquille entre nous.",
+                        "haute": "Je crois que la soirée serait beaucoup plus agréable si tu étais là."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Accepter avec enthousiasme",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Avec plaisir. Une soirée films d'horreur pour commencer les vacances, ça me va parfaitement."
+                    },
+                    "effet": {
+                        "relationEva": 2,
+                        "relationZoe": 1,
+                        "soireeHorreurAcceptee": true
+                    },
+                    "next": "invitationAcceptee"
+                },
+                {
+                    "texte": "Accepter en plaisantant",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "D'accord, mais je refuse d'être responsable si Zoé choisit un film tellement mauvais qu'il devient vraiment terrifiant."
+                    },
+                    "effet": {
+                        "relationEva": 1,
+                        "relationZoe": 2,
+                        "humour": 1,
+                        "soireeHorreurAcceptee": true
+                    },
+                    "next": "invitationAcceptee"
+                },
+                {
+                    "texte": "Demander qui sera présent",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Pourquoi pas. Qui sera présent ?"
+                    },
+                    "next": "participants"
+                },
+                {
+                    "texte": "Décliner l'invitation",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Merci d'avoir pensé à moi, mais je vais rester chez moi ce soir."
+                    },
+                    "effet": {
+                        "relationEva": -1,
+                        "soireeHorreurAcceptee": false
+                    },
+                    "next": "refusSoiree"
+                }
+            ]
+        },
+        "participants": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "Zoé et moi.",
+                        "neutre": "Pour le moment, Zoé et moi.",
+                        "amicale": "Pour le moment, Zoé et moi. Zoé voulait une petite soirée.",
+                        "proche": "Pour le moment, Zoé et moi. Mais j'espérais vraiment que tu accepterais de nous rejoindre."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "On fera ça chez Zoé. Ses parents sont absents pour la soirée."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Accepter l'invitation",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "D'accord. Je serai là."
+                    },
+                    "effet": {
+                        "relationEva": 2,
+                        "soireeHorreurAcceptee": true
+                    },
+                    "next": "invitationAcceptee"
+                },
+                {
+                    "texte": "Proposer d'inviter Émelyne",
+                    "condition": {
+                        "variable": "relationEmelyne",
+                        "operateur": ">=",
+                        "valeur": 15
+                    },
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Ça me va. Est-ce que ça vous dérangerait si je proposais aussi à Émelyne de venir ?"
+                    },
+                    "effet": {
+                        "soireeHorreurAcceptee": true
+                    },
+                    "next": "propositionEmelyne"
+                },
+                {
+                    "texte": "Décliner l'invitation",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Merci, mais je vais rester chez moi ce soir."
+                    },
+                    "effet": {
+                        "relationEva": -1,
+                        "soireeHorreurAcceptee": false
+                    },
+                    "next": "refusSoiree"
+                }
+            ]
+        },
+        "invitationAcceptee": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "D'accord. Je préviens Zoé.",
+                        "neutre": "Parfait. Je préviens Zoé.",
+                        "amicale": "Super. Je préviens Zoé que tu viens.",
+                        "proche": "Parfait. Je suis contente que tu aies accepté."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Rendez-vous chez elle vers vingt heures."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Proposer d'inviter Émelyne",
+                    "condition": {
+                        "variable": "relationEmelyne",
+                        "operateur": ">=",
+                        "valeur": 15
+                    },
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Est-ce que ça vous dérangerait si je proposais aussi à Émelyne de venir ?"
+                    },
+                    "next": "propositionEmelyne"
+                },
+                {
+                    "texte": "Confirmer l'heure",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Ça marche. Je serai chez Zoé à vingt heures."
+                    },
+                    "effet": {
+                        "emelynePresenteSoiree": false
+                    },
+                    "next": "preparationTrois"
+                }
+            ]
+        },
+        "propositionEmelyne": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "Je suppose que ça ne pose pas de problème.",
+                        "neutre": "Ça ne me dérange pas.",
+                        "amicale": "Bien sûr. Je pense que ça pourrait être sympa.",
+                        "proche": "Bien sûr. Je serais contente qu'elle vienne aussi."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Je vais quand même demander à Zoé."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Quelques instants plus tard, Eva transmet la réponse de Zoé."
+                },
+                {
+                    "personnage": "eva",
+                    "texte": "Zoé a répondu : « Évidemment qu'elle peut venir. Il est temps qu'elle sorte un peu de son CDI. »"
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Écrire à Émelyne",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je vais lui proposer."
+                    },
+                    "next": "messageEmelyne"
+                },
+                {
+                    "texte": "Renoncer à l'inviter",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Finalement, je préfère ne pas la déranger au dernier moment."
+                    },
+                    "effet": {
+                        "emelynePresenteSoiree": false
+                    },
+                    "next": "preparationTrois"
+                }
+            ]
+        },
+        "messageEmelyne": {
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "{{nomJoueur}} ouvre sa conversation avec Émelyne."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "L'inviter simplement",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Salut Émelyne. Eva et Zoé organisent une soirée films d'horreur ce soir. Elles m'ont invité et je voulais savoir si tu aimerais venir avec nous."
+                    },
+                    "effet": {
+                        "relationEmelyne": 1
+                    },
+                    "next": "reponseEmelyne"
+                },
+                {
+                    "texte": "L'inviter avec humour",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Salut Émelyne. On organise une expérience scientifique : vérifier combien de mauvaises décisions peuvent prendre les personnages d'un film d'horreur. Tu veux participer ?"
+                    },
+                    "effet": {
+                        "relationEmelyne": 2,
+                        "humour": 1
+                    },
+                    "next": "reponseEmelyne"
+                }
+            ]
+        },
+        "reponseEmelyne": {
+            "dialogues": [
+                {
+                    "personnage": "emelyne",
+                    "son":"emelyne",
+                    "variantes": {
+                        "negative": "Je ne pense pas que ce soit une bonne idée.",
+                        "neutre": "Une soirée films d'horreur ? Je ne sais pas trop...",
+                        "amicale": "Je ne suis pas certaine d'aimer les films d'horreur, mais ça pourrait être sympa.",
+                        "proche": "Si tu y vas, je veux bien essayer. Mais je risque de passer la soirée à critiquer les décisions des personnages."
+                    }
+                },
+                {
+                    "personnage": "emelyne",
+                    "variantesConfiance": {
+                        "negative": "Je préfère décliner.",
+                        "faible": "Il y aura seulement Eva, Zoé et toi ?",
+                        "moyenne": "D'accord. Puisque vous m'avez proposé, je veux bien venir.",
+                        "haute": "D'accord. Je viens. Ça me fera plaisir de passer la soirée avec toi... et avec les autres."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "La rassurer",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Oui, il y aura seulement nous quatre. Et tu pourras partir quand tu voudras."
+                    },
+                    "effet": {
+                        "confianceEmelyne": 2,
+                        "emelynePresenteSoiree": true
+                    },
+                    "next": "emelyneAccepte"
+                },
+                {
+                    "texte": "La taquiner",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je savais que l'idée de critiquer un film pendant deux heures finirait par te convaincre."
+                    },
+                    "effet": {
+                        "relationEmelyne": 2,
+                        "emelynePresenteSoiree": true
+                    },
+                    "next": "emelyneAccepte"
+                }
+            ]
+        },
+        "emelyneAccepte": {
+            "dialogues": [
+                {
+                    "personnage": "emelyne",
+                    "son":"emelyne",
+                    "variantes": {
+                        "negative": "D'accord. Envoie-moi l'adresse.",
+                        "neutre": "D'accord. Envoie-moi l'adresse et l'heure.",
+                        "amicale": "Très bien. Envoie-moi l'adresse. Je vais essayer de ne pas arriver avec un livre.",
+                        "proche": "D'accord. Envoie-moi l'adresse. Et garde-moi une place près de toi."
+                    },
+                    "effect":{
+                        " emelynePresenteSoiree":true
+                    }
+                },
+                {
+                    "personnage": "systeme",
+                    "texte": "Émelyne participera à la soirée.",
+                    "son":"systeme"
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Préparer la soirée",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "{{nomJoueur}} envoie l'adresse à Émelyne, puis commence à se préparer."
+                    },
+                    "next": "preparationQuatre"
+                }
+            ]
+        },
+        "preparationTrois": {
+            "fond":"rue_parisienne",
+            "ambiance":"rue parisienne",
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "À l'approche de vingt heures, {{nomJoueur}} quitte son domicile pour rejoindre Zoé et Eva."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Le ciel s'assombrit déjà et les rues deviennent progressivement plus calmes."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Se rendre chez Zoé",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "{{nomJoueur}} prend la direction de la maison de Zoé."
+                    },
+                    "next": "arriveeTrois"
+                }
+            ]
+        },
+        "preparationQuatre": {
+            "fond":"rue_parisienne",
+            "ambiance":"rue parisienne",
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "À l'approche de vingt heures, {{nomJoueur}} quitte son domicile pour rejoindre Zoé, Eva et Émelyne."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Émelyne confirme qu'elle est déjà en chemin."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Se rendre chez Zoé",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "{{nomJoueur}} prend la direction de la maison de Zoé."
+                    },
+                    "next": "arriveeQuatre"
+                }
+            ]
+        },
+        "arriveeTrois": {
+            "fond":"devant_maison_zoe",
+            "ambiance":"rue_calme_nuit",
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "À vingt heures précises, {{nomJoueur}} arrive devant la maison de Zoé."
+                },
+                {
+                    "fond":"entrée_maison_zoe",
+                    "personnage": "zoe",
+                    "son":"zoe",
+                    "variantes": {
+                        "negative": "Tu es venu.",
+                        "neutre": "Tu es là !",
+                        "amicale": "{{nomJoueur}} ! Entre vite.",
+                        "proche": "Enfin ! J'allais commencer le film sans toi uniquement pour te faire culpabiliser."
+                    }
+                },
+                {
+                    "fond":"salon_zoe_trois",
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "Bonsoir.",
+                        "neutre": "Salut, {{nomJoueur}}.",
+                        "amicale": "Salut. Je suis contente que tu sois venu.",
+                        "proche": "Salut, {{nomJoueur}}. Je commençais à regarder l'heure."
+                    }
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "La table du salon est couverte de boissons, de sucreries et de popcorn."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Complimenter l'organisation",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Vous avez vraiment tout prévu."
+                    },
+                    "effet": {
+                        "relationZoe": 2,
+                        "relationEva": 1
+                    },
+                    "next": "choixFilmTrois"
+                },
+                {
+                    "texte": "Se moquer de la quantité de nourriture",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "On regarde un film ou on essaie de survivre enfermés ici pendant une semaine ?"
+                    },
+                    "effet": {
+                        "relationZoe": 2,
+                        "humour": 1
+                    },
+                    "next": "choixFilmTrois"
+                }
+            ]
+        },
+        "arriveeQuatre": {
+            "fond":"salon_zoe_a_quatre",
+            "ambiance":"maison_zoe_exterieur",
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "{{nomJoueur}} arrive devant la maison de Zoé presque en même temps qu'Émelyne."
+                },
+                {
+                    "personnage": "emelyne",
+                    "son":"emelyne",
+                    "variantes": {
+                        "negative": "Bonsoir.",
+                        "neutre": "Salut. Au moins, je n'arrive pas seule.",
+                        "amicale": "Salut, {{nomJoueur}}. Je suis contente de te voir.",
+                        "proche": "Salut. J'espérais qu'on arriverait en même temps."
+                    }
+                },
+                {
+                    "personnage": "zoe",
+                    "son":"zoe",
+                    "texte": "Vous êtes enfin là ! Entrez avant que le premier monstre vous attrape sur le pas de la porte."
+                },
+                {
+                    "personnage": "emelyne",
+                    "texte": "La soirée n'a même pas commencé et je regrette déjà d'être venue."
+                },
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "Bonsoir.",
+                        "neutre": "Salut, vous deux.",
+                        "amicale": "Salut. Je suis contente que vous ayez accepté.",
+                        "proche": "Salut, {{nomJoueur}}. Et bienvenue, Émelyne."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Rassurer Émelyne",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Ne t'inquiète pas. Le plus dangereux ici reste probablement le choix de film de Zoé."
+                    },
+                    "effet": {
+                        "relationEmelyne": 2,
+                        "relationZoe": 1,
+                        "humour": 1
+                    },
+                    "next": "choixFilmQuatre"
+                },
+                {
+                    "texte": "Remercier Eva",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Salut Eva. Merci pour l'invitation."
+                    },
+                    "effet": {
+                        "relationEva": 2,
+                        "confianceEva": 1
+                    },
+                    "next": "choixFilmQuatre"
+                }
+            ]
+        },
+        "choixFilmTrois": {
+            "dialogues": [
+                {
+                    "personnage": "zoe",
+                    "son":"zoe",
+                    "texte": "J'ai préparé trois films : fantômes, tueur masqué ou film incompréhensible."
+                },
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "Choisis rapidement.",
+                        "neutre": "Je te laisse choisir.",
+                        "amicale": "{{nomJoueur}}, tu veux choisir ?",
+                        "proche": "Je préfère te laisser choisir. Zoé sélectionnera forcément le pire."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Choisir le film de fantômes",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "On commence par le film de fantômes."
+                    },
+                    "effet": {
+                        "filmChoisi": "fantomes"
+                    },
+                    "next": "installationTrois"
+                },
+                {
+                    "texte": "Choisir le tueur masqué",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Le tueur masqué. Au moins, on saura pourquoi les personnages courent."
+                    },
+                    "effet": {
+                        "filmChoisi": "tueur"
+                    },
+                    "next": "installationTrois"
+                },
+                {
+                    "texte": "Laisser Zoé décider",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je laisse Zoé choisir. Je veux voir jusqu'où va son mauvais goût."
+                    },
+                    "effet": {
+                        "relationZoe": 2,
+                        "filmChoisi": "inexplicable"
+                    },
+                    "next": "installationTrois"
+                }
+            ]
+        },
+        "choixFilmQuatre": {
+            "dialogues": [
+                {
+                    "personnage": "zoe",
+                    "son":"zoe",
+                    "texte": "Trois possibilités : fantômes, tueur masqué ou film incompréhensible."
+                },
+                {
+                    "personnage": "emelyne",
+                    "son":"emelyne",
+                    "texte": "Tu présentes vraiment le troisième comme un argument positif ?"
+                },
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "texte": "{{nomJoueur}}, tu devrais choisir avant qu'elles commencent à débattre pendant une heure."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Choisir le film de fantômes",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "On commence par le film de fantômes."
+                    },
+                    "effet": {
+                        "filmChoisi": "fantomes",
+                        "relationEva": 1
+                    },
+                    "next": "installationQuatre"
+                },
+                {
+                    "texte": "Choisir le tueur masqué",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Le tueur masqué. Émelyne pourra analyser toutes les mauvaises décisions."
+                    },
+                    "effet": {
+                        "filmChoisi": "tueur",
+                        "relationEmelyne": 1
+                    },
+                    "next": "installationQuatre"
+                },
+                {
+                    "texte": "Laisser Zoé choisir",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Zoé a organisé la soirée. Je lui laisse la responsabilité du traumatisme collectif."
+                    },
+                    "effet": {
+                        "filmChoisi": "inexplicable",
+                        "relationZoe": 2,
+                        "humour": 1
+                    },
+                    "next": "installationQuatre"
+                }
+            ]
+        },
+        "installationTrois": {
+            "musique":"soirée_film",
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Zoé éteint les lumières pendant qu'Eva lance le film."
+                },
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "Assieds-toi où tu veux.",
+                        "neutre": "Tu peux t'asseoir ici.",
+                        "amicale": "Tu peux venir à côté de moi, si tu veux.",
+                        "proche": "Je t'ai gardé la place à côté de moi."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "S'asseoir près d'Eva",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "{{nomJoueur}} s'installe à côté d'Eva."
+                    },
+                    "effet": {
+                        "relationEva": 3,
+                        "procheEvaSoiree": true
+                    },
+                    "next": "filmTrois"
+                },
+                {
+                    "texte": "S'asseoir près de Zoé",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "{{nomJoueur}} s'installe à côté de Zoé."
+                    },
+                    "effet": {
+                        "relationZoe": 3,
+                        "procheEvaSoiree": false
+                    },
+                    "next": "filmTrois"
+                }
+            ]
+        },
+        "installationQuatre": {
+            "musique":"soirée_film",
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Zoé éteint les lumières pendant qu'Eva lance le film."
+                },
+                {
+                    "personnage": "zoe",
+                    "texte": "Installez-vous. Et interdiction de changer de place dès que le film devient effrayant."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "S'asseoir près d'Eva",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "{{nomJoueur}} choisit la place près d'Eva."
+                    },
+                    "effet": {
+                        "relationEva": 3,
+                        "procheEvaSoiree": true,
+                        "procheEmelyneSoiree": false
+                    },
+                    "next": "filmQuatre"
+                },
+                {
+                    "texte": "S'asseoir près d'Émelyne",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "{{nomJoueur}} choisit la place près d'Émelyne."
+                    },
+                    "effet": {
+                        "relationEmelyne": 3,
+                        "procheEvaSoiree": false,
+                        "procheEmelyneSoiree": true
+                    },
+                    "next": "filmQuatre"
+                },
+                {
+                    "texte": "S'asseoir près de Zoé",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "{{nomJoueur}} choisit la place près de Zoé."
+                    },
+                    "effet": {
+                        "relationZoe": 3,
+                        "procheEvaSoiree": false,
+                        "procheEmelyneSoiree": false
+                    },
+                    "next": "filmQuatre"
+                }
+            ]
+        },
+        "filmTrois": {
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Après quelques minutes, une scène brutale fait sursauter tout le monde."
+                },
+                {
+                    "personnage": "zoe",
+                    "son":"zoe",
+                    "texte": "Je n'ai pas eu peur. J'ai simplement vérifié que mon cœur fonctionnait encore."
+                },
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "Bien sûr.",
+                        "neutre": "Personne ne te croit.",
+                        "amicale": "Tu as failli renverser tout le popcorn.",
+                        "proche": "{{nomJoueur}}, tu as vu sa tête ?"
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Taquiner Zoé",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Ton cœur fonctionne. Tes réflexes de fuite aussi."
+                    },
+                    "effet": {
+                        "relationZoe": 3,
+                        "humour": 1
+                    },
+                    "next": "pauseTrois"
+                },
+                {
+                    "texte": "Demander à Eva si elle a eu peur",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Et toi, Eva ? Tu n'as même pas sursauté ?"
+                    },
+                    "effet": {
+                        "relationEva": 2
+                    },
+                    "next": "pauseTrois"
+                }
+            ]
+        },
+        "filmQuatre": {
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Après quelques minutes, une scène brutale fait sursauter tout le monde."
+                },
+                {
+                    "personnage": "zoe",
+                    "son":"zoe",
+                    "texte": "Je n'ai absolument pas eu peur."
+                },
+                {
+                    "personnage": "emelyne",
+                    "son":"emelyne",
+                    "variantes": {
+                        "negative": "Tu viens de jeter du popcorn par terre.",
+                        "neutre": "Tu as sursauté plus fort que nous tous.",
+                        "amicale": "Tu as failli utiliser {{nomJoueur}} comme bouclier.",
+                        "proche": "Tu as failli t'accrocher à {{nomJoueur}}. Je crois que la preuve est suffisante."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "texte": "Je confirme."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Taquiner Zoé avec Émelyne",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Le verdict est unanime. Zoé est officiellement la première victime de la soirée."
+                    },
+                    "effet": {
+                        "relationZoe": 2,
+                        "relationEmelyne": 2,
+                        "humour": 1
+                    },
+                    "next": "pauseQuatre"
+                },
+                {
+                    "texte": "Prendre la défense de Zoé",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Elle testait seulement la résistance du canapé."
+                    },
+                    "effet": {
+                        "relationZoe": 3,
+                        "relationEva": 1
+                    },
+                    "next": "pauseQuatre"
+                }
+            ]
+        },
+        "pauseTrois": {
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "À la moitié du film, Zoé met la lecture en pause pour aller chercher d'autres boissons."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Pendant quelques instants, {{nomJoueur}} reste seul avec Eva dans le salon."
+                },
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "La soirée se passe mieux que prévu.",
+                        "neutre": "Je suis contente que tu sois venu.",
+                        "amicale": "Je suis vraiment contente que tu sois venu ce soir.",
+                        "proche": "J'espérais pouvoir passer un peu de temps avec toi pendant les vacances."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Dire que tu voulais aussi la voir",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Moi aussi. J'avais envie de te revoir en dehors de l'école."
+                    },
+                    "effet": {
+                        "relationEva": 4,
+                        "confianceEva": 2
+                    },
+                    "next": "finTrois"
+                },
+                {
+                    "texte": "Dire que la soirée est agréable",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "La soirée est vraiment agréable. C'était une bonne idée."
+                    },
+                    "effet": {
+                        "relationEva": 2,
+                        "relationZoe": 1
+                    },
+                    "next": "finTrois"
+                }
+            ]
+        },
+        "pauseQuatre": {
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "À la moitié du film, Zoé met la lecture en pause pour aller chercher d'autres boissons."
+                },
+                {
+                    "personnage": "emelyne",
+                    "son":"emelyne",
+                    "texte": "Je dois reconnaître que c'est moins mauvais que ce que j'imaginais."
+                },
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "texte": "Pour le film ou pour la soirée ?"
+                },
+                {
+                    "personnage": "emelyne",
+                    "variantes": {
+                        "negative": "La soirée.",
+                        "neutre": "Les deux, peut-être.",
+                        "amicale": "Surtout la soirée.",
+                        "proche": "Surtout la soirée. Certaines personnes la rendent plus agréable."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Dire que tu es content qu'Émelyne soit venue",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je suis content que tu aies accepté de venir."
+                    },
+                    "effet": {
+                        "relationEmelyne": 4,
+                        "confianceEmelyne": 2
+                    },
+                    "next": "finQuatre"
+                },
+                {
+                    "texte": "Remercier Eva pour l'invitation",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Et moi, je suis content qu'Eva ait pensé à m'inviter."
+                    },
+                    "effet": {
+                        "relationEva": 4,
+                        "confianceEva": 2
+                    },
+                    "next": "finQuatre"
+                },
+                {
+                    "texte": "Dire que le groupe fonctionne bien",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je trouve qu'on forme un groupe plutôt efficace, même face à un film d'horreur."
+                    },
+                    "effet": {
+                        "relationEva": 2,
+                        "relationEmelyne": 2,
+                        "relationZoe": 2
+                    },
+                    "next": "finQuatre"
+                }
+            ]
+        },
+        "finTrois": {
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Lorsque le générique apparaît, il est déjà tard."
+                },
+                {
+                    "personnage": "zoe",
+                    "son":"zoe",
+                    "texte": "Alors ? Meilleure soirée de début de vacances ou meilleure soirée tout court ?"
+                },
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "Elle était correcte.",
+                        "neutre": "C'était une bonne soirée.",
+                        "amicale": "C'était vraiment une bonne soirée.",
+                        "proche": "J'aimerais qu'on recommence avant la fin des vacances."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Dire au revoir",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Merci pour la soirée. On remet ça bientôt."
+                    },
+                    "effet": {
+                        "relationEva": 2,
+                        "relationZoe": 2
+                    },
+                    "next": "demanderMessageEva"
+                }
+            ]
+        },
+        "finQuatre": {
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Lorsque le générique apparaît, il est déjà tard."
+                },
+                {
+                    "personnage": "zoe",
+                    "son":"zoe",
+                    "texte": "Je considère cette soirée comme une réussite totale."
+                },
+                {
+                    "personnage": "emelyne",
+                    "son":"emelyne",
+                    "variantes": {
+                        "negative": "C'était acceptable.",
+                        "neutre": "C'était plus agréable que prévu.",
+                        "amicale": "Je reconnais que j'ai passé une bonne soirée.",
+                        "proche": "Je suis contente d'être venue. Merci de m'avoir invitée, {{nomJoueur}}."
+                    }
+                },
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "Bonne nuit.",
+                        "neutre": "On devrait peut-être recommencer pendant les vacances.",
+                        "amicale": "Oui, on devrait vraiment recommencer.",
+                        "proche": "J'aimerais qu'on puisse refaire quelque chose ensemble avant la fin des vacances."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Proposer une autre sortie",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "On pourrait organiser autre chose avant la reprise."
+                    },
+                    "effet": {
+                        "relationEva": 2,
+                        "relationEmelyne": 2,
+                        "relationZoe": 2,
+                        "ideeSortieVacances": true
+                    },
+                    "next": "demanderMessageEva"
+                },
+                {
+                    "texte": "Remercier tout le monde",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Merci pour la soirée. Je suis content qu'on ait pu être tous les quatre."
+                    },
+                    "effet": {
+                        "relationEva": 1,
+                        "relationEmelyne": 2,
+                        "relationZoe": 1
+                    },
+                    "next": "demanderMessageEva"
+                }
+            ]
+        },
+        "retourMaison": {
+            "fond":"rue parisienne",
+            "ambiance":"rue parisienne",
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "{{nomJoueur}} reprend le chemin de son domicile dans les rues désormais silencieuses."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Cette première soirée des vacances semble avoir rapproché le groupe."
+                },
+                {
+                    "personnage": "systeme",
+                    "texte": "La soirée horreur est terminée."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Terminer le chapitre",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "Alors que {{nomJoueur}} arrive chez lui, son téléphone vibre une nouvelle fois."
+                    },
+                    "next": "finChapitre7"
+                }
+            ]
+        },
+        "refusSoiree": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "D'accord.",
+                        "neutre": "D'accord. Une prochaine fois, peut-être.",
+                        "amicale": "Dommage. J'espère qu'on pourra se voir pendant les vacances.",
+                        "proche": "Dommage... J'aurais vraiment aimé que tu sois avec nous ce soir."
+                    }
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "{{nomJoueur}} pose son téléphone et passe finalement la soirée chez lui."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Vous avez décliné la soirée horreur."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Terminer le chapitre",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "Le début des vacances se déroule dans le calme."
+                    },
+                    "next": "finChapitre7Refus"
+                }
+            ]
+        },
+        "finChapitre7": {
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "{{nomJoueur}} regarde une dernière fois l’heure."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Quelque chose ne va pas."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Chapitre 7 terminé."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Continuer vers le chapitre 8",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "L’absence de nouvelles d’Eva marque le début d’une nuit inquiétante."
+                    },
+                    "next": "chapitre8"
+                }
+            ]
+        },
+        "demanderMessageEva": {
+            "musique":"moment_seul_eva",
+            "fond":"devant_maison_zoe",
+            "ambiance":"maison_zoe_exterieur",
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Alors que chacun se prépare à rentrer, {{nomJoueur}} rejoint Eva près de la sortie."
+                },
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "Tu voulais me dire quelque chose ?",
+                        "neutre": "Tu voulais me parler avant de partir ?",
+                        "amicale": "Tu voulais me dire quelque chose, {{nomJoueur}} ?",
+                        "proche": "Tu voulais me parler avant que je parte ?"
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Lui demander de prévenir quand elle sera rentrée",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Envoie-moi un message quand tu seras rentrée chez toi, d’accord ?"
+                    },
+                    "effet": {
+                        "demandeMessageRetourEva": true,
+                        "confianceEva": 2,
+                        "relationEva": 1
+                    },
+                    "next": "promesseEva"
+                },
+                {
+                    "texte": "Tenter d'embrasser Eva sur le front",
+                    "message": {
+                        "personnage": "narrateur",
+                        "son":"choix important",
+                        "texte": "{{nomJoueur}} se rapproche doucement d'Eva pour tenter de l'embrasser sur le front."
+                    },
+                    "next": "baiserEva"
+                }
+            ]
+        },
+        "baiserEva": {
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "{{nomJoueur}} s'approche doucement d'Eva. Sa réaction dépend de la relation qu'ils ont construite."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Continuer",
+                    "message":{
+                        "personnage":"narrateur",
+                        "texte":"Eva se recule visiblement géner."
+                    },
+                    "condition": {
+                        "variable": "relationEva",
+                        "operateur": "<",
+                        "valeur": 5
+                    },
+                    "next": "baiserEvaRefus"
+                },
+                {
+                    "texte": "Continuer",
+                    "message":{
+                        "personnage":"narrateur",
+                        "texte":"Eva regarde {{nomJoueur}} dans les yeux."
+                    },
+                    "condition": {
+                        "variable": "relationEva",
+                        "operateur": ">=",
+                        "valeur": 5
+                    },
+                    "next": "baiserEvaEvaluation"
+                }
+            ]
+        },
+        "promesseEva": {
+            "dialogues": [
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "variantes": {
+                        "negative": "D’accord.",
+                        "neutre": "Oui, d’accord. Je te préviendrai.",
+                        "amicale": "Oui, bien sûr. Je t’enverrai un message dès que je serai rentrée.",
+                        "proche": "Promis. Je t’écris dès que je suis chez moi."
+                    }
+                },
+                {
+                    "personnage": "narrateur",
+                    "relationAvec": "eva",
+                    "variantes": {
+                        "negative": "Eva te salue brièvement avant de partir.",
+                        "neutre": "Eva te sourit légèrement avant de rejoindre le chemin du retour.",
+                        "amicale": "Eva te fait un dernier signe avant de s’éloigner.",
+                        "proche": "Eva garde les yeux sur toi quelques secondes avant de finalement partir."
+                    }
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Rentrer chez toi",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "{{nomJoueur}} prend à son tour le chemin de son domicile."
+                    },
+                    "next": "attenteMessageEva"
+                }
+            ]
+        },
+        "attenteMessageEva": {
+            "fond":"chambre_joueur2",
+            "ambiance":"chambre_joueur",
+            "musique":"chapitre7",
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Une fois rentré, {{nomJoueur}} pose son téléphone près de lui."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Les minutes passent."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Puis une demi-heure."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Eva avait promis d’envoyer un message dès son retour."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "Pourtant, aucune notification n’apparaît."
+                },
+                {
+                    "personnage": "systeme",
+                    "texte": "Aucun nouveau message d’Eva.",
+                    "evenement": "information-personnage"
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Vérifier une nouvelle fois le téléphone",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "L’écran reste silencieux. Eva n’a toujours pas donné de nouvelles."
+                    },
+                    "effet": {
+                        "evaMessageRetourNonRecu": true
+                    },
+                    "next": "finChapitre7"
+                }
+            ]
+        },
+        "finChapitre7Refus": {
+            "fond":"chambre_joueur2",
+            "ambiance":"chambre_joueur",
+            "musique":"chapitre7",
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Chapitre 7 terminé."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Continuer vers le chapitre 8",
+                    "message": {
+                        "personnage": "narrateur",
+                        "texte": "Les vacances ne font que commencer."
+                    },
+                    "next": "chapitre8"
+                }
+            ]
+        },
+        "baiserEvaEvaluation": {
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Eva reste immobile quelques secondes, surprise par le geste."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Continuer",
+                    "message":{
+                        "personnage":"narrateur",
+                        "texte":"Eva hésite."
+                    },
+                    "condition": {
+                        "variable": "relationEva",
+                        "operateur": "<",
+                        "valeur": 15
+                    },
+                    "next": "baiserEvaHesitation"
+                },
+                {
+                    "texte": "Continuer",
+                    "message":{
+                        "personnage":"narrateur",
+                        "texte":"Eva souris et se rapproche de {{nomJoueur}}."
+                    },
+                    
+                    "condition": {
+                        "variable": "relationEva",
+                        "operateur": ">=",
+                        "valeur": 15
+                    },
+                    "next": "baiserEvaAccepte"
+                }
+            ]
+        },
+        "baiserEvaRefus": {
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Lorsque {{nomJoueur}} se rapproche, Eva recule doucement."
+                },
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "texte": "Je préfère qu'on prenne notre temps."
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "{{nomJoueur}} respecte sa réaction et reprend un peu de distance."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Lui demander de prévenir quand elle sera rentrée",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "D'accord. Envoie-moi quand même un message quand tu seras rentrée chez toi."
+                    },
+                    "effet": {
+                        "demandeMessageRetourEva": true
+                    },
+                    "next": "promesseEva"
+                }
+            ]
+        },
+        "baiserEvaHesitation": {
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Eva ne recule pas immédiatement, mais son hésitation est visible."
+                },
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "texte": "Tu n'es pas encore prêt à me dire pourquoi tu fais ça, n'est-ce pas ?"
+                },
+                {
+                    "personnage": "narrateur",
+                    "texte": "{{nomJoueur}} s'arrête avant de l'embrasser et respecte son hésitation."
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Lui demander de prévenir quand elle sera rentrée",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "Je comprends. Envoie-moi un message quand tu seras rentrée, d'accord ?"
+                    },
+                    "effet": {
+                        "demandeMessageRetourEva": true,
+                        "confianceEva": 1
+                    },
+                    "next": "promesseEva"
+                }
+            ]
+        },
+        "baiserEvaAccepte": {
+            "dialogues": [
+                {
+                    "personnage": "narrateur",
+                    "texte": "Eva comprend l'intention de {{nomJoueur}} et reste près de lui. Elle le laisse déposer un baiser sur son front."
+                },
+                {
+                    "personnage": "eva",
+                    "son":"eva",
+                    "texte": "Promets-moi simplement de ne pas t'inquiéter inutilement."
+                },
+                {
+                    "personnage": "systeme",
+                    "texte": "Votre relation avec Eva s'est renforcée.",
+                    "son": "systeme"
+                }
+            ],
+            "choix": [
+                {
+                    "texte": "Lui demander de prévenir quand elle sera rentrée",
+                    "message": {
+                        "personnage": "joueur",
+                        "texte": "D'accord. Mais envoie-moi quand même un message quand tu seras rentrée."
+                    },
+                    "effet": {
+                        "demandeMessageRetourEva": true,
+                        "relationEva": 2,
+                        "confianceEva": 2
+                    },
+                    "next": "promesseEva"
+                }
+            ]
+        }
+    }
+}
