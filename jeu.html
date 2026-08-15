@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Friendzoné Reborn, une histoire interactive dont vous êtes le héros."
+    >
+
+    <title>Friendzoné Reborn</title>
+
+
+    <!-- Feuilles de style -->
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/dialogue.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/choix.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/animations.css"
+    >
+
+</head>
+
+
+<body>
+
+    <!--=================================================
+        FOND DYNAMIQUE DU JEU
+
+        Le moteur modifiera automatiquement
+        l'image de fond avec scene.fond.
+    ==================================================-->
+
+    <div
+        id="fond-jeu"
+        aria-hidden="true"
+    ></div>
+
+
+    <!--=================================================
+        VOILE SOMBRE SUR LE FOND
+
+        Il améliore la lisibilité des dialogues.
+    ==================================================-->
+
+    <div
+        id="voile-fond"
+        aria-hidden="true"
+    ></div>
+
+
+    <!--=================================================
+        TRANSITION NOIRE AU CHARGEMENT
+    ==================================================-->
+
+    <div
+        id="transition"
+        class="actif"
+        aria-hidden="true"
+    ></div>
+
+
+    <!--=================================================
+        CONTENEUR PRINCIPAL DU JEU
+    ==================================================-->
+
+    <div id="jeu">
+
+
+        <!--=============================================
+            BARRE SUPÉRIEURE
+        ==============================================-->
+
+        <header id="entete">
+
+            <button
+                id="retourMenu"
+                type="button"
+                aria-label="Retourner au menu principal"
+            >
+                ← Menu
+            </button>
+
+
+            <div
+                id="titre"
+                role="heading"
+                aria-level="1"
+            >
+                Chargement du chapitre...
+            </div>
+
+
+            <button
+                id="ouvrirParametres"
+                type="button"
+                aria-label="Ouvrir les paramètres"
+                aria-controls="popupParametres"
+                aria-expanded="false"
+            >
+                ⚙
+            </button>
+
+        </header>
+
+
+        <!--=============================================
+            ZONE DE CONVERSATION
+        ==============================================-->
+
+        <main
+            id="conversation"
+            aria-live="polite"
+            aria-relevant="additions"
+        >
+
+            <div id="texte">
+
+                <!--
+                    Les bulles de dialogue seront
+                    ajoutées ici par dialogue.js.
+                -->
+
+            </div>
+
+        </main>
+
+
+        <!--=============================================
+            POPUP DES CHOIX
+        ==============================================-->
+
+        <div
+            id="popupChoix"
+            class="popup-choix"
+            aria-hidden="true"
+        >
+
+            <div
+                class="popup-choix-contenu"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="titreChoix"
+            >
+
+                <h2 id="titreChoix">
+                    Que veux-tu faire ?
+                </h2>
+
+
+                <div id="choix">
+
+                    <!--
+                        Les boutons seront ajoutés ici
+                        par choix.js.
+                    -->
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!--=============================================
+            POPUP DES PARAMÈTRES
+        ==============================================-->
+
+        <div
+            id="popupParametres"
+            class="popup-parametres"
+            aria-hidden="true"
+        >
+
+            <div
+                class="popup-parametres-contenu"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="titreParametres"
+            >
+
+                <h2 id="titreParametres">
+                    Paramètres
+                </h2>
+
+
+                <!-- Volume de la musique -->
+
+                <div class="groupe-parametre">
+
+                    <label for="volumeMusique">
+
+                        Volume de la musique
+
+                    </label>
+
+                    <input
+                        id="volumeMusique"
+                        type="range"
+                        min="0"
+                        max="1"
+                        step="0.05"
+                        value="0.4"
+                    >
+
+                    <output
+                        id="valeurVolumeMusique"
+                        for="volumeMusique"
+                    >
+                        40 %
+                    </output>
+
+                </div>
+
+
+                <!-- Volume de l'ambiance -->
+
+                <div class="groupe-parametre">
+
+                    <label for="volumeAmbiance">
+
+                        Volume de l'ambiance
+
+                    </label>
+
+                    <input
+                        id="volumeAmbiance"
+                        type="range"
+                        min="0"
+                        max="1"
+                        step="0.05"
+                        value="0.25"
+                    >
+
+                    <output
+                        id="valeurVolumeAmbiance"
+                        for="volumeAmbiance"
+                    >
+                        25 %
+                    </output>
+
+                </div>
+
+
+                <!-- Volume des effets -->
+
+                <div class="groupe-parametre">
+
+                    <label for="volumeEffets">
+
+                        Volume des effets
+
+                    </label>
+
+                    <input
+                        id="volumeEffets"
+                        type="range"
+                        min="0"
+                        max="1"
+                        step="0.05"
+                        value="0.7"
+                    >
+
+                    <output
+                        id="valeurVolumeEffets"
+                        for="volumeEffets"
+                    >
+                        70 %
+                    </output>
+
+                </div>
+
+
+                <!-- Intensité du voile sombre -->
+
+                <div class="groupe-parametre">
+
+                    <label for="opaciteVoileFond">
+
+                        Assombrissement du fond
+
+                    </label>
+
+                    <input
+                        id="opaciteVoileFond"
+                        type="range"
+                        min="0"
+                        max="0.8"
+                        step="0.05"
+                        value="0.35"
+                    >
+
+                    <output
+                        id="valeurOpaciteVoileFond"
+                        for="opaciteVoileFond"
+                    >
+                        35 %
+                    </output>
+
+                </div>
+
+
+                <button
+                    id="fermerParametres"
+                    type="button"
+                >
+                    Fermer
+                </button>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!--=================================================
+        SCRIPTS
+
+        L'ordre de chargement est important.
+    ==================================================-->
+
+    <script src="js/audioManager.js"></script>
+
+    <script src="js/animation.js"></script>
+
+    <script src="js/sauvegarde.js"></script>
+
+    <script src="js/chapitres.js"></script>
+
+    <script src="js/conditions.js"></script>
+
+    <script src="js/dialogue.js"></script>
+
+    <script src="js/choix.js"></script>
+
+    <script src="js/moteur.js"></script>
+
+
+    <!--=================================================
+        GESTION DU MENU ET DES PARAMÈTRES
+    ==================================================-->
+
+    <script>
+
+        "use strict";
+
+
+        /*=============================================
+            RÉCUPÉRATION DES ÉLÉMENTS
+        =============================================*/
+
+        const boutonRetourMenu =
+            document.getElementById(
+                "retourMenu"
+            );
+
+
+        const boutonOuvrirParametres =
+            document.getElementById(
+                "ouvrirParametres"
+            );
+
+
+        const boutonFermerParametres =
+            document.getElementById(
+                "fermerParametres"
+            );
+
+
+        const popupParametres =
+            document.getElementById(
+                "popupParametres"
+            );
+
+
+        const volumeMusique =
+            document.getElementById(
+                "volumeMusique"
+            );
+
+
+        const volumeAmbiance =
+            document.getElementById(
+                "volumeAmbiance"
+            );
+
+
+        const volumeEffets =
+            document.getElementById(
+                "volumeEffets"
+            );
+
+
+        const opaciteVoileFond =
+            document.getElementById(
+                "opaciteVoileFond"
+            );
+
+
+        const valeurVolumeMusique =
+            document.getElementById(
+                "valeurVolumeMusique"
+            );
+
+
+        const valeurVolumeAmbiance =
+            document.getElementById(
+                "valeurVolumeAmbiance"
+            );
+
+
+        const valeurVolumeEffets =
+            document.getElementById(
+                "valeurVolumeEffets"
+            );
+
+
+        const valeurOpaciteVoileFond =
+            document.getElementById(
+                "valeurOpaciteVoileFond"
+            );
+
+
+        const voileFond =
+            document.getElementById(
+                "voile-fond"
+            );
+
+
+        /*=============================================
+            FONCTIONS UTILITAIRES
+        =============================================*/
+
+        function convertirEnPourcentage(
+            valeur
+        ) {
+
+            return (
+                Math.round(
+                    Number(valeur) * 100
+                ) + " %"
+            );
+
+        }
+
+
+        function ouvrirParametres() {
+
+            popupParametres
+                .classList.add(
+                    "ouverte"
+                );
+
+
+            popupParametres
+                .setAttribute(
+                    "aria-hidden",
+                    "false"
+                );
+
+
+            boutonOuvrirParametres
+                .setAttribute(
+                    "aria-expanded",
+                    "true"
+                );
+
+
+            boutonFermerParametres
+                .focus();
+
+        }
+
+
+        function fermerParametres() {
+
+            popupParametres
+                .classList.remove(
+                    "ouverte"
+                );
+
+
+            popupParametres
+                .setAttribute(
+                    "aria-hidden",
+                    "true"
+                );
+
+
+            boutonOuvrirParametres
+                .setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+
+            boutonOuvrirParametres
+                .focus();
+
+        }
+
+
+        function appliquerOpaciteVoile(
+            valeur
+        ) {
+
+            const opacite =
+                Math.min(
+                    0.8,
+                    Math.max(
+                        0,
+                        Number(valeur)
+                    )
+                );
+
+
+            voileFond.style.background =
+                `rgba(0, 0, 0, ${opacite})`;
+
+
+            valeurOpaciteVoileFond.textContent =
+                convertirEnPourcentage(
+                    opacite
+                );
+
+
+            localStorage.setItem(
+                "opaciteVoileFond",
+                String(opacite)
+            );
+
+        }
+
+
+        /*=============================================
+            RETOUR AU MENU
+        =============================================*/
+
+        boutonRetourMenu
+            .addEventListener(
+                "click",
+                () => {
+
+                    const confirmation =
+                        window.confirm(
+                            "Retourner au menu principal ?"
+                        );
+
+
+                    if (!confirmation) {
+
+                        return;
+
+                    }
+
+
+                    if (
+                        typeof moteur !==
+                            "undefined" &&
+                        typeof moteur
+                            .sauvegarder ===
+                            "function"
+                    ) {
+
+                        moteur.sauvegarder();
+
+                    }
+
+
+                    if (
+                        typeof audioManager !==
+                            "undefined"
+                    ) {
+
+                        if (
+                            typeof audioManager
+                                .fadeOut ===
+                                "function"
+                        ) {
+
+                            audioManager.fadeOut(
+                                800
+                            );
+
+                        }
+
+
+                        if (
+                            typeof audioManager
+                                .fadeOutAmbiance ===
+                                "function"
+                        ) {
+
+                            audioManager
+                                .fadeOutAmbiance(
+                                    600
+                                );
+
+                        }
+                        else if (
+                            typeof audioManager
+                                .arreterAmbiance ===
+                                "function"
+                        ) {
+
+                            audioManager
+                                .arreterAmbiance();
+
+                        }
+
+                    }
+
+
+                    const allerAuMenu =
+                        () => {
+
+                            window.location.href =
+                                "index.html";
+
+                        };
+
+
+                    if (
+                        typeof animationManager !==
+                            "undefined" &&
+                        typeof animationManager
+                            .transitionVersNoir ===
+                            "function"
+                    ) {
+
+                        animationManager
+                            .transitionVersNoir(
+                                allerAuMenu
+                            );
+
+                        return;
+
+                    }
+
+
+                    allerAuMenu();
+
+                }
+            );
+
+
+        /*=============================================
+            OUVERTURE ET FERMETURE DES PARAMÈTRES
+        =============================================*/
+
+        boutonOuvrirParametres
+            .addEventListener(
+                "click",
+                ouvrirParametres
+            );
+
+
+        boutonFermerParametres
+            .addEventListener(
+                "click",
+                fermerParametres
+            );
+
+
+        popupParametres
+            .addEventListener(
+                "click",
+                event => {
+
+                    if (
+                        event.target ===
+                        popupParametres
+                    ) {
+
+                        fermerParametres();
+
+                    }
+
+                }
+            );
+
+
+        document
+            .addEventListener(
+                "keydown",
+                event => {
+
+                    if (
+                        event.key ===
+                            "Escape" &&
+                        popupParametres
+                            .classList
+                            .contains(
+                                "ouverte"
+                            )
+                    ) {
+
+                        fermerParametres();
+
+                    }
+
+                }
+            );
+
+
+        /*=============================================
+            VOLUME DE LA MUSIQUE
+        =============================================*/
+
+        volumeMusique
+            .addEventListener(
+                "input",
+                event => {
+
+                    const valeur =
+                        Number(
+                            event.target.value
+                        );
+
+
+                    valeurVolumeMusique.textContent =
+                        convertirEnPourcentage(
+                            valeur
+                        );
+
+
+                    if (
+                        typeof audioManager !==
+                            "undefined" &&
+                        typeof audioManager
+                            .setVolumeMusique ===
+                            "function"
+                    ) {
+
+                        audioManager
+                            .setVolumeMusique(
+                                valeur
+                            );
+
+                    }
+
+                }
+            );
+
+
+        /*=============================================
+            VOLUME DE L'AMBIANCE
+        =============================================*/
+
+        volumeAmbiance
+            .addEventListener(
+                "input",
+                event => {
+
+                    const valeur =
+                        Number(
+                            event.target.value
+                        );
+
+
+                    valeurVolumeAmbiance.textContent =
+                        convertirEnPourcentage(
+                            valeur
+                        );
+
+
+                    if (
+                        typeof audioManager !==
+                            "undefined" &&
+                        typeof audioManager
+                            .setVolumeAmbiance ===
+                            "function"
+                    ) {
+
+                        audioManager
+                            .setVolumeAmbiance(
+                                valeur
+                            );
+
+                    }
+
+                }
+            );
+
+
+        /*=============================================
+            VOLUME DES EFFETS
+        =============================================*/
+
+        volumeEffets
+            .addEventListener(
+                "input",
+                event => {
+
+                    const valeur =
+                        Number(
+                            event.target.value
+                        );
+
+
+                    valeurVolumeEffets.textContent =
+                        convertirEnPourcentage(
+                            valeur
+                        );
+
+
+                    if (
+                        typeof audioManager !==
+                            "undefined" &&
+                        typeof audioManager
+                            .setVolumeEffets ===
+                            "function"
+                    ) {
+
+                        audioManager
+                            .setVolumeEffets(
+                                valeur
+                            );
+
+                    }
+
+                }
+            );
+
+
+        /*=============================================
+            ASSOMBRISSEMENT DU FOND
+        =============================================*/
+
+        opaciteVoileFond
+            .addEventListener(
+                "input",
+                event => {
+
+                    appliquerOpaciteVoile(
+                        event.target.value
+                    );
+
+                }
+            );
+
+
+        /*=============================================
+            CHARGEMENT DES PARAMÈTRES ENREGISTRÉS
+        =============================================*/
+
+        window.addEventListener(
+            "DOMContentLoaded",
+            () => {
+
+                const opaciteEnregistree =
+                    localStorage.getItem(
+                        "opaciteVoileFond"
+                    );
+
+
+                if (
+                    opaciteEnregistree !==
+                    null
+                ) {
+
+                    opaciteVoileFond.value =
+                        opaciteEnregistree;
+
+                }
+
+
+                appliquerOpaciteVoile(
+                    opaciteVoileFond.value
+                );
+
+
+                if (
+                    typeof audioManager !==
+                        "undefined"
+                ) {
+
+                    if (
+                        Number.isFinite(
+                            audioManager.volumeMusique
+                        )
+                    ) {
+
+                        volumeMusique.value =
+                            audioManager.volumeMusique;
+
+                    }
+
+
+                    if (
+                        Number.isFinite(
+                            audioManager.volumeAmbiance
+                        )
+                    ) {
+
+                        volumeAmbiance.value =
+                            audioManager.volumeAmbiance;
+
+                    }
+
+
+                    if (
+                        Number.isFinite(
+                            audioManager.volumeEffets
+                        )
+                    ) {
+
+                        volumeEffets.value =
+                            audioManager.volumeEffets;
+
+                    }
+
+                }
+
+
+                valeurVolumeMusique.textContent =
+                    convertirEnPourcentage(
+                        volumeMusique.value
+                    );
+
+
+                valeurVolumeAmbiance.textContent =
+                    convertirEnPourcentage(
+                        volumeAmbiance.value
+                    );
+
+
+                valeurVolumeEffets.textContent =
+                    convertirEnPourcentage(
+                        volumeEffets.value
+                    );
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>
