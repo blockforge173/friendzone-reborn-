@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Friendzoné Reborn</title>
+
+    <link rel="stylesheet" href="css/menu.css">
+
+</head>
+
+<body>
+
+    <div id="background"></div>
+
+    <div id="overlay"></div>
+
+    <main id="menu">
+
+        <div id="logo">
+
+            <h1>FRIENDZONÉ</h1>
+
+            <h2>REBORN</h2>
+
+            <p>Une histoire dont vous êtes le héros</p>
+
+        </div>
+
+        <nav>
+
+            <button id="nouvellePartie">
+                ▶ Nouvelle partie
+            </button>
+
+            <button id="continuer">
+                ▶ Continuer
+            </button>
+
+            <button id="charger">
+                ▶ Charger une sauvegarde
+            </button>
+
+            <button id="galerie">
+                ▶ Galerie
+            </button>
+
+            <button id="succes">
+                ▶ Succès
+            </button>
+
+            <button id="parametres">
+                ▶ Paramètres
+            </button>
+
+            <button id="credits">
+                ▶ Crédits
+            </button>
+
+            <button id="quitter">
+                ▶ Quitter
+            </button>
+
+        </nav>
+
+        <footer>
+
+            <p>Version 0.4 Alpha</p>
+
+        </footer>
+
+    </main>
+
+    <!-- Fenêtre des paramètres -->
+
+    <div id="fenetreParametres" class="popup">
+
+        <div class="contenuPopup">
+
+            <h2>Paramètres</h2>
+
+            <p>Disponible prochainement.</p>
+
+            <button onclick="fermerPopup()">
+                Fermer
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Fenêtre Galerie -->
+
+    <div id="fenetreGalerie" class="popup">
+
+        <div class="contenuPopup">
+
+            <h2>Galerie</h2>
+
+            <p>Disponible prochainement.</p>
+
+            <button onclick="fermerPopup()">
+                Fermer
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Fenêtre Succès -->
+
+    <div id="fenetreSucces" class="popup">
+
+        <div class="contenuPopup">
+
+            <h2>Succès</h2>
+
+            <p>Disponible prochainement.</p>
+
+            <button onclick="fermerPopup()">
+                Fermer
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Fenêtre Crédits -->
+
+    <div id="fenetreCredits" class="popup">
+
+        <div class="contenuPopup">
+
+            <h2>Crédits</h2>
+
+            <p>Développement</p>
+
+            <p>Blockforge173</p>
+
+            <br>
+
+            <p>Friendzoné Reborn</p>
+
+            <p>Version Alpha 0.4</p>
+
+            <button onclick="fermerPopup()">
+                Fermer
+            </button>
+
+        </div>
+
+    </div>
+
+    <div id="transition"></div>
+
+    <script src="js/audioManager.js"></script>
+    
+<script src="js/menu.js"></script>
+
+</body>
+
+</html>
