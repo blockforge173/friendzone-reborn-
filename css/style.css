@@ -1,0 +1,1733 @@
+/* ==========================================
+   FRIENDZONÉ REBORN
+   style.css
+   Gestion complète des fonds dynamiques
+========================================== */
+
+@import url("dialogue.css");
+@import url("choix.css");
+@import url("animations.css");
+
+
+/* ==========================================
+   VARIABLES
+========================================== */
+
+:root {
+
+    --hauteur-entete: 70px;
+
+    --couleur-joueur: #2f80ed;
+    --couleur-eva: #ff6faf;
+    --couleur-zoe: #ffb347;
+    --couleur-emelyne: #4caf50;
+
+    --fond-interface:
+        rgba(0, 0, 0, 0.38);
+
+    --bordure-interface:
+        rgba(255, 255, 255, 0.1);
+
+    --ombre-interface:
+        0 10px 35px rgba(0, 0, 0, 0.35);
+
+}
+
+
+/* ==========================================
+   RÉINITIALISATION
+========================================== */
+
+* {
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+html,
+body {
+
+    width: 100%;
+    height: 100%;
+
+}
+
+
+html {
+
+    background: #111;
+
+}
+
+
+body {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    overflow: hidden;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: white;
+
+    background: #111;
+
+}
+
+
+/* ==========================================
+   FOND DYNAMIQUE DU JEU
+========================================== */
+
+#fond-jeu {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: #111;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    opacity: 1;
+
+    transform: scale(1.01);
+
+    transition:
+        opacity 0.5s ease,
+        filter 0.5s ease,
+        transform 1.2s ease;
+
+    z-index: 0;
+
+    pointer-events: none;
+
+}
+
+
+/*
+    Classe optionnelle utilisable pendant
+    un changement de fond.
+*/
+
+#fond-jeu.changement-fond {
+
+    opacity: 0;
+
+    transform: scale(1.03);
+
+}
+
+
+/*
+    Classe optionnelle pour une légère
+    animation après le chargement.
+*/
+
+#fond-jeu.fond-charge {
+
+    opacity: 1;
+
+    transform: scale(1.01);
+
+}
+
+
+/* ==========================================
+   VOILE SOMBRE SUR LE FOND
+========================================== */
+
+#voile-fond {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        rgba(0, 0, 0, 0.35);
+
+    backdrop-filter:
+        blur(1px);
+
+    -webkit-backdrop-filter:
+        blur(1px);
+
+    transition:
+        background 0.3s ease,
+        backdrop-filter 0.3s ease;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+}
+
+
+/* ==========================================
+   CONTENEUR PRINCIPAL
+========================================== */
+
+#jeu {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+
+}
+
+
+/* ==========================================
+   BARRE SUPÉRIEURE
+========================================== */
+
+#entete {
+
+    position: relative;
+
+    flex-shrink: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(100px, 1fr)
+        auto
+        minmax(100px, 1fr);
+
+    align-items: center;
+
+    min-height: var(--hauteur-entete);
+
+    padding:
+        10px
+        20px;
+
+    background:
+        rgba(0, 0, 0, 0.42);
+
+    backdrop-filter:
+        blur(12px);
+
+    -webkit-backdrop-filter:
+        blur(12px);
+
+    border-bottom:
+        1px solid
+        var(--bordure-interface);
+
+    box-shadow:
+        0 4px 20px
+        rgba(0, 0, 0, 0.2);
+
+    z-index: 10;
+
+}
+
+
+/* ==========================================
+   TITRE DU CHAPITRE
+========================================== */
+
+#titre {
+
+    grid-column: 2;
+
+    max-width: 70vw;
+
+    overflow: hidden;
+
+    color: white;
+
+    font-size: 26px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    text-align: center;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    text-shadow:
+        0 2px 8px
+        rgba(0, 0, 0, 0.8);
+
+}
+
+
+/* ==========================================
+   BOUTONS DE L'ENTÊTE
+========================================== */
+
+#retourMenu,
+#ouvrirParametres {
+
+    min-height: 42px;
+
+    padding:
+        10px
+        16px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.16);
+
+    border-radius: 12px;
+
+    background:
+        rgba(0, 0, 0, 0.35);
+
+    color: white;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    backdrop-filter:
+        blur(8px);
+
+    -webkit-backdrop-filter:
+        blur(8px);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+
+}
+
+
+#retourMenu {
+
+    grid-column: 1;
+
+    justify-self: start;
+
+}
+
+
+#ouvrirParametres {
+
+    grid-column: 3;
+
+    justify-self: end;
+
+    min-width: 46px;
+
+    font-size: 20px;
+
+}
+
+
+#retourMenu:hover,
+#ouvrirParametres:hover {
+
+    background:
+        rgba(47, 128, 237, 0.78);
+
+    border-color:
+        rgba(255, 255, 255, 0.35);
+
+    transform:
+        translateY(-1px);
+
+}
+
+
+#retourMenu:active,
+#ouvrirParametres:active {
+
+    transform:
+        scale(0.96);
+
+}
+
+
+#retourMenu:focus-visible,
+#ouvrirParametres:focus-visible {
+
+    outline:
+        3px solid
+        rgba(255, 255, 255, 0.8);
+
+    outline-offset: 3px;
+
+}
+
+
+/* ==========================================
+   ZONE DE CONVERSATION
+========================================== */
+
+#conversation {
+
+    position: relative;
+
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    min-height: 0;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    padding:
+        30px
+        max(
+            30px,
+            calc((100vw - 1200px) / 2)
+        )
+        40px;
+
+    scroll-behavior: smooth;
+
+    z-index: 2;
+
+}
+
+
+#texte {
+
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    max-width: 1200px;
+
+    margin:
+        0
+        auto;
+
+    gap: 20px;
+
+}
+
+
+/* ==========================================
+   BARRE DE DÉFILEMENT
+========================================== */
+
+#conversation {
+
+    scrollbar-width: thin;
+
+    scrollbar-color:
+        rgba(255, 255, 255, 0.35)
+        rgba(0, 0, 0, 0.2);
+
+}
+
+
+#conversation::-webkit-scrollbar {
+
+    width: 8px;
+
+}
+
+
+#conversation::-webkit-scrollbar-track {
+
+    background:
+        rgba(0, 0, 0, 0.18);
+
+}
+
+
+#conversation::-webkit-scrollbar-thumb {
+
+    background:
+        rgba(255, 255, 255, 0.35);
+
+    border-radius: 20px;
+
+}
+
+
+#conversation::-webkit-scrollbar-thumb:hover {
+
+    background:
+        rgba(255, 255, 255, 0.5);
+
+}
+
+
+/* ==========================================
+   MESSAGES
+========================================== */
+
+.message {
+
+    display: flex;
+    flex-direction: column;
+
+    width: fit-content;
+    max-width: 72%;
+
+    animation:
+        apparitionMessageEnvoye
+        0.38s
+        cubic-bezier(0.22, 1, 0.36, 1);
+
+}
+
+
+.message.joueur {
+
+    align-self: flex-end;
+
+    align-items: flex-end;
+
+}
+
+
+.message.eva,
+.message.zoe,
+.message.emelyne {
+
+    align-self: flex-start;
+
+    align-items: flex-start;
+
+}
+
+
+.message.narration {
+
+    align-self: center;
+
+    width: 100%;
+    max-width: 90%;
+
+    align-items: center;
+
+}
+
+
+.message.joueur { --deplacement-message-x: 24px; }
+.message.eva,
+.message.zoe,
+.message.emelyne { --deplacement-message-x: -24px; }
+.message.narration { --deplacement-message-x: 0; }
+
+
+/* ==========================================
+   NOM DU PERSONNAGE
+========================================== */
+
+.nom {
+
+    margin-bottom: 6px;
+
+    padding:
+        0
+        6px;
+
+    color:
+        rgba(255, 255, 255, 0.78);
+
+    font-size: 13px;
+    font-weight: 600;
+
+    text-shadow:
+        0 2px 5px
+        rgba(0, 0, 0, 0.8);
+
+}
+
+
+/* ==========================================
+   INDICATEUR "ÉCRIT..."
+========================================== */
+
+.indicateur-ecriture {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+    padding: 0 6px;
+    color: rgba(255, 255, 255, 0.76);
+    font-size: 13px;
+    font-weight: 600;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
+    animation: apparitionIndicateurEcriture 0.2s ease;
+}
+
+.indicateur-ecriture .nom-ecriture {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.indicateur-ecriture .texte-ecriture {
+    font-weight: 400;
+    font-style: italic;
+    opacity: 0.85;
+}
+
+/* ==========================================
+   BULLE DES TROIS POINTS ANIMÉS
+========================================== */
+
+.message-ecriture {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    max-width: 72%;
+    align-self: flex-start;
+    align-items: flex-start;
+}
+
+.message-ecriture.joueur {
+    align-self: flex-end;
+    align-items: flex-end;
+}
+
+.bulle-ecriture {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-width: 64px;
+    min-height: 44px;
+    padding: 12px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+    background: rgba(28, 28, 34, 0.88);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    animation: apparitionBulleEcriture 0.22s ease;
+}
+
+.message-ecriture.joueur .bulle-ecriture { background: rgba(47, 128, 237, 0.88); }
+.message-ecriture.eva .bulle-ecriture { background: rgba(255, 111, 175, 0.88); }
+.message-ecriture.zoe .bulle-ecriture { background: rgba(255, 179, 71, 0.88); }
+.message-ecriture.emelyne .bulle-ecriture { background: rgba(76, 175, 80, 0.88); }
+
+.point-ecriture {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    animation: animationPointEcriture 1.1s ease-in-out infinite;
+}
+
+.point-ecriture:nth-child(2) { animation-delay: 0.16s; }
+.point-ecriture:nth-child(3) { animation-delay: 0.32s; }
+
+
+/* ==========================================
+   BULLES
+========================================== */
+
+.bulle {
+
+    position: relative;
+
+    padding:
+        14px
+        18px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+
+    border-radius: 18px;
+
+    color: white;
+
+    font-size: 17px;
+
+    line-height: 1.6;
+
+    overflow-wrap: anywhere;
+    word-break: normal;
+
+    box-shadow:
+        0 8px 24px
+        rgba(0, 0, 0, 0.28);
+
+    backdrop-filter:
+        blur(8px);
+
+    -webkit-backdrop-filter:
+        blur(8px);
+
+}
+
+
+/* ==========================================
+   BULLE DU JOUEUR
+========================================== */
+
+.joueur .bulle {
+
+    background:
+        rgba(47, 128, 237, 0.92);
+
+}
+
+
+/* ==========================================
+   BULLE D'EVA
+========================================== */
+
+.eva .bulle {
+
+    background:
+        rgba(255, 111, 175, 0.92);
+
+}
+
+
+/* ==========================================
+   BULLE DE ZOÉ
+========================================== */
+
+.zoe .bulle {
+
+    background:
+        rgba(255, 179, 71, 0.92);
+
+}
+
+
+/* ==========================================
+   BULLE D'ÉMELYNE
+========================================== */
+
+.emelyne .bulle {
+
+    background:
+        rgba(76, 175, 80, 0.92);
+
+}
+
+
+/* ==========================================
+   NARRATION
+========================================== */
+
+.narration .bulle {
+
+    max-width: 900px;
+
+    background:
+        rgba(0, 0, 0, 0.48);
+
+    color:
+        rgba(255, 255, 255, 0.92);
+
+    text-align: center;
+
+    font-style: italic;
+
+    border-color:
+        rgba(255, 255, 255, 0.14);
+
+}
+
+
+/* ==========================================
+   POPUP DES CHOIX
+========================================== */
+
+.popup-choix {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    background:
+        rgba(0, 0, 0, 0.48);
+
+    backdrop-filter:
+        blur(5px);
+
+    -webkit-backdrop-filter:
+        blur(5px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+
+    z-index: 1000;
+
+}
+
+
+.popup-choix.ouverte {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+}
+
+
+.popup-choix-contenu {
+
+    width:
+        min(
+            680px,
+            100%
+        );
+
+    max-height:
+        min(
+            80vh,
+            750px
+        );
+
+    overflow-y: auto;
+
+    padding:
+        28px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.16);
+
+    border-radius: 20px;
+
+    background:
+        rgba(20, 20, 24, 0.94);
+
+    box-shadow:
+        0 25px 70px
+        rgba(0, 0, 0, 0.55);
+
+    animation:
+        apparitionPopup
+        0.25s
+        ease;
+
+}
+
+
+#titreChoix {
+
+    margin-bottom: 20px;
+
+    color: white;
+
+    font-size: 23px;
+
+    text-align: center;
+
+}
+
+
+/* ==========================================
+   ZONE DES CHOIX
+========================================== */
+
+#choix {
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+
+    width: 100%;
+
+}
+
+
+/* ==========================================
+   BOUTONS DES CHOIX
+========================================== */
+
+#choix button {
+
+    width: 100%;
+
+    padding:
+        16px
+        18px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+
+    border-radius: 14px;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    color: white;
+
+    font-size: 17px;
+
+    line-height: 1.45;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+#choix button:hover {
+
+    background:
+        rgba(47, 128, 237, 0.92);
+
+    border-color:
+        rgba(255, 255, 255, 0.3);
+
+    transform:
+        translateX(6px);
+
+    box-shadow:
+        0 8px 25px
+        rgba(0, 0, 0, 0.28);
+
+}
+
+
+#choix button:active {
+
+    transform:
+        scale(0.98);
+
+}
+
+
+#choix button:focus-visible {
+
+    outline:
+        3px solid
+        rgba(255, 255, 255, 0.8);
+
+    outline-offset: 3px;
+
+}
+
+
+#choix button:disabled,
+#choix button.verrouille {
+
+    opacity: 0.45;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+}
+
+
+/* ==========================================
+   POPUP DES PARAMÈTRES
+========================================== */
+
+.popup-parametres {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    background:
+        rgba(0, 0, 0, 0.58);
+
+    backdrop-filter:
+        blur(6px);
+
+    -webkit-backdrop-filter:
+        blur(6px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+
+    z-index: 1200;
+
+}
+
+
+.popup-parametres.ouverte {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+}
+
+
+.popup-parametres-contenu {
+
+    display: flex;
+    flex-direction: column;
+
+    width:
+        min(
+            520px,
+            100%
+        );
+
+    max-height: 85vh;
+
+    overflow-y: auto;
+
+    padding:
+        30px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.16);
+
+    border-radius: 20px;
+
+    background:
+        rgba(20, 20, 24, 0.96);
+
+    box-shadow:
+        0 25px 70px
+        rgba(0, 0, 0, 0.6);
+
+    animation:
+        apparitionPopup
+        0.25s
+        ease;
+
+}
+
+
+#titreParametres {
+
+    margin-bottom: 25px;
+
+    text-align: center;
+
+}
+
+
+/* ==========================================
+   GROUPES DES PARAMÈTRES
+========================================== */
+
+.groupe-parametre {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        auto;
+
+    align-items: center;
+
+    gap:
+        10px
+        16px;
+
+    margin-bottom: 22px;
+
+}
+
+
+.groupe-parametre label {
+
+    grid-column:
+        1 /
+        -1;
+
+    color:
+        rgba(255, 255, 255, 0.9);
+
+    font-size: 15px;
+    font-weight: 600;
+
+}
+
+
+.groupe-parametre input[type="range"] {
+
+    width: 100%;
+
+    accent-color:
+        var(--couleur-joueur);
+
+    cursor: pointer;
+
+}
+
+
+.groupe-parametre output {
+
+    min-width: 52px;
+
+    color:
+        rgba(255, 255, 255, 0.75);
+
+    font-size: 14px;
+
+    text-align: right;
+
+}
+
+
+/* ==========================================
+   BOUTON FERMER LES PARAMÈTRES
+========================================== */
+
+#fermerParametres {
+
+    margin-top: 8px;
+
+    padding:
+        13px
+        20px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background:
+        var(--couleur-joueur);
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        filter 0.2s ease;
+
+}
+
+
+#fermerParametres:hover {
+
+    filter:
+        brightness(1.1);
+
+    transform:
+        translateY(-1px);
+
+}
+
+
+#fermerParametres:active {
+
+    transform:
+        scale(0.97);
+
+}
+
+
+/* ==========================================
+   BOUTON POUR AFFICHER LES CHOIX
+========================================== */
+
+.zone-afficher-choix {
+
+    display: flex;
+
+    justify-content: center;
+
+    width: 100%;
+
+    margin:
+        24px
+        0
+        12px;
+
+    padding:
+        0
+        16px;
+
+}
+
+
+.bouton-afficher-choix {
+
+    min-width: 210px;
+
+    padding:
+        14px
+        24px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.2);
+
+    border-radius: 14px;
+
+    background:
+        rgba(47, 128, 237, 0.92);
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0, 0, 0, 0.3);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+
+    animation:
+        apparitionBoutonChoix
+        0.3s
+        ease;
+
+}
+
+
+.bouton-afficher-choix:hover {
+
+    transform:
+        translateY(-2px);
+
+    background:
+        rgb(47, 128, 237);
+
+    box-shadow:
+        0 12px 30px
+        rgba(0, 0, 0, 0.4);
+
+}
+
+
+.bouton-afficher-choix:active {
+
+    transform:
+        scale(0.97);
+
+}
+
+
+.bouton-afficher-choix:focus-visible {
+
+    outline:
+        3px solid
+        rgba(255, 255, 255, 0.8);
+
+    outline-offset: 3px;
+
+}
+
+
+/* ==========================================
+   TRANSITION NOIRE
+========================================== */
+
+#transition {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: black;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.8s ease,
+        visibility 0.8s ease;
+
+    z-index: 9999;
+
+}
+
+
+#transition.actif {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+}
+
+
+/* ==========================================
+   ANIMATIONS
+========================================== */
+
+@keyframes apparitionMessageEnvoye {
+    0% {
+        opacity: 0;
+        transform: translateX(var(--deplacement-message-x, -24px)) translateY(8px) scale(0.97);
+    }
+    70% {
+        opacity: 1;
+        transform: translateX(0) translateY(-1px) scale(1.01);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) translateY(0) scale(1);
+    }
+}
+
+@keyframes animationPointEcriture {
+    0%, 60%, 100% {
+        opacity: 0.4;
+        transform: translateY(0) scale(0.9);
+    }
+    30% {
+        opacity: 1;
+        transform: translateY(-6px) scale(1);
+    }
+}
+
+@keyframes apparitionBulleEcriture {
+    from { opacity: 0; transform: translateY(8px) scale(0.96); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes apparitionIndicateurEcriture {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+@keyframes apparitionPopup {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(16px)
+            scale(0.98);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+@keyframes apparitionBoutonChoix {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(10px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* ==========================================
+   RESPONSIVE : TABLETTES
+========================================== */
+
+@media
+(max-width: 900px) {
+
+    #entete {
+
+        padding:
+            10px
+            14px;
+
+        grid-template-columns:
+            auto
+            minmax(0, 1fr)
+            auto;
+
+    }
+
+
+    #titre {
+
+        max-width: 55vw;
+
+        font-size: 21px;
+
+    }
+
+
+    #conversation {
+
+        padding:
+            22px
+            20px
+            30px;
+
+    }
+
+
+    .message {
+
+        max-width: 86%;
+
+    }
+
+
+    .popup-choix-contenu,
+    .popup-parametres-contenu {
+
+        padding:
+            24px;
+
+    }
+
+}
+
+
+/* ==========================================
+   RESPONSIVE : MOBILES
+========================================== */
+
+@media
+(max-width: 600px) {
+
+    :root {
+
+        --hauteur-entete: 62px;
+
+    }
+
+
+    #entete {
+
+        min-height:
+            var(--hauteur-entete);
+
+        padding:
+            8px;
+
+        gap: 8px;
+
+    }
+
+
+    #titre {
+
+        max-width: 45vw;
+
+        font-size: 17px;
+
+        letter-spacing: 0.4px;
+
+    }
+
+
+    #retourMenu,
+    #ouvrirParametres {
+
+        min-height: 40px;
+
+        padding:
+            8px
+            11px;
+
+        font-size: 14px;
+
+    }
+
+
+    #ouvrirParametres {
+
+        min-width: 42px;
+
+        font-size: 18px;
+
+    }
+
+
+    #conversation {
+
+        padding:
+            18px
+            12px
+            24px;
+
+    }
+
+
+    #texte {
+
+        gap: 15px;
+
+    }
+
+
+    .message {
+
+        max-width: 94%;
+
+    }
+
+
+    .message.narration {
+
+        max-width: 100%;
+
+    }
+
+
+    .bulle {
+
+        padding:
+            12px
+            14px;
+
+        border-radius: 16px;
+
+        font-size: 15px;
+
+        line-height: 1.5;
+
+    }
+
+
+    .nom {
+
+        font-size: 12px;
+
+    }
+
+
+    .message-ecriture { max-width: 94%; }
+    .bulle-ecriture {
+        min-width: 58px;
+        min-height: 40px;
+        padding: 10px 14px;
+        border-radius: 16px;
+    }
+    .point-ecriture { width: 8px; height: 8px; }
+    .indicateur-ecriture { font-size: 12px; }
+
+
+    .popup-choix,
+    .popup-parametres {
+
+        align-items: flex-end;
+
+        padding: 10px;
+
+    }
+
+
+    .popup-choix-contenu,
+    .popup-parametres-contenu {
+
+        width: 100%;
+
+        max-height: 88vh;
+
+        padding:
+            22px
+            16px;
+
+        border-radius:
+            20px
+            20px
+            12px
+            12px;
+
+    }
+
+
+    #titreChoix,
+    #titreParametres {
+
+        font-size: 20px;
+
+    }
+
+
+    #choix button {
+
+        padding:
+            14px;
+
+        font-size: 15px;
+
+    }
+
+
+    .bouton-afficher-choix {
+
+        width: 100%;
+
+        min-width: 0;
+
+        font-size: 15px;
+
+    }
+
+
+    #voile-fond {
+
+        backdrop-filter:
+            blur(0.5px);
+
+        -webkit-backdrop-filter:
+            blur(0.5px);
+
+    }
+
+}
+
+
+/* ==========================================
+   PETITS ÉCRANS
+========================================== */
+
+@media
+(max-width: 380px) {
+
+    #titre {
+
+        max-width: 40vw;
+
+        font-size: 15px;
+
+    }
+
+
+    #retourMenu {
+
+        padding:
+            8px;
+
+    }
+
+
+    #conversation {
+
+        padding:
+            14px
+            8px
+            20px;
+
+    }
+
+
+    .bulle {
+
+        font-size: 14px;
+
+    }
+
+}
+
+
+/* ==========================================
+   RÉDUCTION DES ANIMATIONS
+========================================== */
+
+@media
+(prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        scroll-behavior: auto !important;
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+
+    }
+
+}

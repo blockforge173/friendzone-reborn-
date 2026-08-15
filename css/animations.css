@@ -1,0 +1,380 @@
+/* =========================================
+   FRIENDZONÉ REBORN
+   animations.css
+========================================= */
+
+
+/* Apparition des messages */
+
+.message {
+
+    animation: apparitionMessage 0.45s ease forwards;
+
+}
+
+@keyframes apparitionMessage {
+
+    from {
+
+        opacity: 0;
+        transform: translateY(25px);
+
+    }
+
+    to {
+
+        opacity: 1;
+        transform: translateY(0);
+
+    }
+
+}
+
+
+
+/* Apparition plus douce des narrations */
+
+.narration {
+
+    animation: apparitionNarration 0.7s ease forwards;
+
+}
+
+@keyframes apparitionNarration {
+
+    from {
+
+        opacity: 0;
+        transform: scale(0.98);
+
+    }
+
+    to {
+
+        opacity: 1;
+        transform: scale(1);
+
+    }
+
+}
+
+
+
+/* Apparition des boutons */
+
+#choix button{
+
+    opacity:0;
+
+    animation:apparitionChoix .35s ease forwards;
+
+}
+
+#choix button:nth-child(1){
+
+    animation-delay:.10s;
+
+}
+
+#choix button:nth-child(2){
+
+    animation-delay:.20s;
+
+}
+
+#choix button:nth-child(3){
+
+    animation-delay:.30s;
+
+}
+
+#choix button:nth-child(4){
+
+    animation-delay:.40s;
+
+}
+
+#choix button:nth-child(5){
+
+    animation-delay:.50s;
+
+}
+
+@keyframes apparitionChoix{
+
+    from{
+
+        opacity:0;
+        transform:translateY(15px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+/* Survol des boutons */
+
+#choix button{
+
+    transition:.20s;
+
+}
+
+#choix button:hover{
+
+    transform:translateY(-3px) scale(1.02);
+
+}
+
+
+
+/* Clic */
+
+#choix button:active{
+
+    transform:scale(.96);
+
+}
+
+
+
+/* Transition de scène */
+
+#conversation{
+
+    animation:fadeScene .5s;
+
+}
+
+@keyframes fadeScene{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+
+
+/* Transition écran noir */
+
+#transition{
+
+    position:fixed;
+
+    left:0;
+    top:0;
+
+    width:100%;
+    height:100%;
+
+    background:black;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:opacity .8s;
+
+    z-index:9999;
+
+}
+
+#transition.actif{
+
+    opacity:1;
+
+}
+
+
+
+/* Apparition du titre */
+
+#titre{
+
+    animation:descendreTitre .6s ease;
+
+}
+
+@keyframes descendreTitre{
+
+    from{
+
+        opacity:0;
+        transform:translateY(-20px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+/* Effet "SMS reçu" */
+
+.recu{
+
+    animation:reception .45s cubic-bezier(.22,1,.36,1);
+
+}
+
+@keyframes reception{
+
+    0%{
+
+        opacity:0;
+        transform:translateX(-25px);
+
+    }
+
+    70%{
+
+        transform:translateX(5px);
+
+    }
+
+    100%{
+
+        opacity:1;
+        transform:translateX(0);
+
+    }
+
+}
+
+
+
+/* Effet "SMS envoyé" */
+
+.envoye{
+
+    animation:envoi .45s cubic-bezier(.22,1,.36,1);
+
+}
+
+@keyframes envoi{
+
+    0%{
+
+        opacity:0;
+        transform:translateX(25px);
+
+    }
+
+    70%{
+
+        transform:translateX(-5px);
+
+    }
+
+    100%{
+
+        opacity:1;
+        transform:translateX(0);
+
+    }
+
+}
+
+
+
+/* Apparition d'un personnage */
+
+.portrait{
+
+    animation:portrait .4s ease;
+
+}
+
+@keyframes portrait{
+
+    from{
+
+        opacity:0;
+        transform:scale(.9);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:scale(1);
+
+    }
+
+}
+
+
+
+/* Petit effet de secousse */
+
+.shake{
+
+    animation:shake .45s;
+
+}
+
+@keyframes shake{
+
+    0%{transform:translateX(0);}
+    20%{transform:translateX(-6px);}
+    40%{transform:translateX(6px);}
+    60%{transform:translateX(-4px);}
+    80%{transform:translateX(4px);}
+    100%{transform:translateX(0);}
+
+}
+
+
+
+/* Battement léger (notifications) */
+
+.pulse{
+
+    animation:pulse 1.4s infinite;
+
+}
+
+@keyframes pulse{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.05);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}

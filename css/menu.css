@@ -1,0 +1,334 @@
+/* ==========================================
+   FRIENDZONÉ REBORN
+   menu.css
+========================================== */
+
+/* ---------- Général ---------- */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    overflow:hidden;
+
+    background:#111;
+
+    color:white;
+
+}
+
+
+/* ---------- Fond ---------- */
+
+#background{
+
+    position:fixed;
+
+    inset:0;
+
+    background-image:url("../images/fonds/universite.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    transform:scale(1.05);
+
+}
+
+
+/* Voile sombre */
+
+#overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.55);
+
+    backdrop-filter:blur(2px);
+
+}
+
+
+/* ---------- Menu ---------- */
+
+#menu{
+
+    position:relative;
+
+    z-index:2;
+
+    height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+/* ---------- Logo ---------- */
+
+#logo{
+
+    text-align:center;
+
+    margin-bottom:60px;
+
+}
+
+#logo h1{
+
+    font-size:64px;
+
+    letter-spacing:8px;
+
+    text-shadow:0 0 20px rgba(255,255,255,.3);
+
+}
+
+#logo h2{
+
+    font-size:38px;
+
+    color:#70b6ff;
+
+    margin-top:10px;
+
+}
+
+#logo p{
+
+    margin-top:20px;
+
+    color:#cccccc;
+
+    font-size:18px;
+
+}
+
+
+/* ---------- Navigation ---------- */
+
+nav{
+
+    width:420px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+}
+
+
+/* ---------- Boutons ---------- */
+
+nav button{
+
+    background:rgba(255,255,255,.08);
+
+    color:white;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:14px;
+
+    padding:16px;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    text-align:left;
+
+    transition:.25s;
+
+    backdrop-filter:blur(8px);
+
+}
+
+nav button:hover{
+
+    transform:translateX(12px);
+
+    background:rgba(112,182,255,.25);
+
+    border-color:#70b6ff;
+
+    box-shadow:0 0 20px rgba(112,182,255,.35);
+
+}
+
+nav button:active{
+
+    transform:scale(.98);
+
+}
+
+
+/* ---------- Version ---------- */
+
+footer{
+
+    margin-top:45px;
+
+    color:#bbbbbb;
+
+    font-size:14px;
+
+}
+
+
+/* ---------- Popups ---------- */
+
+.popup{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.75);
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:100;
+
+}
+
+.contenuPopup{
+
+    width:520px;
+
+    max-width:90%;
+
+    background:#222;
+
+    border-radius:18px;
+
+    padding:35px;
+
+    text-align:center;
+
+    border:1px solid rgba(255,255,255,.12);
+
+    box-shadow:0 0 35px rgba(0,0,0,.5);
+
+}
+
+.contenuPopup h2{
+
+    margin-bottom:25px;
+
+    color:#70b6ff;
+
+}
+
+.contenuPopup p{
+
+    margin-bottom:12px;
+
+    line-height:1.6;
+
+}
+
+.contenuPopup button{
+
+    margin-top:25px;
+
+    padding:12px 30px;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    background:#70b6ff;
+
+    color:white;
+
+    transition:.25s;
+
+}
+
+.contenuPopup button:hover{
+
+    background:#5ca5f5;
+
+}
+
+
+/* ---------- Transition ---------- */
+
+#transition{
+
+    position:fixed;
+
+    inset:0;
+
+    background:black;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:opacity 1.2s;
+
+    z-index:9999;
+
+}
+
+#transition.actif{
+
+    opacity:1;
+
+}
+
+
+/* ---------- Responsive ---------- */
+
+@media(max-width:700px){
+
+    #logo h1{
+
+        font-size:42px;
+
+    }
+
+    #logo h2{
+
+        font-size:28px;
+
+    }
+
+    nav{
+
+        width:90%;
+
+    }
+
+    nav button{
+
+        font-size:16px;
+
+    }
+
+}

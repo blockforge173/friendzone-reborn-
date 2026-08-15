@@ -1,0 +1,407 @@
+/* ==========================================
+   FRIENDZONÉ REBORN
+   choix.css
+========================================== */
+
+/* Zone des choix */
+
+#choix{
+
+    width:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+    padding:20px;
+
+    box-sizing:border-box;
+
+}
+
+
+
+/* Bouton */
+
+#choix button{
+
+    width:100%;
+
+    padding:18px 22px;
+
+    border:none;
+
+    border-radius:18px;
+
+    cursor:pointer;
+
+    text-align:left;
+
+    font-size:17px;
+
+    font-family:inherit;
+
+    color:white;
+
+    background:rgba(255,255,255,0.08);
+
+    border:1px solid rgba(255,255,255,0.12);
+
+    backdrop-filter:blur(8px);
+
+    transition:
+        transform .20s,
+        background .20s,
+        border-color .20s,
+        box-shadow .20s;
+
+}
+
+
+
+/* Survol */
+
+#choix button:hover{
+
+    transform:translateX(8px);
+
+    background:rgba(255,255,255,0.15);
+
+    border-color:#4da3ff;
+
+    box-shadow:0 0 15px rgba(77,163,255,.35);
+
+}
+
+
+
+/* Clic */
+
+#choix button:active{
+
+    transform:scale(.98);
+
+}
+
+
+
+/* Désactivé */
+
+#choix button:disabled{
+
+    opacity:.45;
+
+    cursor:not-allowed;
+
+}
+
+
+
+/* Icône */
+
+#choix button::before{
+
+    content:"➜";
+
+    margin-right:12px;
+
+    color:#66b5ff;
+
+    font-weight:bold;
+
+}
+
+
+
+/* Choix important */
+
+#choix button.important{
+
+    border:2px solid #ffcc33;
+
+    background:rgba(255,204,51,.12);
+
+}
+
+
+
+/* Choix romantique */
+
+#choix button.romance{
+
+    border:2px solid #ff6ba5;
+
+    background:rgba(255,107,165,.12);
+
+}
+
+
+
+/* Choix dangereux */
+
+#choix button.danger{
+
+    border:2px solid #ff5555;
+
+    background:rgba(255,85,85,.12);
+
+}
+
+
+
+/* Choix verrouillé */
+
+#choix button.locked{
+
+    opacity:.35;
+
+    pointer-events:none;
+
+}
+
+
+
+/* Apparition */
+
+#choix button{
+
+    opacity:0;
+
+    animation:apparitionChoix .35s forwards;
+
+}
+
+#choix button:nth-child(1){
+
+    animation-delay:.10s;
+
+}
+
+#choix button:nth-child(2){
+
+    animation-delay:.18s;
+
+}
+
+#choix button:nth-child(3){
+
+    animation-delay:.26s;
+
+}
+
+#choix button:nth-child(4){
+
+    animation-delay:.34s;
+
+}
+
+#choix button:nth-child(5){
+
+    animation-delay:.42s;
+
+}
+
+@keyframes apparitionChoix{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+/* Responsive */
+
+@media(max-width:900px){
+
+    #choix{
+
+        padding:15px;
+
+    }
+
+    #choix button{
+
+        font-size:16px;
+
+        padding:16px;
+
+    }
+
+}
+
+
+
+/* Très petits écrans */
+
+@media(max-width:600px){
+
+    #choix button{
+
+        font-size:15px;
+
+        padding:14px;
+
+    }
+
+}
+
+/* ==========================================
+   POPUP DES CHOIX
+========================================== */
+
+.popup-choix {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.7);
+
+    backdrop-filter: blur(5px);
+
+    z-index: 5000;
+
+}
+
+
+.popup-choix.ouverte {
+
+    display: flex;
+
+}
+
+
+.popup-choix-contenu {
+
+    width: min(600px, 95%);
+
+    max-height: 80vh;
+
+    overflow-y: auto;
+
+    padding: 28px;
+
+    background: rgba(24, 27, 34, 0.96);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    border-radius: 22px;
+
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55);
+
+    animation: apparitionPopupChoix 0.25s ease;
+}
+
+
+.popup-choix-contenu h2 {
+
+    margin-bottom: 22px;
+
+    text-align: center;
+
+    font-size: 22px;
+
+    color: white;
+
+}
+
+
+#choix {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+}
+
+
+#choix button {
+
+    width: 100%;
+
+    padding: 16px 20px;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    border-radius: 14px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    color: white;
+
+    text-align: left;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s,
+        background 0.2s,
+        border-color 0.2s;
+}
+
+
+#choix button:hover {
+
+    transform: translateX(7px);
+
+    background: rgba(47, 128, 237, 0.25);
+
+    border-color: #2f80ed;
+
+}
+
+
+#choix button:active {
+
+    transform: scale(0.98);
+
+}
+
+
+@keyframes apparitionPopupChoix {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(18px) scale(0.97);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0) scale(1);
+
+    }
+
+}
